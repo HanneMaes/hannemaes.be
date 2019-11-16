@@ -125,3 +125,14 @@ a:hover > img {
     opacity: 1;
   }
 }
+
+/**********/
+/* mobile */
+/**********/
+
+@media only screen and (max-width: 1280px) {
+  section {
+    flex-direction: column;
+    height: 100%;
+  }
+}
