@@ -86,25 +86,24 @@ a:hover > img {
 /* animations */
 /**************/
 
-.fadeIn, .moveIn {
-  animation-fill-mode: forwards;
-  opacity: 0; /* animation start frame */
-}
-
 .fadeIn { 
   animation-name: fadeInAnimation; 
   animation-duration: 4s;
+  animation-fill-mode: forwards;
+  opacity: 0; /* animation start frame */
 }
 
 .moveIn { 
   animation-name: moveInAnimation;
   animation-duration: 1.5s; 
+  animation-fill-mode: forwards;
+  opacity: 0; /* animation start frame */
 }
 
 .delay1 { animation-delay: 150ms; }
 .delay2 { animation-delay: 300ms; }
 .delay3 { animation-delay: 450ms; }
-.delay4 { animation-delay: 1000ms; }
+.delay4 { animation-delay: 800ms; }
 
 @keyframes moveInAnimation {
   0% {
@@ -120,8 +119,9 @@ a:hover > img {
 }
 
 @keyframes fadeInAnimation {
-  from { opacity: 0;
-} to {
+  from { 
+    opacity: 0;
+  } to {
     opacity: 1;
   }
 }
