@@ -1,0 +1,127 @@
+body {
+  font-family: 'Cormorant Infant', serif;
+
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+em {
+  font-weight: 900;
+  font-style: normal;
+}
+
+/**********/
+/* header */
+/**********/
+
+header {
+  margin-left: 30px;
+  margin-top: 15px;
+
+  display: flex;
+  align-items: center;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: 30px;
+  
+  margin-left: 30px;
+  display: inline;
+}
+
+small {
+  color: lightgray;
+  font-weight: 100;
+}
+
+/*********/
+/* links */
+/*********/
+
+section {
+  height: 100%;
+  margin: auto;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+a {
+  color: black;
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 5px;
+
+  text-align: center;
+  text-decoration: none;
+
+  display: flex;
+  flex-direction: column;
+}
+
+a > img {
+  margin-left:  60px;
+  margin-right: 60px;
+  margin-bottom: 30px;
+
+  /* hover */
+  transform: scale(0.8, 0.8);
+  transition-property: all;
+  transition-duration: 300ms;
+}
+
+a:hover > img {
+  transform: scale(1, 1);
+}
+
+/**************/
+/* animations */
+/**************/
+
+.fadeIn, .moveIn {
+  animation-fill-mode: forwards;
+  opacity: 0; /* animation start frame */
+}
+
+.fadeIn { 
+  animation-name: fadeInAnimation; 
+  animation-duration: 4s;
+}
+
+.moveIn { 
+  animation-name: moveInAnimation;
+  animation-duration: 1.5s; 
+}
+
+.delay1 { animation-delay: 150ms; }
+.delay2 { animation-delay: 300ms; }
+.delay3 { animation-delay: 450ms; }
+.delay4 { animation-delay: 1000ms; }
+
+@keyframes moveInAnimation {
+  0% {
+    margin-top: 200px;
+    opacity: 0;
+  } 33% {
+    margin-top: -100px;
+    opacity: 0.5;
+  } 100% {
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInAnimation {
+  from { opacity: 0;
+} to {
+    opacity: 1;
+  }
+}
