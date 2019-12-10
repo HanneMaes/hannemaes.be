@@ -5,9 +5,6 @@ body {
   margin: 0;
   width: 100vw;
   height: 100vh;
-
-  display: flex;
-  flex-direction: column;
 }
 
 em {
@@ -15,13 +12,49 @@ em {
   font-style: normal;
 }
 
+/******/
+/* BG */
+/******/
+
+.pageContent, .background {
+  position: absolute; /* two divs on top of each other */
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.pageContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.bgImg {
+  width: 100%;
+  height: 100%;
+}
+
+.bgImg0 { 
+  background: url(img/gradients/0.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute; /* two divs on top of each other */
+}
+
+.bgImg1 { 
+  background: url(img/gradients/2.jpg); 
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute; /* two divs on top of each other */
+  opacity: 0.5;
+}
+
 /**********/
 /* header */
 /**********/
 
 header {
-  margin-left: 30px;
-  margin-top: 15px;
+  margin-left: 60px;
+  margin-top: 50px;
 
   display: flex;
   align-items: center;
@@ -82,42 +115,56 @@ a:hover > img {
   transform: scale(1, 1);
 }
 
+/****************/
+/* bg animation */
+/****************/
+
+/* .bgLoop0 {
+  animation: bgLoopAnimation0 5s infinite;
+}
+@keyframes bgLoopAnimation0 {
+  0% { 
+    transform: scale(2) rotate(0deg);
+    opacity: 0;
+  } 50% {
+    transform: scale(2) rotate(180deg);
+    opacity: 0.5;
+  } 100% {
+    transform: scale(2) rotate(360deg);
+    opacity: 1;
+  }
+}
+
+.bgLoop1 {
+  animation: bgLoopAnimation0 5s infinite;
+  animation-direction: reverse;
+}
+@keyframes bgLoopAnimation1 {
+  0% { 
+    transform: scale(2) rotate(0deg);
+    opacity: 0;
+  } 50% {
+    transform: scale(2) rotate(180deg);
+    opacity: 0.5;
+  } 100% {
+    transform: scale(2) rotate(360deg);
+    opacity: 1;
+  }
+} */
+
 /**************/
 /* animations */
 /**************/
 
-.fadeIn { 
+.fadeIn {  /* title */
   animation-name: fadeInAnimation; 
   animation-duration: 4s;
   animation-fill-mode: forwards;
   opacity: 0; /* animation start frame */
 }
-
-.moveIn { 
-  animation-name: moveInAnimation;
-  animation-duration: 1.5s; 
-  animation-fill-mode: forwards;
-  opacity: 0; /* animation start frame */
+.fadeInBg {
+  animation-duration: 2s;
 }
-
-.delay1 { animation-delay: 150ms; }
-.delay2 { animation-delay: 300ms; }
-.delay3 { animation-delay: 450ms; }
-.delay4 { animation-delay: 800ms; }
-
-@keyframes moveInAnimation {
-  0% {
-    margin-top: 200px;
-    opacity: 0;
-  } 33% {
-    margin-top: -100px;
-    opacity: 0.5;
-  } 100% {
-    margin-top: 0;
-    opacity: 1;
-  }
-}
-
 @keyframes fadeInAnimation {
   from { 
     opacity: 0;
@@ -125,6 +172,49 @@ a:hover > img {
     opacity: 1;
   }
 }
+
+.moveIn { /* links */
+  animation-name: moveInAnimation;
+  animation-duration: 1.5s; 
+  animation-fill-mode: forwards;
+  opacity: 0; /* animation start frame */
+}
+@keyframes moveInAnimation {
+  0% {
+    transform: scale(0, 0);
+    margin-top: 400px;
+    opacity: 0;
+  } 33% {
+    transform: scale(1.2, 1.2);
+    margin-top: -300px;
+    opacity: 0.66;
+  } 100% {
+    transform: scale(1, 1);
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+
+.scaleIn {
+  animation-name: scaleInAnimation;
+  animation-duration: 1.5s; 
+  animation-fill-mode: forwards;
+  transform: scale(0, 0); /* animation start frame */
+}
+@keyframes scaleInAnimation {
+  0% { 
+    transform: scale(0, 0);
+  } 50% {
+    transform: scale(0.9, 0.9);
+  } 100% {
+    transform: scale(0.8, 0.8);
+  }
+}
+
+.delay1 { animation-delay: 150ms; }
+.delay2 { animation-delay: 300ms; }
+.delay3 { animation-delay: 450ms; }
+.delay4 { animation-delay: 800ms; }
 
 /**********/
 /* mobile */
