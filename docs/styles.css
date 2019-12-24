@@ -16,8 +16,7 @@ em {
 /* BG */
 /******/
 
-.pageContent, .background {
-  position: absolute; /* two divs on top of each other */
+.pageContent {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
@@ -26,26 +25,6 @@ em {
 .pageContent {
   display: flex;
   flex-direction: column;
-}
-
-.bgImg {
-  width: 100%;
-  height: 100%;
-}
-
-.bgImg0 { 
-  background: url(img/gradients/0.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: absolute; /* two divs on top of each other */
-}
-
-.bgImg1 { 
-  background: url(img/gradients/2.jpg); 
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: absolute; /* two divs on top of each other */
-  opacity: 0.5;
 }
 
 /**********/
@@ -119,38 +98,19 @@ a:hover > img {
 /* bg animation */
 /****************/
 
-/* .bgLoop0 {
-  animation: bgLoopAnimation0 5s infinite;
-}
-@keyframes bgLoopAnimation0 {
-  0% { 
-    transform: scale(2) rotate(0deg);
-    opacity: 0;
-  } 50% {
-    transform: scale(2) rotate(180deg);
-    opacity: 0.5;
-  } 100% {
-    transform: scale(2) rotate(360deg);
-    opacity: 1;
-  }
+.bgLoop {
+  animation: bgLoopAnimation 2s infinite;
 }
 
-.bgLoop1 {
-  animation: bgLoopAnimation0 5s infinite;
-  animation-direction: reverse;
-}
-@keyframes bgLoopAnimation1 {
+@keyframes bgLoopAnimation {
   0% { 
-    transform: scale(2) rotate(0deg);
-    opacity: 0;
+    background-color: blue;
   } 50% {
-    transform: scale(2) rotate(180deg);
-    opacity: 0.5;
-  } 100% {
-    transform: scale(2) rotate(360deg);
-    opacity: 1;
+    background-color: aqua;
+  } 100% { 
+    background-color: blue;
   }
-} */
+}
 
 /**************/
 /* animations */
