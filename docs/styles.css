@@ -7,6 +7,11 @@ body {
   height: 100vh;
 }
 
+::-moz-selection { /* Code for Firefox */
+  color: black;
+  background-color: rgb(255, 255, 255);
+}
+
 em {
   font-weight: 900;
   font-style: normal;
@@ -49,8 +54,7 @@ h1 {
 }
 
 small {
-  color: lightgray;
-  font-weight: 100;
+  color: white;
 }
 
 /*********/
@@ -99,17 +103,14 @@ a:hover > img {
 /****************/
 
 .bgLoop {
-  animation: bgLoopAnimation 2s infinite;
+  background: linear-gradient(90deg, #fddb92, #d1fdff, #fed6e3);
+  background-size: 600% 600%;
+  animation: bgLoopAnimation 10s ease infinite;
 }
-
 @keyframes bgLoopAnimation {
-  0% { 
-    background-color: blue;
-  } 50% {
-    background-color: aqua;
-  } 100% { 
-    background-color: blue;
-  }
+  0%{background-position:96% 0%}
+  50%{background-position:5% 100%}
+  100%{background-position:96% 0%}
 }
 
 /**************/
