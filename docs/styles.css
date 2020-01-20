@@ -24,7 +24,6 @@ em {
 .pageContent {
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
 }
 
 .pageContent {
@@ -105,7 +104,7 @@ a:hover > img {
 .bgLoop {
   background: linear-gradient(90deg, #fddb92, #d1fdff, #fed6e3);
   background-size: 600% 600%;
-  animation: bgLoopAnimation 10s ease infinite;
+  animation: bgLoopAnimation 20s ease infinite;
 }
 @keyframes bgLoopAnimation {
   0%{background-position:96% 0%}
