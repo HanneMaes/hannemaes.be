@@ -5,7 +5,7 @@
 ## Todo
 - More readable favicon
 - Mobile version
-- Make an even cooler background animation
+- Cooler background animation
 
 ## Build with
 - Animation created with: https://www.gradient-animator.com/
