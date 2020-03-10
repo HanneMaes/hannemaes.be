@@ -1,6 +1,10 @@
 body {
   font-family: 'Cormorant Infant', serif;
 
+  background-color: white;
+  background-image: url("img/bg-pattern-light.png");
+  background-size: auto;
+
   padding: 0;
   margin: 0;
   width: 100vw;
@@ -17,16 +21,9 @@ em {
   font-style: normal;
 }
 
-/******/
-/* BG */
-/******/
-
 .pageContent {
   width: 100vw;
   height: 100vh;
-}
-
-.pageContent {
   display: flex;
   flex-direction: column;
 }
@@ -44,7 +41,7 @@ header {
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 900;
   letter-spacing: 30px;
   
@@ -97,19 +94,16 @@ a:hover > img {
   transform: scale(1, 1);
 }
 
-/****************/
-/* bg animation */
-/****************/
-
-.bgLoop {
-  background: linear-gradient(90deg, #fddb92, #d1fdff, #fed6e3);
-  background-size: 600% 600%;
-  animation: bgLoopAnimation 20s ease infinite;
+/* animate the text when hovering the icon */
+.linkText {
+  transform: scale(1, 1);
+  transition-property: all;
+  transition-duration: 600ms;
+  /* transition-delay: 150ms; */
 }
-@keyframes bgLoopAnimation {
-  0%{background-position:96% 0%}
-  50%{background-position:5% 100%}
-  100%{background-position:96% 0%}
+a:hover .linkText {
+  transform: scale(1.4, 1.4);
+  letter-spacing: 8px;
 }
 
 /**************/
@@ -184,5 +178,126 @@ a:hover > img {
   section {
     flex-direction: column;
     height: 100%;
+  }
+}
+
+/***************/
+/* BG animation*/
+/***************/
+
+.radials {
+  position: fixed; /* to stack this on top of other divs */
+  animation-iteration-count: infinite;
+  animation-direction: alternate; /* ping-pong */
+}
+
+/* 
+top, bottom = vh
+left, right = vw
+because I want to follow the axis the value animates -> top, bottom are x-axis & left, right are y-axis
+*/
+
+.radial1 {
+  animation-name: radialKeys1;
+  animation-duration: 5s;
+}
+@keyframes radialKeys1 {
+  0% { 
+    top: -30vh;
+    left: 0vw;
+    width:  100vw;
+    height: 100vw;
+  } 100% { 
+    top: -50vh;
+    left: -50vw;
+    width:  100vw;
+    height: 100vw;
+  }
+}
+
+.radial2 {
+  animation-name: radialKeys2;
+  animation-duration: 10s;
+}
+@keyframes radialKeys2 {
+  0% { 
+    bottom: -50vh;
+    right: -30vw;
+    width:  100vw;
+    height: 100vw;
+  } 100% { 
+    bottom: 0vh;
+    right: -50vw;
+    width:  100vw;
+    height: 100vw;
+  }
+}
+
+.radial3 {
+  animation-name: radialKeys3;
+  animation-duration: 7s;
+}
+@keyframes radialKeys3 {
+  0% { 
+    bottom: -40vh;
+    left: -10vw;
+    width:  50vw;
+    height: 50vw;
+  } 100% { 
+    bottom: -10vh;
+    left: 50vw;
+    width:  50vw;
+    height: 50vw;
+  }
+}
+
+/*
+I always want to have big gradients
+0n landscape mode I animate the the size with vw (the biggest side of the screen)
+0n portraind mode I animate the the size with vh (the biggest side of the screen)
+-> So I copy the animations and replace width and height to vh
+*/
+@media (orientation: portrait) {
+  
+  @keyframes radialKeys1 {
+    0% { 
+      top: -30vh;
+      left: 0vw;
+      width:  100vh;
+      height: 100vh;
+    } 100% { 
+      top: -50vh;
+      left: -50vw;
+      width:  100vh;
+      height: 100vh;
+    }
+  }
+
+  @keyframes radialKeys2 {
+    0% { 
+      bottom: -50vh;
+      right: -30vw;
+      width:  100vh;
+      height: 100vh;
+    } 100% { 
+      bottom: 0vh;
+      right: -50vw;
+      width:  100vh;
+      height: 100vh;
+    }
+  }
+
+  @keyframes radialKeys3 {
+    0% { 
+      bottom: -40vh;
+      left: -10vw;
+      width:  50vh;
+      height: 50vh;
+    } 100% { 
+      bottom: -10vh;
+      left: 50vw;
+      width:  50vh;
+      height: 50vh;
+    }
   }
 }
