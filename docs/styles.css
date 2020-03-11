@@ -1,6 +1,6 @@
 body {
   font-family: 'Cormorant Infant', serif;
-
+  
   background-color: white;
   background-image: url("img/bg-pattern-light.png");
   background-size: auto;
@@ -58,7 +58,6 @@ small {
 /*********/
 
 section {
-  height: 100%;
   margin: auto;
 
   display: flex;
@@ -83,6 +82,9 @@ a > img {
   margin-left:  60px;
   margin-right: 60px;
   margin-bottom: 30px;
+
+  width: 200px;
+  height: 200px;
 
   /* hover */
   transform: scale(0.8, 0.8);
@@ -169,17 +171,6 @@ a:hover .linkText {
 .delay2 { animation-delay: 300ms; }
 .delay3 { animation-delay: 450ms; }
 .delay4 { animation-delay: 800ms; }
-
-/**********/
-/* mobile */
-/**********/
-
-@media only screen and (max-width: 1280px) {
-  section {
-    flex-direction: column;
-    height: 100%;
-  }
-}
 
 /***************/
 /* BG animation*/
@@ -300,4 +291,69 @@ I always want to have big gradients
       height: 50vh;
     }
   }
+}
+
+/**********/
+/* mobile */
+/**********/
+
+/* the big buttons */
+@media only screen and (max-width: 960px) {
+
+  section {
+    flex-direction: column;
+  }
+
+  a {
+    margin: 20px;
+  }
+
+  a > img {
+    transform: scale(1, 1);
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+  }
+
+  @keyframes moveInAnimation {
+    0% {
+      transform: scale(0, 0);
+      /* margin-right: 400px; */
+      opacity: 0;
+    } 33% {
+      transform: scale(1.2, 1.2);
+      /* margin-right: -300px; */
+      opacity: 0.66;
+    } 100% {
+      transform: scale(1, 1);
+      /* margin-right: 0; */
+      opacity: 1;
+    }
+  }
+}
+
+/* header break up .com */
+@media screen and (max-width: 720px) { 
+  .breakUpOnMobile1 { 
+    display: block; 
+  }
+}
+
+/* header break up maes */
+@media screen and (max-width: 570px) { 
+  .breakUpOnMobile2 { 
+    display: block; 
+  }
+
+  h1 { 
+    font-size: 15px; 
+    letter-spacing: 20px;
+    margin-left: 25px;
+  } 
+
+  header {
+    margin-left: 30px;
+    margin-top: 25px;
+  }
+  
 }
