@@ -183,6 +183,7 @@ a:hover .linkText {
   position: fixed; /* to stack this on top of other divs */
   animation-iteration-count: infinite;
   animation-direction: alternate; /* ping-pong */
+  pointer-events: none; /* click trough */
 }
 
 /* 
