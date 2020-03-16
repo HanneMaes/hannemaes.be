@@ -112,7 +112,8 @@ a:hover .linkText {
 /* animations */
 /**************/
 
-.fadeIn {  /* title */
+/* title */
+.fadeIn { 
   animation-name: fadeInAnimation; 
   animation-duration: 4s;
   animation-fill-mode: forwards;
@@ -129,7 +130,8 @@ a:hover .linkText {
   }
 }
 
-.moveIn { /* links */
+/* links */
+.moveIn {
   animation-name: moveInAnimation;
   animation-duration: 1.5s; 
   animation-fill-mode: forwards;
@@ -151,6 +153,7 @@ a:hover .linkText {
   }
 }
 
+/* links section */
 .scaleIn {
   animation-name: scaleInAnimation;
   animation-duration: 1.5s; 
