@@ -1,16 +1,23 @@
 :root {
   --colorText: rgb(120, 120, 120);
   --transistionSpeed: 300ms;
+  --paddingLeft: 30px;
+  --fontSize: 17px;
 }
 
 body {
   color: var(--colorText);
-  font-family: 'Cormorant Infant', serif;
+  font-family: 'Josefin Sans', sans-serif;
+  font-variant-ligatures: normal;
+  font-weight: 300;
+  font-size: var(--fontSize);
+  font-variant-numeric: diagonal-fractions;
 
   padding: 0;
   margin: 0;
 }
 
+/* ! same as in index.css ! */
 ::-moz-selection { /* Code for Firefox */
   color: black;
   background-color: rgb(255, 255, 255);
@@ -19,22 +26,22 @@ body {
 .pageContent {
   padding: 30px;
   padding-top: 0;
+  line-height: 22px;
+}
+
+.pageContent, .headerContent {
+  width: 90%;
+  max-width: 700px;
+  margin: auto;
 }
 
 /**********/
 /* header */
 /**********/
 
-.pageTitleContainer {
-  display: flex;
-  flex-direction:row;
-  align-items: center;
-}
-
 .pageTitle {
-  font-size: 30px;
+  font-size: 40px;
   font-weight: 900;
-  letter-spacing: 10px;
   color:black;
   opacity: 0;
 
@@ -54,35 +61,42 @@ header {
   background-color: white;
   background-image: url("img/bg-pattern-light.png");
   background-size: auto;
-  box-shadow: inset 0 -60px 60px -60px rgba(0, 0, 0, 0.4);
 
+  font-family: 'Cormorant Infant', serif;
+  color: black;
+
+  margin: 0px;
+  padding: 30px;
+}
+
+.headerContent {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
 
-  margin: 0px;
-  padding: 30px;
+.headerTitle { 
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+header a {
+  font-weight: 900;
 }
 
 /*****************/
 /* HanneMaes.com */
 /*****************/
 
-.hanneMaesContainer {
-  display: flex;
-  align-items: center;
-  color: black;
-  text-align: right;
-}
-
-.hanneMaesContainerAnim {
-  animation-name: hanneMaesContainerAnimation; 
+.hanneMaesTextAnim {
+  animation-name: hanneMaesTextAnimation; 
   animation-duration: 4s;
   animation-fill-mode: forwards;
   opacity: 0; /* animation start frame */
 }
-@keyframes hanneMaesContainerAnimation {
+@keyframes hanneMaesTextAnimation {
   from { 
     opacity: 0;
   } to {
@@ -90,6 +104,7 @@ header {
   }
 }
 
+/* ! same as in index.css ! */
 .hanneMaesLogo {
   margin-right: 5px;
 
@@ -105,14 +120,13 @@ header {
   }
 }
 
+/* ! same as in index.css ! */
 .hanneMaesText {
-  font-size: 20px;
+  font-size: 13px;
   font-weight: 900;
-  letter-spacing: 30px;
-  
+  letter-spacing: 15px;
   display: inline;
 }
-
 .hanneMaesText small {
   color: white;
 }
@@ -121,12 +135,24 @@ header {
 /* typography */
 /**************/
 
-h1 {
+h1,h2, h3, h4, h6, h6 {
+  padding-left: var(--paddingLeft);
+  font-size: var(--fontSize);
+  font-weight: 400;
   color: black;
 }
 
-p, h2 {
-  padding-left: 20px;
+h1 {
+  padding-left: 0;
+  padding-top: 30px;
+
+  font-family: 'Cormorant Infant', serif;
+  font-weight: 900;
+  font-size: 30px;
+}
+
+h2 {
+  padding-top: 10px;
 }
 
 em {
@@ -136,15 +162,30 @@ em {
 }
 
 a {
-  color: var(--colorText);
-  font-weight: 900;
-  text-decoration: none;
-
-  transition-property: all;
-  transition-duration: var(--transistionSpeed);
-}
-a:hover {
   color: black;
+  text-decoration: none;
+  font-weight: 400;
+
+  /* hover animation */
+  text-decoration: none;
+  position: relative;
+}
+a:after, a:visited:after {
+  content: '';
+  height: 1px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  background: black;
+  transition: 0.2s;
+}
+a:hover:after, a:visited:hover:after {
+  width: 100%;
+}
+
+p {
+  padding-left: var(--paddingLeft);
 }
 
 /**************/
@@ -152,6 +193,7 @@ a:hover {
 /**************/
 
 /* delays */
+/* ! same as in index.css ! */
 .delay1 { animation-delay: 150ms; }
 .delay2 { animation-delay: 300ms; }
 .delay3 { animation-delay: 450ms; }
@@ -162,14 +204,14 @@ a:hover {
 /**********/
 
 /* header break up .com */
-@media screen and (max-width: 920px) { 
+/* @media screen and (max-width: 920px) { 
   .breakUpOnMobile1 { 
     display: block; 
   }
 }
 
 /* header break up maes */
-@media screen and (max-width: 770px) { 
+/*@media screen and (max-width: 700px) { 
   .breakUpOnMobile2 { 
     display: block; 
   }
@@ -179,4 +221,4 @@ a:hover {
     letter-spacing: 20px;
   } 
   
-}
+} */

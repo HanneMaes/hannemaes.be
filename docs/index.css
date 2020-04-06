@@ -6,6 +6,15 @@ body {
   background-color: white;
   background-image: url("img/bg-pattern-light.png");
   background-size: auto;
+
+  padding: 0;
+  margin: 0;
+}
+
+/* ! same as in index.css ! */
+::-moz-selection { /* Code for Firefox */
+  color: black;
+  background-color: rgb(255, 255, 255);
 }
 
 .homePageContent {
@@ -25,6 +34,37 @@ body {
   align-items: center;
 }
 
+/**********/
+/* header */
+/**********/
+
+/* ! same as in index.css ! */
+.hanneMaesLogo {
+  margin-right: 5px;
+
+  animation-name: hanneMaesLogoAnimation; 
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+}
+@keyframes hanneMaesLogoAnimation {
+  from { 
+    margin-right: 5px;
+  } to {
+    margin-right: 30px;
+  }
+}
+
+/* ! same as in index.css ! */
+.hanneMaesText {
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 30px;
+  display: inline;
+}
+.hanneMaesText small {
+  color: white;
+}
+
 /*********/
 /* links */
 /*********/
@@ -41,7 +81,7 @@ a {
   color: black;
 
   font-size: 20px;
-  font-weight: 900;
+  font-weight: 400;
   letter-spacing: 5px;
 
   text-align: center;
@@ -73,17 +113,24 @@ a:hover > img {
 .linkText {
   transform: scale(1, 1);
   transition-property: all;
-  transition-duration: 600ms;
+  transition-duration: 800ms;
   /* transition-delay: 150ms; */
 }
 a:hover .linkText {
   transform: scale(1.4, 1.4);
-  letter-spacing: 8px;
+  letter-spacing: 10px;
 }
 
 /********************/
 /* links animations */
 /********************/
+
+/* delays */
+/* ! same as in styles.css ! */
+.delay1 { animation-delay: 150ms; }
+.delay2 { animation-delay: 300ms; }
+.delay3 { animation-delay: 450ms; }
+.delay4 { animation-delay: 800ms; }
 
 /* links */
 .moveIn {
@@ -122,6 +169,20 @@ a:hover .linkText {
     transform: scale(0.9, 0.9);
   } 100% {
     transform: scale(0.8, 0.8);
+  }
+}
+
+.hanneMaesContainerAnim {
+  animation-name: hanneMaesContainerAnimation; 
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+  opacity: 0; /* animation start frame */
+}
+@keyframes hanneMaesContainerAnimation {
+  from { 
+    opacity: 0;
+  } to {
+    opacity: 1;
   }
 }
 
@@ -294,7 +355,7 @@ I always want to have big gradients
 }
 
 /* header break up maes */
-@media screen and (max-width: 470px) { 
+@media screen and (max-width: 570px) { 
   .breakUpOnMobile2 { 
     display: block; 
   }
