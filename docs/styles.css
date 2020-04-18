@@ -162,7 +162,7 @@ em {
 }
 
 a {
-  color: black;
+  color: var(--colorText);
   text-decoration: none;
   font-weight: 400;
 
