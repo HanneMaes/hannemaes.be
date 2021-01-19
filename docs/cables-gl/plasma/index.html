@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-    <title>Plasma drop</title>
+    <title>Plasma blob</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
-    <meta itemprop="name" content="Plasma drop">
+    <meta itemprop="name" content="Plasma blob">
     <meta itemprop="description" content="made with cables">
     <meta itemprop="image" content="screenshot.png">
     <meta name="description" content="made with cables" />
@@ -57,15 +57,6 @@
     <corelibs/>
 
     <script>
-        /**
-         * Called when there was a cables error.
-         * @param {string} errId - ID of the error, e.g. 'NO_WEBGL' or 'NO_WEBAUDIO'
-         *                         when the browser does not support the used APIs
-         * @param {string} errMsg - The error message
-         */
-        function showError(errId, errMsg) {
-            alert('An error occured: ' + errId + ', ' + errMsg);
-        }
 
         function patchInitialized(patch) {
             // You can now access the patch object (patch), register variable watchers and so on
@@ -81,7 +72,6 @@
                 prefixAssetPath: '',
                 glCanvasId: 'glcanvas',
                 glCanvasResizeToWindow: true,
-                onError: showError,
                 onPatchLoaded: patchInitialized,
                 onFinishedLoading: patchFinishedLoading,
             });
