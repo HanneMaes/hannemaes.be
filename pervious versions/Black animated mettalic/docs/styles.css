@@ -1,0 +1,224 @@
+:root {
+  --colorText: rgb(120, 120, 120);
+  --transistionSpeed: 300ms;
+  --paddingLeft: 30px;
+  --fontSize: 17px;
+}
+
+body {
+  color: var(--colorText);
+  font-family: 'Josefin Sans', sans-serif;
+  font-variant-ligatures: normal;
+  font-weight: 300;
+  font-size: var(--fontSize);
+  font-variant-numeric: diagonal-fractions;
+
+  padding: 0;
+  margin: 0;
+}
+
+/* ! same as in index.css ! */
+::-moz-selection { /* Code for Firefox */
+  color: black;
+  background-color: rgb(255, 255, 255);
+}
+
+.pageContent {
+  padding: 30px;
+  padding-top: 0;
+  line-height: 22px;
+}
+
+.pageContent, .headerContent {
+  width: 90%;
+  max-width: 700px;
+  margin: auto;
+}
+
+/**********/
+/* header */
+/**********/
+
+.pageTitle {
+  font-size: 40px;
+  font-weight: 900;
+  color:black;
+  opacity: 0;
+
+  animation-name: pageTitleAnimation; 
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+}
+@keyframes pageTitleAnimation {
+  from { 
+    opacity: 0;
+  } to {
+    opacity: 1;
+  }
+}
+
+header {
+  background-color: white;
+  background-image: url("img/bg-pattern-light.png");
+  background-size: auto;
+
+  font-family: 'Cormorant Infant', serif;
+  color: black;
+
+  margin: 0px;
+  padding: 30px;
+}
+
+.headerContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.headerTitle { 
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+header a {
+  font-weight: 900;
+}
+
+/*****************/
+/* HanneMaes.com */
+/*****************/
+
+.hanneMaesTextAnim {
+  animation-name: hanneMaesTextAnimation; 
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+  opacity: 0; /* animation start frame */
+}
+@keyframes hanneMaesTextAnimation {
+  from { 
+    opacity: 0;
+  } to {
+    opacity: 1;
+  }
+}
+
+/* ! same as in index.css ! */
+.hanneMaesLogo {
+  margin-right: 5px;
+
+  animation-name: hanneMaesLogoAnimation; 
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+}
+@keyframes hanneMaesLogoAnimation {
+  from { 
+    margin-right: 5px;
+  } to {
+    margin-right: 30px;
+  }
+}
+
+/* ! same as in index.css ! */
+.hanneMaesText {
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 15px;
+  display: inline;
+}
+.hanneMaesText small {
+  color: white;
+}
+
+/**************/
+/* typography */
+/**************/
+
+h1,h2, h3, h4, h6, h6 {
+  padding-left: var(--paddingLeft);
+  font-size: var(--fontSize);
+  font-weight: 400;
+  color: black;
+}
+
+h1 {
+  padding-left: 0;
+  padding-top: 30px;
+
+  font-family: 'Cormorant Infant', serif;
+  font-weight: 900;
+  font-size: 30px;
+}
+
+h2 {
+  padding-top: 10px;
+}
+
+em {
+  font-weight: 900;
+  font-style: normal;
+  color: black;
+}
+
+a {
+  color: var(--colorText);
+  text-decoration: none;
+  font-weight: 400;
+
+  /* hover animation */
+  text-decoration: none;
+  position: relative;
+}
+a:after, a:visited:after {
+  content: '';
+  height: 1px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  background: black;
+  transition: 0.2s;
+}
+a:hover:after, a:visited:hover:after {
+  width: 100%;
+}
+
+p {
+  padding-left: var(--paddingLeft);
+}
+
+/**************/
+/* animations */
+/**************/
+
+/* delays */
+/* ! same as in index.css ! */
+.delay1 { animation-delay: 150ms; }
+.delay2 { animation-delay: 300ms; }
+.delay3 { animation-delay: 450ms; }
+.delay4 { animation-delay: 800ms; }
+
+/**********/
+/* mobile */
+/**********/
+
+/* header break up .com */
+/* @media screen and (max-width: 920px) { 
+  .breakUpOnMobile1 { 
+    display: block; 
+  }
+}
+
+/* header break up maes */
+/*@media screen and (max-width: 700px) { 
+  .breakUpOnMobile2 { 
+    display: block; 
+  }
+
+  .hanneMaesText { 
+    font-size: 14px; 
+    letter-spacing: 20px;
+  } 
+  
+} */

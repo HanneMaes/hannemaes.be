@@ -1,0 +1,379 @@
+:root {
+  --transistionSpeed: 300ms;
+}
+
+body {
+  background-color: white;
+  background-image: url("img/bg-pattern-light.png");
+  background-size: auto;
+
+  padding: 0;
+  margin: 0;
+}
+
+/* ! same as in index.css ! */
+::-moz-selection { /* Code for Firefox */
+  color: black;
+  background-color: rgb(255, 255, 255);
+}
+
+.homePageContent {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.hanneMaesContainerHomePage {
+  margin-left: 60px;
+  margin-top: 50px;
+  text-align: left;
+  color: black;
+
+  display: flex;
+  align-items: center;
+}
+
+/**********/
+/* header */
+/**********/
+
+/* ! same as in index.css ! */
+.hanneMaesLogo {
+  margin-right: 5px;
+
+  animation-name: hanneMaesLogoAnimation; 
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+}
+@keyframes hanneMaesLogoAnimation {
+  from { 
+    margin-right: 5px;
+  } to {
+    margin-right: 30px;
+  }
+}
+
+/* ! same as in index.css ! */
+.hanneMaesText {
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 30px;
+  display: inline;
+}
+.hanneMaesText small {
+  color: white;
+}
+
+/*********/
+/* links */
+/*********/
+
+section {
+  margin: auto;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+a {
+  color: black;
+
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 5px;
+
+  text-align: center;
+  text-decoration: none;
+
+  display: flex;
+  flex-direction: column;
+}
+
+a > img {
+  margin-left:  60px;
+  margin-right: 60px;
+  margin-bottom: 30px;
+
+  width: 200px;
+  height: 200px;
+
+  /* hover */
+  transform: scale(0.8, 0.8);
+  transition-property: all;
+  transition-duration: var(--transistionSpeed);
+}
+
+a:hover > img {
+  transform: scale(1, 1);
+}
+
+/* animate the text when hovering the icon */
+.linkText {
+  transform: scale(1, 1);
+  transition-property: all;
+  transition-duration: 800ms;
+  /* transition-delay: 150ms; */
+}
+a:hover .linkText {
+  transform: scale(1.4, 1.4);
+  letter-spacing: 10px;
+}
+
+/********************/
+/* links animations */
+/********************/
+
+/* delays */
+/* ! same as in styles.css ! */
+.delay1 { animation-delay: 150ms; }
+.delay2 { animation-delay: 300ms; }
+.delay3 { animation-delay: 450ms; }
+.delay4 { animation-delay: 800ms; }
+
+/* links */
+.moveIn {
+  animation-name: moveInAnimation;
+  animation-duration: 1.5s; 
+  animation-fill-mode: forwards;
+  opacity: 0; /* animation start frame */
+}
+@keyframes moveInAnimation {
+  0% {
+    transform: scale(0, 0);
+    margin-top: 400px;
+    opacity: 0;
+  } 33% {
+    transform: scale(1.2, 1.2);
+    margin-top: -300px;
+    opacity: 0.66;
+  } 100% {
+    transform: scale(1, 1);
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+
+/* links section */
+.scaleIn {
+  animation-name: scaleInAnimation;
+  animation-duration: 1.5s; 
+  animation-fill-mode: forwards;
+  transform: scale(0, 0); /* animation start frame */
+}
+@keyframes scaleInAnimation {
+  0% { 
+    transform: scale(0, 0);
+  } 50% {
+    transform: scale(0.9, 0.9);
+  } 100% {
+    transform: scale(0.8, 0.8);
+  }
+}
+
+.hanneMaesContainerAnim {
+  animation-name: hanneMaesContainerAnimation; 
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+  opacity: 0; /* animation start frame */
+}
+@keyframes hanneMaesContainerAnimation {
+  from { 
+    opacity: 0;
+  } to {
+    opacity: 1;
+  }
+}
+
+/****************/
+/* BG animation */
+/****************/
+
+.radials {
+  position: fixed; /* to stack this on top of other divs */
+  animation-iteration-count: infinite;
+  animation-direction: alternate; /* ping-pong */
+  pointer-events: none; /* click trough */
+}
+
+/* 
+top, bottom = vh
+left, right = vw
+because I want to follow the axis the value animates -> top, bottom are x-axis & left, right are y-axis
+*/
+
+.radial1 {
+  animation-name: radialKeys1;
+  animation-duration: 5s;
+}
+@keyframes radialKeys1 {
+  0% { 
+    top: -30vh;
+    left: 0vw;
+    width:  100vw;
+    height: 100vw;
+  } 100% { 
+    top: -50vh;
+    left: -50vw;
+    width:  100vw;
+    height: 100vw;
+  }
+}
+
+.radial2 {
+  animation-name: radialKeys2;
+  animation-duration: 10s;
+}
+@keyframes radialKeys2 {
+  0% { 
+    bottom: -50vh;
+    right: -30vw;
+    width:  100vw;
+    height: 100vw;
+  } 100% { 
+    bottom: 0vh;
+    right: -50vw;
+    width:  100vw;
+    height: 100vw;
+  }
+}
+
+.radial3 {
+  animation-name: radialKeys3;
+  animation-duration: 7s;
+}
+@keyframes radialKeys3 {
+  0% { 
+    bottom: -40vh;
+    left: -10vw;
+    width:  50vw;
+    height: 50vw;
+  } 100% { 
+    bottom: -10vh;
+    left: 50vw;
+    width:  50vw;
+    height: 50vw;
+  }
+}
+
+/*
+I always want to have big gradients
+0n landscape mode I animate the the size with vw (the biggest side of the screen)
+0n portraind mode I animate the the size with vh (the biggest side of the screen)
+-> So I copy the animations and replace width and height to vh
+*/
+@media (orientation: portrait) {
+  
+  @keyframes radialKeys1 {
+    0% { 
+      top: -30vh;
+      left: 0vw;
+      width:  100vh;
+      height: 100vh;
+    } 100% { 
+      top: -50vh;
+      left: -50vw;
+      width:  100vh;
+      height: 100vh;
+    }
+  }
+
+  @keyframes radialKeys2 {
+    0% { 
+      bottom: -50vh;
+      right: -30vw;
+      width:  100vh;
+      height: 100vh;
+    } 100% { 
+      bottom: 0vh;
+      right: -50vw;
+      width:  100vh;
+      height: 100vh;
+    }
+  }
+
+  @keyframes radialKeys3 {
+    0% { 
+      bottom: -40vh;
+      left: -10vw;
+      width:  50vh;
+      height: 50vh;
+    } 100% { 
+      bottom: -10vh;
+      left: 50vw;
+      width:  50vh;
+      height: 50vh;
+    }
+  }
+}
+
+/**********/
+/* mobile */
+/**********/
+
+/* the big buttons */
+@media only screen and (max-width: 960px) {
+
+  section {
+    flex-direction: column;
+  }
+
+  a {
+    margin: 20px;
+  }
+
+  a > img {
+    transform: scale(1, 1);
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+  }
+
+  @keyframes moveInAnimation {
+    0% {
+      transform: scale(0, 0);
+      /* margin-right: 400px; */
+      opacity: 0;
+    } 33% {
+      transform: scale(1.2, 1.2);
+      /* margin-right: -300px; */
+      opacity: 0.66;
+    } 100% {
+      transform: scale(1, 1);
+      /* margin-right: 0; */
+      opacity: 1;
+    }
+  }
+}
+
+/* header break up .com */
+@media screen and (max-width: 720px) { 
+  .breakUpOnMobile1 { 
+    display: block; 
+  }
+}
+
+/* header break up maes */
+@media screen and (max-width: 570px) { 
+  .breakUpOnMobile2 { 
+    display: block; 
+  }
+
+  .hanneMaesText { 
+    font-size: 15px; 
+    letter-spacing: 20px;
+    margin-left: 25px;
+  } 
+
+  .hanneMaesContainerHomePage {
+    margin-left: 30px;
+    margin-top: 25px;
+    justify-content: center;
+  }
+
+  .hanneMaesText {
+    margin: 0;
+  }
+  
+}
