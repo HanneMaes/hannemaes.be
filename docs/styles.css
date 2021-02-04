@@ -1,0 +1,87 @@
+@font-face {
+  font-family: regular;
+  src: url(fonts/JosefinSans-Regular.ttf);
+}
+@font-face {
+  font-family: light;
+  src: url(fonts/JosefinSans-Light.ttf);
+}
+
+body {
+  position: relative; /* to let the child elements stack */
+  margin: 0;
+  color: white;
+  font-family: regular;
+}
+
+/* **************** */
+/* calbes.gl iframe */
+/* **************** */
+
+iframe {
+  position: absolute; /* to let this stack */
+  z-index: 0;
+
+  width: 100vw;
+  height: 100vh;
+}
+
+/* ************* */
+/* card & hitbox */
+/* ************* */
+
+/* card hitbox */
+.container {
+  z-index: 1;
+  position: absolute; /* to let this stack */
+  pointer-events: none; /* click trough */
+
+  height: 100vh;
+  width: 100vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* card */
+.box {
+  z-index: 2;
+  pointer-events: auto;
+
+  height: 200px;
+  width: 400px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  
+  border: 1px solid rgba(255, 255, 255, 0.3);;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+/* ********** */
+/* typografie */
+/* ********** */
+
+h1 {
+  font-family: light;
+  margin: 0;
+}
+
+h2 {
+  font-family: light;
+  font-size: 20px;
+}
+
+a {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  padding-right: 20px;
+}
+a:hover {
+  color: rgba(255, 255, 255, 1);
+}
