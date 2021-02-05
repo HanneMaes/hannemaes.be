@@ -63,7 +63,8 @@ iframe {
   align-items: flex-start;
   justify-content: space-between;
   
-  backdrop-filter: url(filters.svg#filter) blur(10px) saturate(150%);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 
 /* ********** */
