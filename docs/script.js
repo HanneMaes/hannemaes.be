@@ -1,7 +1,3 @@
-/* remove cables.gl footer */
-document.querySelector('footer').style = 'display: none';
-console.log('remove footer');
-
 /* 3D card transform */
 
 let constrain = 20;
