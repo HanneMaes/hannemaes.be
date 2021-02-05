@@ -27,11 +27,6 @@ iframe {
   height: 100vh;
 }
 
-/* remove cables.gl footer */
-footer {
-  display: none
-}
-
 /* ************* */
 /* card & hitbox */
 /* ************* */
