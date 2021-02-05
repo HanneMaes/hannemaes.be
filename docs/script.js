@@ -1,3 +1,6 @@
+/* remove cables.gl iframe */
+document.getElementById("myFrame").contentWindow.document.querySelector('footer')[0].style.display = "none"; 
+
 /* 3D card transform */
 
 let constrain = 20;
