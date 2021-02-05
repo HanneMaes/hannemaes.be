@@ -1,6 +1,7 @@
 /* remove cables.gl iframe */
+console.log('remove bg before');
 document.getElementById("cables_gl").contentWindow.document.querySelector('footer').style.display = "none";
-console.log('remove bg');
+console.log('remove bg after');
 
 /* 3D card transform */
 
