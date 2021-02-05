@@ -1,5 +1,5 @@
 /* remove cables.gl iframe */
-document.getElementById("myFrame").contentWindow.document.querySelector('footer')[0].style.display = "none"; 
+document.getElementById("cables_gl").contentWindow.document.querySelector('footer')[0].style.display = "none";
 
 /* 3D card transform */
 
