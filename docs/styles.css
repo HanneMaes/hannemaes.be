@@ -63,8 +63,9 @@ iframe {
   align-items: flex-start;
   justify-content: space-between;
   
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
+  /* not working because the background is an iframe */
+  /*-webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);*/
 }
 
 /* ********** */
