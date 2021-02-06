@@ -75,12 +75,14 @@ iframe {
 
 h1 {
   font-family: light;
+  letter-spacing: 4px;
   margin: 0;
 }
 
 h2 {
   font-family: light;
   font-size: 20px;
+  letter-spacing: 2px;
   color: rgba(255, 255, 255, 0.5);
 }
 
