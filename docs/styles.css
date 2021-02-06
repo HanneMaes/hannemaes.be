@@ -92,3 +92,9 @@ a {
 a:hover {
   color: rgba(255, 255, 255, 1);
 }
+
+footer {
+  margin-bottom: 40px;
+  color: rgba(255, 255, 255, 0.3);
+  word-spacing: 2px;
+}
