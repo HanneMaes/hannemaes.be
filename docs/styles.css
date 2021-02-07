@@ -78,6 +78,9 @@ h1 {
   letter-spacing: 4px;
   margin: 0;
 }
+.firstLetter {       
+  color: #ff7a87 !important; 
+}
 
 h2 {
   font-family: light;
@@ -114,7 +117,7 @@ h2, a:hover {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  animation: animatedGradient 10s linear infinite;
+  animation: animatedGradient 5s linear infinite;
 }
 @keyframes animatedGradient {
   to {
