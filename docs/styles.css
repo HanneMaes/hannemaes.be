@@ -83,20 +83,41 @@ h2 {
   font-family: light;
   font-size: 20px;
   letter-spacing: 2px;
-  color: rgba(255, 255, 255, 0.5);
+  margin-top: 5px;
 }
 
 a {
   color: rgba(255, 255, 255, 0.5);
   text-decoration: none;
-  padding-right: 20px;
+  margin-right: 20px;
+
+  transition: border-bottom 0.5s ease;
+  border-bottom: 0px solid rgba(255, 255, 255, 0);
 }
 a:hover {
-  color: rgba(255, 255, 255, 1);
+  border-bottom: 3px solid rgba(255, 255, 255, 0.5);
 }
 
 footer {
   margin-bottom: 40px;
   color: rgba(255, 255, 255, 0.3);
   word-spacing: 2px;
+}
+
+/* animated gradient text */
+h2, a:hover {
+  background: linear-gradient(to right, #ff7a87 20%, #ffb477 40%, #ffb477 60%, #ff7a87 80%);
+  background-size: 200% auto;
+
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: animatedGradient 10s linear infinite;
+}
+@keyframes animatedGradient {
+  to {
+    background-position: 200% center;
+  }
 }
