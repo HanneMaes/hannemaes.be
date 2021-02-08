@@ -1,3 +1,8 @@
+:root {
+  --transitionDuration: 0.5s;
+  --transitionEase: ease;
+}
+
 @font-face {
   font-family: regular;
   src: url(fonts/JosefinSans-Regular.ttf);
@@ -25,6 +30,8 @@ iframe {
 
   width: 100vw;
   height: 100vh;
+
+  border: 0;
 }
 
 /* ************* */
@@ -44,11 +51,10 @@ iframe {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-}
+} 
 
 /* card */
 .box {
-  z-index: 2;
   pointer-events: auto;
 
   height: 200px;
@@ -63,10 +69,39 @@ iframe {
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  
-  /* not working because the background is an iframe */
-  /*-webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);*/
+}
+
+/* ***** */
+/* links */
+/* ***** */
+
+.linksSegement {
+  margin-top: 5px;
+}
+
+.linksTitle {
+  display: inline-block;
+  width: 60px;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: light;
+}
+
+nav {
+  display: inline;
+}
+
+a {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  font-size: 15px;
+
+  margin-right: 6px;
+
+  transition: border-bottom var(--transitionDuration) var(--transitionEase);
+  border-bottom: 0px solid rgba(255, 255, 255, 0);
+}
+a:hover {
+  border-bottom: 3px solid rgba(255, 255, 255, 0.5);
 }
 
 /* ********** */
@@ -89,26 +124,8 @@ h2 {
   margin-top: 5px;
 }
 
-a {
-  color: rgba(255, 255, 255, 0.5);
-  text-decoration: none;
-  margin-right: 20px;
-
-  transition: border-bottom 0.5s ease;
-  border-bottom: 0px solid rgba(255, 255, 255, 0);
-}
-a:hover {
-  border-bottom: 3px solid rgba(255, 255, 255, 0.5);
-}
-
-footer {
-  margin-bottom: 40px;
-  color: rgba(255, 255, 255, 0.3);
-  word-spacing: 2px;
-}
-
 /* animated gradient text */
-h2, a:hover {
+h2, a:hover, footer {
   background: linear-gradient(to right, #ff7a87 20%, #ffb477 40%, #ffb477 60%, #ff7a87 80%);
   background-size: 200% auto;
 
@@ -123,4 +140,23 @@ h2, a:hover {
   to {
     background-position: 200% center;
   }
+}
+
+/* ****** */
+/* footer */
+/* ****** */
+
+footer {
+  color: rgba(255, 255, 255, 0.3);
+  word-spacing: 2px;
+  font-size: 12px;
+
+  margin-bottom: 40px;
+
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity var(--transitionDuration) var(--transitionEase);
+}
+footer:hover {
+  opacity: 1;
 }
