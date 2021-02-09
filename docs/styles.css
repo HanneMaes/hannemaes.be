@@ -42,7 +42,7 @@ iframe {
 .container {
   z-index: 1;
   position: absolute; /* to let this stack */
-  pointer-events: none; /* click trough */
+  /*pointer-events: none; /* click trough */
 
   height: 100vh;
   width: 100vw;
@@ -55,7 +55,7 @@ iframe {
 
 /* card */
 .box {
-  pointer-events: auto;
+  /*pointer-events: auto;*/
 
   height: 200px;
   width: 400px;
