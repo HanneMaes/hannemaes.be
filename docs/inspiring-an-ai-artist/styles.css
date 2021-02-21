@@ -25,11 +25,7 @@ h1 {
   color: black;
 }
 
-section {
-  max-width: 600px;
-}
-
-video {
+video, section {
   margin-bottom: 30px;
   width: 1024px;
   max-width: 100%;
