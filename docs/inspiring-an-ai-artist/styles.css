@@ -1,0 +1,36 @@
+:root {
+  --transitionDuration: 0.5s;
+  --transitionEase: ease;
+}
+
+@font-face {
+  font-family: regular;
+  src: url(fonts/SpaceMono-Regular.ttf);
+}
+@font-face {
+  font-family: bold;
+  src: url(fonts/SpaceMono-Bold.ttf);
+}
+
+body {
+  margin: 0;
+  padding: 30px;
+  color: rgba(0, 0, 0, 0,5);
+  font-family: bold;
+  letter-spacing: 1px;
+}
+
+h1 {
+  font-family: regular;
+  color: black;
+}
+
+section {
+  max-width: 600px;
+}
+
+video {
+  margin-bottom: 30px;
+  width: 1024px;
+  max-width: 100%;
+}
