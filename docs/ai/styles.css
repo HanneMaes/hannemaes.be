@@ -15,7 +15,7 @@
 body {
   margin: 0;
   padding: 30px;
-  color: rgba(0, 0, 0, 0,5);
+  color: rgba(0, 0, 0, 0.5);
   font-family: bold;
   letter-spacing: 1px;
 }
