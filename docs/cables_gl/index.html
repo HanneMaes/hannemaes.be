@@ -16,12 +16,23 @@
             background-color: #000;
             color: #fff;
             font-family: Helvetica, Arial, sans-serif;
+            overflow: hidden; /* disable scrolling / rubberband effect on mobile */
         }
 
         canvas {
             display: block;
             position: absolute;
             outline:0;
+        }
+
+        * {
+            /* disable on touch highlights of html elements, especially on mobile! */
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
 
         footer {
@@ -57,6 +68,10 @@
     <corelibs/>
 
     <script>
+
+        // disable rubberband effect on mobile devices
+        document.getElementById('glcanvas').addEventListener('touchmove', (e)=>{ e.preventDefault(); }, false);
+
 
         function patchInitialized(patch) {
             // You can now access the patch object (patch), register variable watchers and so on
