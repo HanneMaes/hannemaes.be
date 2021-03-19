@@ -15,6 +15,7 @@
 body {
   position: relative; /* to let the child elements stack */
   margin: 0;
+  background-color: black;
   color: white;
   font-family: regular;
   overflow: hidden; /* Hide scrollbars */
