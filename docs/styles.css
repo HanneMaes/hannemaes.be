@@ -4,12 +4,16 @@
 }
 
 @font-face {
+  font-family: space;
+  src: url(fonts/SpaceMono/SpaceMono-Regular.ttf);
+}
+@font-face {
   font-family: regular;
-  src: url(fonts/JosefinSans-Regular.ttf);
+  src: url(fonts/JosefinSans/JosefinSans-Regular.ttf);
 }
 @font-face {
   font-family: light;
-  src: url(fonts/JosefinSans-Light.ttf);
+  src: url(fonts/JosefinSans/JosefinSans-Light.ttf);
 }
 
 body {
@@ -106,8 +110,9 @@ a {
 /* ********** */
 
 h1 {
-  font-family: light;
-  letter-spacing: 4px;
+  font-family: space;
+  font-size: 40px;
+  letter-spacing: 10px;
   margin: 0;
 }
 .firstLetter {       
@@ -122,7 +127,7 @@ h2 {
 }
 
 /* animated gradient text */
-h2, a:hover, footer {
+h1, a:hover, footer {
   background: linear-gradient(to right, #ff7a87 25%, #ffb477 35%, #ffb477 65%, #ff7a87 75%);
   background-size: 200% auto;
 
