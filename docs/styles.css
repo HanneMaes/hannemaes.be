@@ -99,10 +99,6 @@ a {
   margin-right: 6px;
 
   transition: border-bottom var(--transitionDuration) var(--transitionEase);
-  border-bottom: 0px solid rgba(255, 255, 255, 0);
-}
-a:hover {
-  border-bottom: 3px solid rgba(255, 255, 255, 0.5);
 }
 
 /* ********** */
