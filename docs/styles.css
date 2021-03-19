@@ -139,7 +139,7 @@ h2, a:hover, footer {
 }
 @keyframes animatedGradient {
   to {
-    background-position: 200% center;
+    background-position: -200% center;
   }
 }
 
