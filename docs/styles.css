@@ -4,10 +4,6 @@
 }
 
 @font-face {
-  font-family: space;
-  src: url(fonts/SpaceMono/SpaceMono-Regular.ttf);
-}
-@font-face {
   font-family: regular;
   src: url(fonts/JosefinSans/JosefinSans-Regular.ttf);
 }
@@ -87,7 +83,7 @@ iframe {
 .linksTitle {
   display: inline-block;
   width: 60px;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.7);
   font-family: light;
 }
 
@@ -96,13 +92,16 @@ nav {
 }
 
 a {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgb(255, 255, 255);
   text-decoration: none;
   font-size: 15px;
 
   margin-right: 6px;
 
-  transition: border-bottom var(--transitionDuration) var(--transitionEase);
+  transition: color var(--transitionDuration) var(--transitionEase);
+}
+a:hover {
+  color: black;
 }
 
 /* ********** */
@@ -111,8 +110,8 @@ a {
 
 h1 {
   font-family: light;
-  font-size: 40px;
-  letter-spacing: 10px;
+  font-size: 35px;
+  letter-spacing: 2px;
   margin: 0;
 }
 .firstLetter {       
@@ -120,14 +119,14 @@ h1 {
 }
 
 h2 {
-  font-family: space;
+  font-family: light;
   font-size: 20px;
   letter-spacing: 2px;
   margin-top: 5px;
 }
 
 /* animated gradient text */
-h1, a:hover, footer {
+h1, footer {
   background: linear-gradient(to right, #ff7a87 25%, #ffb477 35%, #ffb477 65%, #ff7a87 75%);
   background-size: 200% auto;
 
