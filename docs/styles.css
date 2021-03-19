@@ -126,7 +126,7 @@ h2 {
 
 /* animated gradient text */
 h2, a:hover, footer {
-  background: linear-gradient(to right, #ff7a87 20%, #ffb477 40%, #ffb477 60%, #ff7a87 80%);
+  background: linear-gradient(to right, #ff7a87 25%, #ffb477 35%, #ffb477 65%, #ff7a87 75%);
   background-size: 200% auto;
 
   background-clip: text;
@@ -134,7 +134,7 @@ h2, a:hover, footer {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  animation: animatedGradient 5s linear infinite;
+  animation: animatedGradient 3s linear infinite;
 }
 @keyframes animatedGradient {
   to {
