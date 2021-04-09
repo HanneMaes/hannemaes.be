@@ -1,0 +1,113 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!--Let browser know website is optimized for mobile-->
+
+  <title>Hanne Maes</title>
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  <!-- custom browser head color -->
+  <meta name="theme-color" content="#32A98D">
+
+  <!-- my css -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="ai.css">
+
+  <!-- css libraries -->
+  <link rel="stylesheet" href="lib/aos.css">
+
+  <!-- to generate favicons & manifest: https://www.pwabuilder.com/ || https://realfavicongenerator.net/ -->
+  <!-- to generate native apps: https://www.pwabuilder.com/ -->
+
+  <meta name="author" content="Hanne Maes">
+  <!-- meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta property="og:site_name" content="">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="">
+  <meta property="og:title" content="">
+  <meta property="og:description" content="">
+  <meta property="og:image" content=""-->
+
+</head>
+<body>
+
+  <!-- back button -->
+  <a href="index.html"><div class="backButton"></div></a>
+
+  <!-- content -->
+  <a href="index.html"><h1 data-aos="fade-left">Inspiring an A.I. artist</h1></a>
+
+  <section>
+    Just like the pop art movement in the 50s I try to experiment with new technologies.<br>
+    In my case I use A.I. techniques to create unique imagery.<br>
+  </section>
+
+  <section>
+    <video loop controls autoplay>
+      <source src="content/Inspiring an AI artist - 2048.mp4" type="video/mp4">
+      Sorry, your browser doesn't support embedded videos.
+    </video><br>
+
+    In this visual experiment I compared myself to an A.I. that is given various degrees of artistic freedom and abstraction.<br>
+    <br>
+    The work on the bottom left is how I created it.<br>
+    Going along the <em>x-axis</em> I give the A.I. more <em>creative freedom</em>. Along the <em>y-axis</em> I <em>abstract the input</em> the A.I. is given.<br>
+    This culminates in the <em>upper right</em> work where the A.I. is given full creative control over an abstracted source resulting in an <em>artistic vision created by the A.I. artist itself</em>.<br>
+    <br>
+    The abstraction number represents the resolution of the applied abstraction.<br>
+    The keyframes number represents the amount of keyframes I fed the A.I. to base his output on.
+    When the keyframes are negative, I used that amount of "incorrect" keyframe to confuse the A.I. and let it express itself in an unintended way, <em>forcing the A.I. to be "creative"</em>.
+  </section>
+
+  <h2>Technical Sidenote</h2>
+  <section>
+    I know that GIF and video are not yet supported on Async.<br>
+    I'd like to cycle the animation troughout the day, I'll offset the animaiotns in a way that every frame looks interesting.
+  </section>
+
+  <!-- back button -->
+  <section>
+    <a href="index.html"><div class="backButton"></div></a>
+  </section>
+
+  <!-- handtekening -->
+  <img class="signature" width="203px" height="92px" src="content/signature black.jpg">
+
+  <!---------------->
+  <!-- javascript -->
+  <!---------------->
+
+  <!-- libararies -->
+  <script src="lib/aos.js"></script>
+  <script>
+    AOS.init({
+      // Global settings:
+      // disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+      // startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+      // initClassName: 'aos-init', // class applied after initialization
+      // animatedClassName: 'aos-animate', // class applied on animation
+      // useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+      // disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+      // debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+      // throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+      
+
+      // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+      // offset: 120, // offset (in px) from the original trigger point
+      // delay: 0, // values from 0 to 3000, with step 50ms
+      duration: 1000, // values from 0 to 3000, with step 50ms
+      // easing: 'ease', // default easing for AOS animations
+      // once: false, // whether animation should happen only once - while scrolling down
+      // mirror: false, // whether elements should animate out while scrolling past them
+      // anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+    });
+  </script>
+
+</body>
+</html>

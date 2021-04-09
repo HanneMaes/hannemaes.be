@@ -1,0 +1,99 @@
+:root {
+  --transitionDuration: 0.5s;
+  --transitionEase: ease;
+}
+
+@font-face {
+  font-family: spaceRegular;
+  src: url(fonts/SpaceMono-Regular.ttf);
+}
+@font-face {
+  font-family: spaceBoldItalic;
+  src: url(fonts/SpaceMono-BoldItalic.ttf);
+}
+
+body {
+  margin: 0;
+  padding: 30px;
+  color: rgba(0, 0, 0, 0.5);
+  font-family: spaceRegular;
+  letter-spacing: 1px;
+}
+
+h1 {
+  font-family: spaceRegular;
+  color: black;
+}
+
+h2 {
+  margin-top: 50px;
+  font-style: italic;
+  color: black;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+em {
+  font-family: spaceBoldItalic;
+}
+
+section {
+  margin-bottom: 30px;
+}
+
+video {
+  margin-bottom: 30px;
+  max-width: 100%;
+}
+
+.signature {
+  margin-top: 50px;
+}
+
+/* back button on every page */
+
+.backButton {
+  display: inline-block;
+
+  border-right: 20px solid rgba(0, 0, 0, 0); /* invisible border to keep the mouse pointer hand active during the hover animation */
+
+  margin-left: 0px;
+  transition: margin-left 0.3s;
+}
+.backButton:hover {
+  margin-left: -10px;
+}
+.backButton::after {
+  /* rectangle with text */
+  content: 'BACK';
+  
+  background-color: black;
+  color: white;
+  font-size: 14px;
+  
+  padding-left:  8px;
+  padding-right: 8px;
+}
+
+/**********/
+/* MOBILE */
+/**********/
+
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 14px;
+  }
+
+  /* index page only */
+  header img {
+    width:  60px;
+    height: 60px;
+  }
+
+  .subHeader {
+    font-size: 16px !important;
+  }
+}

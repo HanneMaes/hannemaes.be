@@ -1,0 +1,117 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!--Let browser know website is optimized for mobile-->
+
+  <title>Hanne Maes</title>
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  <!-- custom browser head color -->
+  <meta name="theme-color" content="#000000">
+
+  <!-- my css -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="index.css">
+
+  <!-- css libraries -->
+  <link rel="stylesheet" href="lib/aos.css">
+
+  <!-- to generate favicons & manifest: https://www.pwabuilder.com/ || https://realfavicongenerator.net/ -->
+  <!-- to generate native apps: https://www.pwabuilder.com/ -->
+
+  <meta name="author" content="Hanne Maes">
+  <!-- meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta property="og:site_name" content="">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="">
+  <meta property="og:title" content="">
+  <meta property="og:description" content="">
+  <meta property="og:image" content=""-->
+
+</head>
+<body>
+
+  <header>
+    <img data-aos="zoom-in" src="content/H black.png" width="90px" height="90px"> 
+    <div>
+      <h1 data-aos="fade-left">Hanne Maes</h1>
+      <div class="subHeader" data-aos="fade-left" data-aos-delay="300">Async.art portfolio</div>
+    </div>
+  </header>
+
+  <section>
+    Hi folks at Async.<br>
+    <br>
+    I am part of LayerBreaker, and would love to be part of the Async platform as well!<br>
+    This body of work I think would be a good fit as programmable art.<br>
+    Some of it is not yet finished but with every work I'll explain the thinking behing it.<br>
+    <br>
+    Hope you enjoy it, and thanks for watching!
+  </section>
+
+  <h2>Projects</h2>
+  <section>
+
+    <!-- AI -->
+    <a href="ai.html">
+      A.I.<br>
+      <small>A unique artwork, every hour, for 12 years.</small>
+    </a><br>
+
+    <!-- 12 years -->
+    <a href="12years.html">
+      <span class="wip">12 Years</span>
+      <br>
+      <small>Finding the perfect instersection between a humand an A.I. artist.</small>
+    </a><br>
+
+    <!-- city spirit series-->
+    <a href="cityspirits.html">
+      <span class="veryWip">City Spirit Series</span>
+      <br>
+      <small>Bla bla bla.</small>
+    </a><br>
+
+  </section>
+
+  <!-- handtekening -->
+  <img class="signature" width="203px" height="92px" src="content/signature black.jpg">
+
+  <!---------------->
+  <!-- javascript -->
+  <!---------------->
+
+  <!-- libararies -->
+  <script src="lib/aos.js"></script>
+  <script>
+    AOS.init({
+      // Global settings:
+      // disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+      // startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+      // initClassName: 'aos-init', // class applied after initialization
+      // animatedClassName: 'aos-animate', // class applied on animation
+      // useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+      // disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+      // debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+      // throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+      
+
+      // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+      // offset: 120, // offset (in px) from the original trigger point
+      // delay: 0, // values from 0 to 3000, with step 50ms
+      duration: 1200, // values from 0 to 3000, with step 50ms
+      // easing: 'ease', // default easing for AOS animations
+      // once: false, // whether animation should happen only once - while scrolling down
+      // mirror: false, // whether elements should animate out while scrolling past them
+      // anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+    });
+  </script>
+
+</body>
+</html>
