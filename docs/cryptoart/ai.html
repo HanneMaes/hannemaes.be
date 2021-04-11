@@ -1,7 +1,3 @@
-<!-- TODO -->
-<!-- afbeeldingen op de jusite grote zette -->
-<!-- image optim -->
-
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
@@ -16,11 +12,11 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
   <!-- custom browser head color -->
-  <meta name="theme-color" content="#000000">
+  <meta name="theme-color" content="#32A98D">
 
   <!-- my css -->
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="ai.css">
 
   <!-- css libraries -->
   <link rel="stylesheet" href="lib/aos.css">
@@ -41,51 +37,47 @@
 </head>
 <body>
 
-  <header>
-    <img data-aos="zoom-in" src="content/H black.png" width="90px" height="90px"> 
-    <div>
-      <h1 data-aos="fade-left">Hanne Maes</h1>
-      <div class="subHeader" data-aos="fade-left" data-aos-delay="300">Async.art portfolio</div>
-    </div>
-  </header>
+  <!-- back button -->
+  <a href="../index.html"><div class="backButton"></div></a>
+
+  <!-- content -->
+  <h1 data-aos="fade-left">Inspiring an A.I. artist</h1>
 
   <section>
-    Hi folks at Async.<br>
-    <br>
-    I am part of LayerBreaker, and would love to be part of the Async platform as well!<br>
-    This body of work I think would be a good fit as programmable art.<br>
-    Some of it is not yet finished but with every work I'll explain the thinking behing it.<br>
-    <br>
-    Hope you enjoy it, and thanks for watching!
+    Just like the pop art movement in the 50s I try to experiment with new technologies.<br>
+    In my case I use A.I. techniques to create unique imagery.<br>
   </section>
 
-  <h2>Projects</h2>
   <section>
+    <video loop controls autoplay>
+      <source src="ai images/Inspiring an AI artist - 2048.mp4" type="video/mp4">
+      Sorry, your browser doesn't support embedded videos.
+    </video><br>
+  </section>
 
-    <!-- AI -->
-    <a href="ai.html">
-      A.I.<br>
-      <small>A unique artwork, every hour, for 12 years.</small>
-    </a><br>
+  <h2>The Experiment</h2>
+  <section>
+    In this visual experiment I compared myself to an A.I. that is given various degrees of artistic freedom and abstraction.<br>
+    <br>
+    The work on the bottom left is how I created it.<br>
+    Going along the <em>x-axis</em> I give the A.I. more <em>creative freedom</em>. Along the <em>y-axis</em> I <em>abstract the input</em> the A.I. is given.<br>
+    This culminates in the <em>upper right</em> work where the A.I. is given full creative control over an abstracted source resulting in an <em>artistic vision created by the A.I. artist itself</em>.<br>
+    <br>
+    The abstraction number represents the resolution of the applied abstraction.<br>
+    The keyframes number represents the amount of keyframes I fed the A.I. to base his output on.
+    When the keyframes are negative, I used that amount of "incorrect" keyframe to confuse the A.I. and let it express itself in an unintended way, <em>forcing the A.I. to be "creative"</em>.
+  </section>
 
-    <!-- 12 years -->
-    <a href="12years.html">
-      <span class="wip">12 Years</span>
-      <br>
-      <small>Finding the perfect instersection between a humand an A.I. artist.</small>
-    </a><br>
+  <h2>The Chosen One</h2>
+  <section></section>
 
-    <!-- city spirit series-->
-    <a href="cityspirits.html">
-      <span class="veryWip">City Spirit Series</span>
-      <br>
-      <small>Bla bla bla.</small>
-    </a><br>
-
+  <!-- back button -->
+  <section>
+    <a href="../index.html"><div class="backButton"></div></a>
   </section>
 
   <!-- handtekening -->
-  <img class="signature" width="240px" height="103px" src="content/signature black - small compressed.gif"> <!-- the size is 50% smaller then to source to increase quality -->
+  <img data-aos="zoom-in" data-aos-duration="0" class="signature" width="240px" height="103px" src="../images/signature black - small compressed.gif"> <!-- the size is 50% smaller then to source to increase quality -->
 
   <!---------------->
   <!-- javascript -->
@@ -109,7 +101,7 @@
       // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
       // offset: 120, // offset (in px) from the original trigger point
       // delay: 0, // values from 0 to 3000, with step 50ms
-      duration: 1200, // values from 0 to 3000, with step 50ms
+      duration: 1000, // values from 0 to 3000, with step 50ms
       // easing: 'ease', // default easing for AOS animations
       // once: false, // whether animation should happen only once - while scrolling down
       // mirror: false, // whether elements should animate out while scrolling past them

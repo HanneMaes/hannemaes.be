@@ -1,0 +1,128 @@
+/* animated gradient text */
+.subHeader, a:hover:not(.blackButton) { /* exclude the blackButton links from the effect because that wasn't working good */
+  background: linear-gradient(to right, #ff7a87 25%, #ffb477 35%, #ffb477 65%, #ff7a87 75%);
+  background-size: 200% auto;
+
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: animatedGradient 3s linear infinite;
+}
+@keyframes animatedGradient {
+  to {
+    background-position: -200% center;
+  }
+}
+
+a:hover * { /* override the children so that only the text direclty in the <a> get the color animation */
+  -webkit-text-fill-color: black;
+}
+a:hover .wip { /* override .wip so that the text stays white */
+  -webkit-text-fill-color: white;
+}
+
+/* header */
+
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+header img {
+  margin-right: 30px;
+}
+
+header h1 {
+  margin-bottom: 0;
+  margin-top: 0;
+  letter-spacing: 8px;
+}
+
+.subHeader {
+  font-size: 18px;
+  font-style: italic;
+  opacity: 0.7;
+}
+
+/* links */
+a {
+  font-size: 18px;
+  margin-bottom: 5px;
+  display: block;
+
+  margin-left: 0px;
+  transition: margin-left 0.3s ease-out;
+}
+a:hover {
+  margin-left: 10px;
+}
+a::before {
+  content: '- ';
+  color: #ff7a87;
+}
+
+a small {
+  font-size: 14px;
+  margin-left: 25px;
+  display: block; /* otherwise the margin-left was only on the first line */
+  opacity: 0.6;
+}
+
+a img {
+  width:  25px;
+  height: 25px;
+  margin-right: 10px;
+}
+
+/* WIP banner */
+.wip {
+  background-color: black;
+  color: white;
+  font-style: italic;
+  font-size: 0.6em;
+
+  margin-left: 10px;
+  padding-left:  8px;
+  padding-right: 8px;
+}
+
+/* links naar andere websites */
+.socialMediaLinks a {
+  display: inline-block;
+
+  background-color: black;
+  padding-left:  8px;
+  padding-right: 8px;
+  margin-left: 0px;
+
+  color: white;
+  font-size: 15px;
+
+  transform: scale(0.9);
+  transition: all 0.3s ease-out;
+}
+.socialMediaLinks a:hover { 
+  transform: scale(1);
+  color: #ff7a87;
+}
+.socialMediaLinks a::before { content: ''; }
+
+/**********/
+/* MOBILE */
+/**********/
+
+@media screen and (max-width: 600px) {
+
+  header img {
+    width:  60px;
+    height: 60px;
+  }
+
+  .subHeader {
+    font-size: 16px !important;
+  }
+}

@@ -1,98 +1,131 @@
+<!-- TODO -->
+<!-- afbeeldingen op de jusite grote zette -->
+<!-- image optim -->
+
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" images="IE=edge">
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" images="width=device-width, initial-scale=1"><!--Let browser know website is optimized for mobile-->
 
   <title>Hanne Maes</title>
 
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="mobile-web-app-capable" images="yes">
+  <meta name="apple-mobile-web-app-capable" images="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" images="default">
 
   <!-- custom browser head color -->
-  <meta name="theme-color" content="#000000">
+  <meta name="theme-color" images="#000000">
 
   <!-- my css -->
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="index.css">
+
+  <!-- css librariesraries -->
+  <link rel="stylesheet" href="libraries/aos.css">
 
   <!-- to generate favicons & manifest: https://www.pwabuilder.com/ || https://realfavicongenerator.net/ -->
   <!-- to generate native apps: https://www.pwabuilder.com/ -->
 
-  <meta name="author" content="Hanne Maes">
-  <!-- meta name="description" content="">
-  <meta name="keywords" content="">
-  <meta property="og:site_name" content="">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="">
-  <meta property="og:title" content="">
-  <meta property="og:description" content="">
-  <meta property="og:image" content=""-->
+  <meta name="author" images="Hanne Maes">
+  <!-- meta name="description" images="">
+  <meta name="keywords" images="">
+  <meta property="og:site_name" images="">
+  <meta property="og:type" images="website">
+  <meta property="og:url" images="">
+  <meta property="og:title" images="">
+  <meta property="og:description" images="">
+  <meta property="og:image" images=""-->
 
 </head>
 <body>
 
-<!-- ---------------- -->  
-<!-- cables.gl iframe -->
-<!-- ---------------- -->
-<img src="cables_alternative.jpg" style="position: absolute; z-index: 0; height: 90vh; width: 90vh; margin-top: 5vh; margin-left: auto; margin-right: auto; left: 0; right: 0; text-align: center;">
-<!-- <iframe height="100%" width="100%" src="cables_gl/index.html"></iframe> -->
-<!-- <iframe height="100%" width="100%" src="https://sandbox.cables.gl/viewer/6037d23222ec0b5273545081"></iframe> -->
-  
-<!-- -------------------- -->  
-<!-- the rest of the page -->
-<!-- -------------------- -->  
-  
-<!-- card hitbox -->
-<div id="ex1" class="container">
-  
-  <!-- header -->
-  <div></div>
-  
-  <!-- card -->
-  <div id="ex1-layer" class="box">  
-    <header>
-      <!--h1><span class="firstLetter">H</span>anne <span class="firstLetter">M</span>aes</h1-->
-      <h1>Hanne Maes</h1>
-      <h2><span class="firstLetter">D</span>igital <span class="firstLetter">C</span>reator</h2>
-    </header>
-
-    <!-- links -->
+  <header>
+    <img data-aos="zoom-in" src="images/H black.png" width="90px" height="90px"> 
     <div>
-
-      <div class="linksSegement">
-        <span class="linksTitle">Design</span>
-        <nav>
-          <a target="_blank" href="https://www.behance.net/hannemaes">Behance</a>
-        </nav><br>
-      </div>
-
-      <div class="linksSegement">
-        <span class="linksTitle">Code</span>
-        <nav>
-          <a target="_blank" href="https://github.com/HanneMaes">Github</a>
-        </nav><br>
-      </div>
-
-      <div class="linksSegement">
-        <span class="linksTitle">Social</span>
-        <nav>
-          <a target="_blank" href="https://twitter.com/HanneMaez">Twitter</a>
-          <a target="_blank" href="https://www.instagram.com/hannemaez/">Instagram</a>
-        </nav><br>
-      </div>
-
+      <h1 data-aos="fade-left">Hanne Maes</h1>
+      <div class="subHeader" data-aos="fade-left" data-aos-delay="300">Design & Creative Code</div>
     </div>
-  </div>  
-  
-  <!-- created with -->
-  <footer>Created with Cables.gl, hosted on GitHub</footer>
-  
-</div>
+  </header>
 
-<!-- my scripts -->
-<script src="script.js"></script>
+  <!----------->
+  <!-- links -->
+  <!----------->
+
+  <div class="socialMediaLinks">
+    <a class="blackButton" target="_blank" href="https://twitter.com/HanneMaez">       <!-- img src="images/social media icons/logo-instagram-dark.svg" -->Twitter</a>
+    <a class="blackButton" target="_blank" href="https://www.instagram.com/hannemaez/"><!-- img src="images/social media icons/logo-instagram-dark.svg" -->Instagram</a>
+    <a class="blackButton" target="_blank" href="https://www.behance.net/hannemaes">   <!-- img src="images/social media icons/logo-behance-dark.svg" -->Behance</a>
+    <a class="blackButton" target="_blank" href="https://github.com/HanneMaes/">       <!-- img src="images/social media icons/logo-gitHub-dark.svg" -->GitHub</a>
+  </div>
+
+  <!---------------->
+  <!-- crypto art -->
+  <!---------------->
+
+  <h2>Crypto Art</h2>
+  <section>
+
+    <!-- AI -->
+    <a href="cryptoart/ai.html">
+      A.I.<br>
+      <small>Finding the perfect instersection between a humand an A.I. artist.</small>
+    </a><br>
+
+    <!-- 12 years -->
+    <a href="cryptoart/12years.html">
+      12 Years<span class="wip">W.I.P.</span><br>
+      <small>A unique artwork, every hour, for 12 years.</small>
+    </a><br>
+
+  </section>
+
+  <!---------------->
+  <!-- street art -->
+  <!---------------->
+
+  <h2>Street Art</h2>
+  <section>
+    <a target="_blank" href="https://www.behance.net/gallery/11019785/Indoor-Murals">Indoor Murals</a>
+    <a target="_blank" href="https://www.behance.net/gallery/13149847/Window-Paint">Window Murals</a>
+    <a target="_blank" href="https://www.behance.net/gallery/29510805/Manana-Cuban-Street-Art">Cuba</a>
+    <a target="_blank" href="https://www.behance.net/gallery/29328753/Lisbon-Street-Art">Lisbon</a>
+    <a target="_blank" href="https://www.behance.net/gallery/11019721/Urban-Sketchin">Mechelen</a>
+  </section>
+
+  <!-- handtekening -->
+  <img class="signature" width="240px" height="103px" src="images/signature black - small compressed.gif"> <!-- the size is 50% smaller then to source to increase quality -->
+
+  <!---------------->
+  <!-- javascript -->
+  <!---------------->
+
+  <!-- librariesararies -->
+  <script src="libraries/aos.js"></script>
+  <script>
+    AOS.init({
+      // Global settings:
+      // disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+      // startEvent: 'DOMimagesLoaded', // name of the event dispatched on the document, that AOS should initialize on
+      // initClassName: 'aos-init', // class applied after initialization
+      // animatedClassName: 'aos-animate', // class applied on animation
+      // useClassNames: false, // if true, will add images of `data-aos` as classes on scroll
+      // disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+      // debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+      // throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+      
+
+      // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+      // offset: 120, // offset (in px) from the original trigger point
+      // delay: 0, // values from 0 to 3000, with step 50ms
+      duration: 1200, // values from 0 to 3000, with step 50ms
+      // easing: 'ease', // default easing for AOS animations
+      // once: false, // whether animation should happen only once - while scrolling down
+      // mirror: false, // whether elements should animate out while scrolling past them
+      // anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+    });
+  </script>
 
 </body>
 </html>
