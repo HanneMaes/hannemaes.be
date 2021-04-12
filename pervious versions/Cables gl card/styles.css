@@ -1,0 +1,163 @@
+:root {
+  --transitionDuration: 0.5s;
+  --transitionEase: ease;
+}
+
+@font-face {
+  font-family: regular;
+  src: url(fonts/JosefinSans/JosefinSans-Regular.ttf);
+}
+@font-face {
+  font-family: light;
+  src: url(fonts/JosefinSans/JosefinSans-Light.ttf);
+}
+
+body {
+  position: relative; /* to let the child elements stack */
+  margin: 0;
+  background-color: black;
+  color: white;
+  font-family: regular;
+  overflow: hidden; /* Hide scrollbars */
+}
+
+/* ********* */
+/* calbes.gl */
+/* ********* */
+
+iframe {
+  position: absolute; /* to let this stack */
+  z-index: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  border: 0;
+}
+
+/* ************* */
+/* card & hitbox */
+/* ************* */
+
+/* card hitbox */
+.container {
+  z-index: 1;
+  position: absolute; /* to let this stack */
+  /*pointer-events: none; /* click trough */
+
+  height: 100vh;
+  width: 100vw;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+} 
+
+/* card */
+.box {
+  /*pointer-events: auto;*/
+
+  height: 200px;
+  width: 400px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+/* ***** */
+/* links */
+/* ***** */
+
+.linksSegement {
+  margin-top: 5px;
+}
+
+.linksTitle {
+  display: inline-block;
+  width: 60px;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: light;
+}
+
+nav {
+  display: inline;
+}
+
+a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-size: 15px;
+
+  margin-right: 6px;
+
+  transition: color var(--transitionDuration) var(--transitionEase);
+}
+a:hover {
+  color: black;
+}
+
+/* ********** */
+/* typografie */
+/* ********** */
+
+h1 {
+  font-family: light;
+  font-size: 35px;
+  letter-spacing: 2px;
+  margin: 0;
+}
+.firstLetter {       
+  color: #ff7a87 !important; 
+}
+
+h2 {
+  font-family: light;
+  font-size: 20px;
+  letter-spacing: 2px;
+  margin-top: 5px;
+}
+
+/* animated gradient text */
+h1, footer {
+  background: linear-gradient(to right, #ff7a87 25%, #ffb477 35%, #ffb477 65%, #ff7a87 75%);
+  background-size: 200% auto;
+
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: animatedGradient 3s linear infinite;
+}
+@keyframes animatedGradient {
+  to {
+    background-position: -200% center;
+  }
+}
+
+/* ****** */
+/* footer */
+/* ****** */
+
+footer {
+  color: rgba(255, 255, 255, 0.3);
+  word-spacing: 2px;
+  font-size: 14px;
+
+  margin-bottom: 40px;
+
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity var(--transitionDuration) var(--transitionEase);
+}
+footer:hover {
+  opacity: 1;
+}

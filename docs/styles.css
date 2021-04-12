@@ -18,6 +18,17 @@ body {
   color: rgba(0, 0, 0, 0.5);
   font-family: spaceRegular;
   letter-spacing: 1px;
+
+  /* for .centerOnBigScreen */
+  display: flex;
+  justify-content: center;
+}
+
+.centerOnBigScreen {
+  width: 100%;
+  max-width: 2048px;
+  display: inline-block;
+  margin: 0px auto;
 }
 
 h1 {
