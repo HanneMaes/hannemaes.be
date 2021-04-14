@@ -2,6 +2,7 @@ h1, em {
   color:#32A98D;
 }
 
-video {
-  width: 1024px;
+.artwork {
+  width: 1920px;
+  max-width: 100%;
 }

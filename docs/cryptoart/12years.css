@@ -18,32 +18,3 @@ h2 {
   background-color: rgb(255, 147, 133);
   color: black;
 }
-
-/* timing graph */
-.timingGraph {
-  display: flex;
-  flex-direction: row;
-}
-
-.graphTitle {
-  width: 300px;
-}
-
-.graph {
-  display: flex;
-  flex-direction: column;
-}
-
-.graphRow {
-  display: flex;
-  flex-direction: row;
-}
-
-.graphBar {
-  display: inline-block;
-  text-align: center;
-  font-size: 12px;
-  border: 1px solid white;
-
-  height: 20px;
-}
