@@ -29,7 +29,7 @@ header {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-bottom: 50px;
+  margin-bottom: 0px;
 }
 
 header img {
@@ -84,6 +84,7 @@ a img {
   color: white;
   font-style: italic;
   font-size: 0.6em;
+  ertical-align: middle;
 
   margin-left: 10px;
   padding-left:  8px;
@@ -91,6 +92,18 @@ a img {
 }
 
 /* links naar andere websites */
+.socialMediaTitle {
+  font-size: 11px;
+  width: 60px;
+  height: 30px;
+  display: inline-block;
+  text-align: right;
+}
+
+.socialMediaLinks {
+  display: inline;
+}
+
 .socialMediaLinks a {
   display: inline-block;
 

@@ -34,6 +34,7 @@ body {
 h1 {
   font-family: spaceRegular;
   color: black;
+  font-size: 40px;
 }
 
 h2 {
@@ -61,7 +62,8 @@ video {
 }
 
 .signature {
-  margin-top: 50px;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 /* back button on every page */
