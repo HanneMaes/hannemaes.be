@@ -146,6 +146,7 @@ a img {
   /* border: 2px solid red;  */
   display: inline-flex;
   flex-direction: row;
+  padding-right: 10px;
 }
 .buttonAndGraphic { 
   /* border: 2px solid orange; */
