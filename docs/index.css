@@ -52,10 +52,9 @@ header h1 {
 /* links */
 a {
   font-size: 18px;
-  margin-bottom: 5px;
   display: block;
 
-  margin-left: 0px;
+  margin: 0px;
   transition: all 0.3s ease-out;
 }
 a:hover {
@@ -92,7 +91,10 @@ a img {
   padding-right: 8px;
 }
 
-/* links naar andere websites */
+/******************/
+/* external links */
+/******************/
+
 .socialMediaTitle {
   font-size: 11px;
   width: 60px;
@@ -101,11 +103,57 @@ a img {
   text-align: right;
 }
 
-.socialMediaLinks {
+.externalLinks {
   display: inline;
 }
 
-.socialMediaLinks a {
+/* design lines & text themselves */
+.categoryTitle {
+  /* border: 2px solid purple;  */
+  display: inline-block;
+  font-size: 10px;
+  text-align: center;
+  margin-top: 5px;
+}
+.designLines {
+  /* border: 2px solid green;  */
+  width: 50%;
+  height: 5px;
+  margin-top: 5px;
+}
+.left {
+  float: right;
+  border-left:   1px solid rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+.right {
+  float: left;
+  border-right:  1px solid rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+.middle {
+  border-right:  1px solid rgba(0, 0, 0, 0.3);
+}
+
+/* design lines contiainers & setup */
+.container  { 
+  /* border: 2px solid blue;  */
+  display: inline-flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+.category  { 
+  /* border: 2px solid red;  */
+  display: inline-flex;
+  flex-direction: row;
+}
+.buttonAndGraphic { 
+  /* border: 2px solid orange; */
+  display: inline-block;
+ }
+
+/* the buttons itself */
+.externalLinks a {
   display: inline-block;
 
   background-color: black;
@@ -119,11 +167,11 @@ a img {
   transform: scale(0.9);
   transition: all 0.3s ease-out;
 }
-.socialMediaLinks a:hover { 
+.externalLinks a:hover { 
   transform: scale(1);
   color: #ff7a87;
 }
-.socialMediaLinks a::before { content: ''; }
+.externalLinks a::before { content: ''; }
 
 /**********/
 /* MOBILE */
