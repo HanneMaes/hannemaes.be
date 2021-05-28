@@ -12,9 +12,6 @@ h2 {
 }
 
 .backButton::after {
-  /* rectangle with text */
-  content: 'BACK';
-  
   background-color: rgb(255, 147, 133);
   color: black;
 }
