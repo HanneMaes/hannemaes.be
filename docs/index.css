@@ -25,6 +25,13 @@ a:hover .wip { /* override .wip so that the text stays white */
 
 /* header */
 
+.top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
 header {
   display: flex;
   flex-direction: row;
