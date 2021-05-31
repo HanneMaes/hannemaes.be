@@ -19,16 +19,14 @@ body {
   font-family: spaceRegular;
   letter-spacing: 1px;
 
-  /* for .centerOnBigScreen */
+  /* for .centerPage */
   display: flex;
   justify-content: center;
 }
 
-.centerOnBigScreen {
-  width: 100%;
-  max-width: 2048px;
+.centerPage {
   display: inline-block;
-  margin: 0px auto;
+  margin: auto;
 }
 
 h1 {
