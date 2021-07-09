@@ -90,6 +90,18 @@ video {
   padding-right: 8px;
 }
 
+/**********/
+/* MOBILE */
+/**********/
+
+@media screen and (max-width: 750px) {
+
+  h1 {
+    font-size: 30px;
+  }
+
+}
+
 /*********************/
 /* DARK & LIGHT MODE */
 /*********************/
