@@ -24,7 +24,6 @@ a:hover .wip { /* override .wip so that the text stays white */
 }
 
 /* header */
-
 .top {
   margin-bottom: 30px;
 }
@@ -95,9 +94,9 @@ a img {
   padding-right: 8px;
 }
 
-/******************/
-/* external links */
-/******************/
+/*********************************/
+/* external links at top of page */
+/*********************************/
 
 .socialMediaTitle {
   font-size: 11px;
@@ -200,9 +199,7 @@ a img {
   }
 }
 
-/*****************************/
-/* MOBILE HEADER EXTRA SMALL */
-/*****************************/
+/* header extra small */
 @media screen and (max-width: 750px) {
 
   .top {

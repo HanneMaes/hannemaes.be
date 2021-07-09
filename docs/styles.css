@@ -15,9 +15,11 @@
 body {
   margin: 0;
   padding: 30px;
-  color: rgba(0, 0, 0, 0.5);
   font-family: spaceRegular;
   letter-spacing: 1px;
+
+  background-color: var(--color-background);
+  color: var(--color-text);
 
   /* for .centerPage */
   display: flex;
@@ -31,18 +33,18 @@ body {
 
 h1 {
   font-family: spaceRegular;
-  color: black;
+  color: var(--color-em);
   font-size: 50px;
 }
 
 h2 {
   margin-top: 50px;
   font-style: italic;
-  color: black;
+  color: var(--color-em);
 }
 
 a {
-  color: black;
+  color: var(--color-em);
   text-decoration: none;
 }
 
@@ -80,7 +82,7 @@ video {
   /* rectangle with text */
   content: 'BACK';
   
-  background-color: black;
+  background-color: var(--color-em);
   color: white;
   font-size: 14px;
   
@@ -88,8 +90,23 @@ video {
   padding-right: 8px;
 }
 
-/**********/
-/* MOBILE */
-/**********/
+/*********************/
+/* DARK & LIGHT MODE */
+/*********************/
 
-@media screen and (max-width: 600px) {}
+/* light mode */
+:root {
+  --color-background: white;
+  --color-text: rgba(0, 0, 0, 0,5);
+  --color-em: black; /* titles, links, ... */
+}
+
+/* dark made */
+/*.dark-mode {
+  --color-background: black;
+  --color-text: rgba(255, 255, 255, 0,5);
+  --color-em: white; /* titles, links, ... */
+/*}
+
+/* @media (prefers-color-scheme: dark) { /* if user switches the system settings to dark mode this media query will be applied */
+/* } */
