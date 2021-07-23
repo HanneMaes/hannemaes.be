@@ -2,6 +2,10 @@ h1, em {
   color:#32A98D;
 }
 
+a, a:hover { 
+  text-decoration-color: #32A98D; 
+}
+
 .artwork {
   width: 1920px;
   max-width: 100%;

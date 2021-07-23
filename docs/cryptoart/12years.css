@@ -3,6 +3,10 @@ body {
   color: #ff938580;
 }
 
+a, a:hover { 
+  text-decoration-color: #ff938580; 
+}
+
 h1 {
   color: white;
 }

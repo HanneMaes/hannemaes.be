@@ -2,6 +2,10 @@ body {
   color: rgb(45, 151, 155);
 }
 
+a, a:hover { 
+  text-decoration-color: rgb(45, 151, 155);
+}
+
 h1 {
   color: rgb(45, 151, 155);
 }

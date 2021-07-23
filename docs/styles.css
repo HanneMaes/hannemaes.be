@@ -47,9 +47,19 @@ a {
   color: var(--color-em);
   text-decoration: none;
 }
+a:hover {
+  transition: all 0.3s ease-out;
+  text-decoration: underline;
+}
 
 em {
   font-family: spaceBoldItalic;
+}
+
+mark {
+  font-weight: bold;
+  padding-left:  5px;
+  padding-right: 5px;
 }
 
 section {
@@ -65,7 +75,29 @@ video {
   margin-top: 40px;
 }
 
+/***********/
+/* flexbox */
+/***********/
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+.row > * {
+  margin-right: 30px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+.row > * {
+  margin-bottom: 30px;
+}
+
+/*****************************/
 /* back button on every page */
+/*****************************/
 
 .backButton {
   display: inline-block;
@@ -80,7 +112,7 @@ video {
 }
 .backButton::after {
   /* rectangle with text */
-  content: 'BACK';
+  content: 'BACK TO ALL PROJECTS';
   
   background-color: var(--color-em);
   color: white;
@@ -88,6 +120,51 @@ video {
   
   padding-left:  8px;
   padding-right: 8px;
+}
+
+/*************************/
+/* see on / avaliable on */
+/*************************/
+
+.avaliableOn .link {
+  display: inline-block;
+  font-size: 11px;
+  border-radius: 3px;
+  font-weight: bold;
+
+  padding-left:  15px;
+  padding-right: 15px;
+  padding-top:    5px;
+  padding-bottom: 5px;
+
+  transform: scale(0.9);
+  transition: all 0.3s ease-out;
+}
+.avaliableOn .link:hover {
+  transform: scale(1);
+  text-decoration: none;
+}
+
+.avaliableOn img {
+  vertical-align: middle;
+}
+
+.avaliableOn .opensea  { background-color: rgba(27, 159, 218, 0.5); color: white; }
+.avaliableOn .rarible  { background-color: rgba(253, 213, 12, 0.5); color: black; }
+.avaliableOn .ethereum { background-color: rgb(226, 226, 252);      color: black; }
+
+/*****************/
+/* IMAGE GALLERY */ 
+/*****************/
+
+.gallery {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.galleryImage {
+  /* define size if images in custom .css per page (like hand-painted-cool-cats.css) */
 }
 
 /**********/
@@ -109,14 +186,14 @@ video {
 /* light mode */
 :root {
   --color-background: white;
-  --color-text: rgba(0, 0, 0, 0,5);
+  --color-text: rgba(0, 0, 0, 0.5);
   --color-em: black; /* titles, links, ... */
 }
 
 /* dark made */
 /*.dark-mode {
   --color-background: black;
-  --color-text: rgba(255, 255, 255, 0,5);
+  --color-text: rgba(255, 255, 255, 0.5);
   --color-em: white; /* titles, links, ... */
 /*}
 

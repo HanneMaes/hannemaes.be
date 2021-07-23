@@ -173,6 +173,7 @@ a img {
 
   color: white;
   font-size: 15px;
+  text-decoration: none;
 
   transform: scale(0.9);
   transition: all 0.3s ease-out;
