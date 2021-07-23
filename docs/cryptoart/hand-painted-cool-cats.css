@@ -10,3 +10,9 @@ a, a:hover {
   width:  250px;
   height: 250px;
 }
+
+.willWorkForImage {
+  width: 382px;
+  height: 580px;
+  max-width: 45%;
+}
