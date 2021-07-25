@@ -16,15 +16,25 @@ a, a:hover {
   height: 580px;
 }
 
+.exampleImage {
+  width:  240px;
+  height: 240px;
+}
+
 /**********/
 /* MOBILE */
 /**********/
 
-@media screen and (max-width: 500px) {
-
-  .galleryImage {
-    width:  200px;
-    height: 200px;
+@media screen and (max-width: 1010px) {
+  .exampleImage {
+    width:  45%;
+    height: 45%;
   }
+}
 
+@media screen and (max-width: 580px) {
+  .galleryImage {
+    width:  50%;
+    height: 50%;
+  }
 }

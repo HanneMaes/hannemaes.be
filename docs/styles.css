@@ -46,10 +46,12 @@ h2 {
 a {
   color: var(--color-em);
   text-decoration: none;
+
+  transition: all 0.3s ease-out;
 }
 a:hover {
-  transition: all 0.3s ease-out;
   text-decoration: underline;
+  text-decoration-thickness: 3px;
 }
 
 em {
