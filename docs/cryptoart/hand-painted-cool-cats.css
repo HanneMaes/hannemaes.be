@@ -14,5 +14,17 @@ a, a:hover {
 .willWorkForImage {
   width: 382px;
   height: 580px;
-  max-width: 45%;
+}
+
+/**********/
+/* MOBILE */
+/**********/
+
+@media screen and (max-width: 500px) {
+
+  .galleryImage {
+    width:  200px;
+    height: 200px;
+  }
+
 }

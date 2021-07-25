@@ -177,6 +177,14 @@ video {
     font-size: 30px;
   }
 
+  .row {
+    display: flex;
+    flex-direction: column;
+  }
+  .row > * {
+    margin-right: 0px;
+  }
+
 }
 
 /*********************/
