@@ -154,6 +154,7 @@ video {
 .avaliableOn .opensea  { background-color: rgba(27, 159, 218, 0.5); color: white; }
 .avaliableOn .rarible  { background-color: rgba(253, 213, 12, 0.5); color: black; }
 .avaliableOn .ethereum { background-color: rgb(226, 226, 252);      color: black; }
+.avaliableOn .async    { background-color: rgb(226, 226, 252);      color: black; }
 
 /*****************/
 /* IMAGE GALLERY */ 
