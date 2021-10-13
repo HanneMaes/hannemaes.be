@@ -21,6 +21,11 @@ a, a:hover {
   height: 240px;
 }
 
+small {
+  font-size: 0.5em;
+  opacity: 0.5;
+}
+
 /**********/
 /* MOBILE */
 /**********/
