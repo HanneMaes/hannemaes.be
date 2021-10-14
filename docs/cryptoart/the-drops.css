@@ -1,5 +1,9 @@
-h1, em { 
+body {
   background-color: black;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+h1, em { 
   color:#f15050; 
 }
 
