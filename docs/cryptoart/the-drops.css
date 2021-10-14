@@ -1,7 +1,21 @@
 h1, em { 
+  background-color: black;
   color:#f15050; 
 }
 
 a, a:hover { 
   text-decoration-color: #f15050;
+}
+
+h1 {
+  color: white;
+}
+
+h2 {
+  color:rgb(255, 147, 133);
+}
+
+.backButton::after {
+  background-color: rgb(255, 147, 133);
+  color: black;
 }
