@@ -5,3 +5,8 @@ h1, em {
 a, a:hover { 
   text-decoration-color: #f15050;
 }
+
+.theDropsCanvas {
+  width: 687px;
+  max-width: 100%;
+}
