@@ -1,3 +1,7 @@
+img {
+  max-width: 100%;
+}
+
 /* animated gradient text */
 .subHeader, h2, a:hover:not(.blackButton) { /* exclude the blackButton links from the effect because that wasn't working good */
   background: linear-gradient(to right, #ff7a87 25%, #ffb477 35%, #ffb477 65%, #ff7a87 75%);
