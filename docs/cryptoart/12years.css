@@ -23,3 +23,8 @@ em {
   background-color: rgb(255, 147, 133);
   color: black;
 }
+
+.artwork {
+  width: 1920px;
+  max-width: 100%;
+}
