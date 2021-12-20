@@ -83,6 +83,7 @@ header h1 {
 .subHeaderEm {
   color:                   black;
   -webkit-text-fill-color: black;
+  font-weight: bold;
 }
 
 /*********/
