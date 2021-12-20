@@ -99,6 +99,7 @@ a {
 }
 a:hover {
   margin-left: 10px;
+  text-decoration: none;
 }
 a::before {
   content: '- ';
