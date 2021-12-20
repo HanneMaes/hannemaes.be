@@ -78,6 +78,10 @@ header h1 {
 
 .subHeader {
   font-size: 25px;
+  font-style: italic;
+}
+.subHeader {
+  color: black;
 }
 
 /*********/
