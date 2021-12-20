@@ -61,12 +61,9 @@ header h1 {
   font-size: 40px;
 }
 
-.subHeader {
-  font-size: 30px;
-  font-style: italic;
-}
-
+/******************/
 /* intro & avatar */
+/******************/
 
 .intro {
   display: flex;
@@ -79,7 +76,15 @@ header h1 {
   display: inline-block;
 }
 
+.subHeader {
+  font-size: 25px;
+  font-style: italic;
+}
+
+/*********/
 /* links */
+/*********/
+
 a {
   font-size: 18px;
   display: block;
