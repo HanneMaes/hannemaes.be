@@ -3,7 +3,7 @@
 /**************************/
 
 .subHeader, h2, a:hover:not(.blackButton) { /* exclude the blackButton links from the effect because that wasn't working good */
-  background: linear-gradient(to right, #ff7a87 25%, #ffb477 35%, #ffb477 65%, #ff7a87 75%);
+  background: linear-gradient(to right, #E64444 25%, #ffb477 35%, #ffb477 65%, #E64444 75%);
   background-size: 200% auto;
 
   background-clip: text;
