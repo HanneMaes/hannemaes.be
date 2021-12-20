@@ -55,7 +55,7 @@ header h1 {
 /* intro & avatar */
 
 .intro {
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
 }
 
