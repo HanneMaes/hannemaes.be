@@ -57,6 +57,7 @@ header h1 {
 .intro {
   display: inline-flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 /* links */
