@@ -99,7 +99,8 @@ a img {
   color: white;
   font-style: italic;
   font-size: 0.6em;
-  ertical-align: middle;
+  font-weight: bold;
+  vertical-align: middle;
 
   margin-left: 10px;
   padding-left:  8px;
@@ -186,7 +187,8 @@ a img {
   color: white;
   font-size: 15px;
   text-decoration: none;
-
+  font-weight: bold;
+  
   transform: scale(0.9);
   transition: all 0.3s ease-out;
 }
