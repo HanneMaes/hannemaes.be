@@ -31,10 +31,6 @@ body {
   margin: auto;
 }
 
-img { 
-  image-rendering: auto;
-}
-
 h1 {
   font-family: spaceRegular;
   color: var(--color-em);
