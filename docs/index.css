@@ -81,7 +81,8 @@ header h1 {
   font-style: italic;
 }
 .subHeaderEm {
-  color: black !important;
+  color:                   black;
+  -webkit-text-fill-color: black;
 }
 
 /*********/
