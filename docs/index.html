@@ -334,9 +334,10 @@
   <!-- goat counter analytics-->
   <script data-goatcounter="https://hannemaes.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script> 
   
+  <!-- hide spline loading screen when the iframe is loaded -->
   <script>
     document.getElementById('splineFrame').onload = function() {
-      alert('myframe is loaded');
+      document.getElementById('splineLoadingScreen').style.display = 'none';
     };
   </script>
 };
