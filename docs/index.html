@@ -304,14 +304,6 @@
 <!-- ---------- -->
 <!-- javascript -->
 <!-- ---------- -->
-
-<!-- hide spline logo -->
-<!--script src="script.js">
-  console.log('spline start');
-  document.getElementsByClassName('spline-watermark')[0].style.visibility = 'hidden';
-  console.log('spline-watermark:', document.getElementsByClassName('spline-watermark')[0].style.visibility);
-  console.log('spline stop');
-</script-->
   
 <!-- animate on scroll -->
 <script src="libraries/aos.js"></script>
@@ -336,6 +328,14 @@
     // mirror: false, // whether elements should animate out while scrolling past them
     // anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
   });
+  </script>
+  
+  <!-- hide spline logo -->
+  <script>
+    console.log('spline start');
+    document.getElementsByClassName('spline-watermark')[0].style.visibility = 'hidden';
+    console.log('spline-watermark:', document.getElementsByClassName('spline-watermark')[0].style.visibility);
+    console.log('spline stop');
   </script>
   
   <!-- goat counter analytics-->
