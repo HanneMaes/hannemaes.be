@@ -330,12 +330,14 @@
   });
   </script>
   
-  <!-- hide spline logo -->
+  <!-- hide spline logo when whole document is loaded -->
   <script>
-    console.log('spline start');
-    document.getElementsByClassName('spline-watermark')[0].style.visibility = 'hidden';
-    console.log('spline-watermark:', document.getElementsByClassName('spline-watermark')[0].style.visibility);
-    console.log('spline stop');
+    document.addEventListener("DOMContentLoaded", function(){
+      console.log('spline start');
+      document.getElementsByClassName('spline-watermark')[0].style.visibility = 'hidden';
+      console.log('spline-watermark:', document.getElementsByClassName('spline-watermark')[0].style.visibility);
+      console.log('spline stop');
+    });
   </script>
   
   <!-- goat counter analytics-->
