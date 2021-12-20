@@ -32,7 +32,7 @@ a:hover .wip { /* override .wip so that the text stays white */
 
 /* styling for the whole page, but only this page */
 .homePage { 
-  max-width: 1000px;
+  max-width: 950px;
 }
 
 /**********/
