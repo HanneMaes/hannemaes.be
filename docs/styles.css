@@ -97,6 +97,13 @@ video {
   margin-bottom: 30px;
 }
 
+/******************************/
+/* stack multiple divs on top */
+/******************************/
+
+.stackTheLayersOuter { position: relative; }
+.stackTheLayersInner { position: absolute; }
+
 /*****************************/
 /* back button on every page */
 /*****************************/
