@@ -80,7 +80,7 @@ header h1 {
   font-size: 25px;
   font-style: italic;
 }
-.subHeader em {
+.subHeaderEm {
   color: black !important;
 }
 
