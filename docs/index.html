@@ -67,9 +67,9 @@
   
   </div><!-- top -->
 
-  <!---------------------->
+  <!-- ---------------- -->
   <!-- avatar & tagline -->
-  <!---------------------->
+  <!-- ---------------- -->
   
   <section>
     <iframe src='https://my.spline.design/avatarhannemaesbe-259a247b85dc888c9b253b0d44110487/' frameborder='0' width='300px' height='300px'></iframe>
@@ -294,8 +294,12 @@
   <!-- javascript -->
   <!-- ---------- -->
 
-  <!-- libraries -->
-  <script data-goatcounter="https://hannemaes.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script> <!-- goat counter analytics-->
+  <!-- hide spline logo -->
+  <script src="script.js">
+    document.getElementsByClassName('spline-watermark')[0].style.visibility = 'hidden';
+  </script>
+  
+  <!-- animate on scroll -->
   <script src="libraries/aos.js"></script>
   <script>
     AOS.init({
@@ -309,7 +313,6 @@
       // debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
       // throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
       
-
       // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
       // offset: 120, // offset (in px) from the original trigger point
       // delay: 0, // values from 0 to 3000, with step 50ms
@@ -320,9 +323,9 @@
       // anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
     });
   </script>
-
-  <!-- my scripts -->
-  <!-- <script src="script.js"></script> -->
+  
+  <!-- goat counter analytics-->
+  <script data-goatcounter="https://hannemaes.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script> 
 
 </div><!-- centerPage -->
 </body>
