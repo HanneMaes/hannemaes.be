@@ -57,7 +57,7 @@ header h1 {
 .intro {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  align-items: center;
 }
 
 .avatar {
