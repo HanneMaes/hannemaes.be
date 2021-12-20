@@ -68,7 +68,7 @@
     <div class="avatar">
       
       <!-- spline avatar -->
-      <iframe src='https://my.spline.design/avatarhannemaesbe-259a247b85dc888c9b253b0d44110487/' frameborder='0' width='300px' height='300px'></iframe>
+      <iframe src='https://my.spline.design/avatarhannemaesbe-259a247b85dc888c9b253b0d44110487/' frameborder='0' width='300px' height='300px' id="splineFrame"></iframe>
     
     </div>
     <div>
@@ -332,6 +332,12 @@
   
   <!-- goat counter analytics-->
   <script data-goatcounter="https://hannemaes.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script> 
+  
+  <script>
+    document.getElementById('splineFrame').onload = function() {
+    alert('myframe is loaded');
+  </script>
+};
 
 </body>
 </html>
