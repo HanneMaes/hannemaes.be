@@ -80,6 +80,10 @@ header h1 {
   color:                   black;
   -webkit-text-fill-color: black;
 }
+.subHeader::before, .subHeader::after {
+  content:'"';
+  font-style: italic;
+}
 .subHeaderEm {
   font-weight: bold;
   font-style: italic;
