@@ -77,10 +77,10 @@ header h1 {
 
 .subHeader {
   font-size: 20px;
-}
-.subHeaderEm {
   color:                   black;
   -webkit-text-fill-color: black;
+}
+.subHeaderEm {
   font-weight: bold;
   font-style: italic;
 }
