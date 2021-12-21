@@ -77,6 +77,8 @@ header h1 {
 
 .subHeader {
   font-size: 20px;
+  color:                   black;
+  -webkit-text-fill-color: black;
 }
 .subHeaderEm {
   font-weight: bold;
