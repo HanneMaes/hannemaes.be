@@ -85,7 +85,7 @@ video {
   display: flex;
   flex-direction: row;
 }
-.row > * {
+.row > * { /* give every direct child some spacing of the right */
   margin-right: 30px;
 }
 
@@ -93,7 +93,7 @@ video {
   display: flex;
   flex-direction: column;
 }
-.column > * {
+.column > * { /* give every direct child some spacing of the bottom */
   margin-bottom: 30px;
 }
 
@@ -191,7 +191,7 @@ video {
     display: flex;
     flex-direction: column;
   }
-  .row > * {
+  .row > * { /* give every direct child some spacing of the right */
     margin-right: 0px;
   }
 
