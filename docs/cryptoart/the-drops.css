@@ -10,3 +10,28 @@ a, a:hover {
   width: 500px;
   max-width: 100%;
 }
+
+.artworkRow {
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+/*.artworkRow > * {
+  margin-right: 30px;
+}*/
+
+/**********/
+/* MOBILE */
+/**********/
+
+@media screen and (max-width: 750px) {
+
+  .artworkRow {
+    display: flex;
+    flex-direction: column;
+  }
+  /*.artworkRow > * {
+    margin-right: 0px;
+  }*/
+
+}
