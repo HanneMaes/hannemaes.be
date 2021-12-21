@@ -16,9 +16,9 @@ a, a:hover {
   display: flex;
   flex-direction: row;
 }
-/*.artworkRow > * {
+.artworkRow > * { /* give every direct child some spacing of the right */
   margin-right: 30px;
-}*/
+}
 
 /**********/
 /* MOBILE */
@@ -30,8 +30,8 @@ a, a:hover {
     display: flex;
     flex-direction: column;
   }
-  /*.artworkRow > * {
+  .artworkRow > * { /* give every direct child some spacing of the right */
     margin-right: 0px;
-  }*/
+  }
 
 }
