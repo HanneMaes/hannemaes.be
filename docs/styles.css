@@ -93,7 +93,7 @@ video {
   display: flex;
   flex-direction: column;
 }
-.row > * {
+.column > * {
   margin-bottom: 30px;
 }
 
