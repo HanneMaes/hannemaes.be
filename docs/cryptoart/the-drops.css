@@ -1,11 +1,11 @@
-/*h1, em { 
+h1, em { 
   color:#f15050; 
 }
 
 a, a:hover { 
   text-decoration-color: #f15050;
 }
-*/
+
 .theDropsCanvas {
   width: 687px;
   max-width: 100%;
