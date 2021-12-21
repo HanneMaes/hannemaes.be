@@ -85,6 +85,11 @@ header h1 {
   font-style: italic;
 }
 
+.avatarPlusLoadingScreen {
+  width: 300px;
+  height: 300px;
+}
+
 /*********/
 /* links */
 /*********/
