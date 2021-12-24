@@ -6,6 +6,12 @@ a, a:hover {
   text-decoration-color: #f15050;
 }
 
+.theDropsCanvas {
+  width: 687px;
+  height: 333px;
+  max-wdith: 100%;
+}
+
 .artwork {
   width: 500px;
   max-width: 100%;
