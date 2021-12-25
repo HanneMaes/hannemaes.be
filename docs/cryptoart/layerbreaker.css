@@ -5,3 +5,7 @@ h1, em {
 a, a:hover { 
   text-decoration-color: #8D4368;
 }
+
+.artwork, .textBlock {
+  max-width: 100%;
+}
