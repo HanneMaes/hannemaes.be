@@ -14,7 +14,7 @@
 
 @font-face {
   font-family: brutal;
-  src: url(fonts/leMurmureJuly2019/le-murmure-july2019/fonts/webfonts/Le_Murmure-Regular_web.ttf);
+  src: url(fonts/leMurmureJuly2019/Le_Murmure-Regular_web.ttf);
 }
 
 body {
@@ -43,7 +43,6 @@ h1 {
 }
 
 h2 {
-  font-family: brutal;
   margin-top: 50px;
   font-style: italic;
   color: var(--color-em);
