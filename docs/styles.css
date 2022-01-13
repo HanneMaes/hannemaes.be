@@ -43,6 +43,7 @@ h1 {
 }
 
 h2 {
+  font-family: brutal;
   margin-top: 50px;
   font-style: italic;
   color: var(--color-em);
