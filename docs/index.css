@@ -235,7 +235,7 @@ a img {
 @media screen and (max-width: 600px) {
 
   /* header */
-  header h1 { font-size: 30px; }
+  header h1 { font-size: 70px; }
   .subHeader { font-size: 16px !important; }
   header img {
     width:  60px;
