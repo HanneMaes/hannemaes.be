@@ -12,6 +12,11 @@
   src: url(fonts/SpaceMono/SpaceMono-BoldItalic.ttf);
 }
 
+@font-face {
+  font-family: brutal;
+  src: url(fonts/leMurmureJuly2019/le-murmure-july2019/fonts/webfonts/Le_Murmure-Regular_web.ttf);
+}
+
 body {
   margin: 0;
   padding: 30px;
@@ -32,7 +37,7 @@ body {
 }
 
 h1 {
-  font-family: spaceRegular;
+  font-family: brutal;
   color: var(--color-em);
   font-size: 50px;
 }
