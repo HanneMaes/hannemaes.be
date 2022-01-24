@@ -101,7 +101,7 @@ header h1 {
 .residentArtist a:hover {
   margin-left: 0px;
 }
-a::before {
+.residentArtist a::before {
   content: '';
   display: none;
 }
