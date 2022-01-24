@@ -97,9 +97,11 @@ header h1 {
 .residentArtist a {
   display: inline;
   transition: all 0.3s ease-out;
+  text-decoration: underline solid #ff7a87 5px;
 }
 .residentArtist a:hover {
   margin-left: 0px;
+  text-decoration-color: black;
 }
 .residentArtist a::before {
   content: '';
