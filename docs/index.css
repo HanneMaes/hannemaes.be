@@ -101,7 +101,6 @@ header h1 {
 .residentArtist a {
   display: inline;
   font-size: 16px;
-  font-weight: bold;
 }
 .residentArtist a:hover {
   margin-left: 0px;
