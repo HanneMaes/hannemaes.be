@@ -6,7 +6,7 @@ a, a:hover {
   text-decoration-color: #f15050;
 }
 
-.theDropsCanvas {
+.theDropsCanvas .theDropsGrid {
   width: 687px;
   max-width: 100%;
 }
