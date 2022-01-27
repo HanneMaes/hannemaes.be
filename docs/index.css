@@ -84,10 +84,6 @@ header h1 {
   -webkit-text-fill-color: black;
   font-size: 16px;
 }
-.subheader a {
-  font-size: 16px;
-  font-weight: bold;
-}
 .subHeaderEm {
   font-weight: bold;
   font-style: italic;
@@ -104,6 +100,8 @@ header h1 {
 
 .residentArtist a {
   display: inline;
+  font-size: 16px;
+  font-weight: bold;
 }
 .residentArtist a:hover {
   margin-left: 0px;
