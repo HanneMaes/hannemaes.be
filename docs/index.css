@@ -67,7 +67,11 @@ header h1 {
 
 .intro {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+}
+
+.introText {
+  padding-top: 10px;
 }
 
 .avatar {
