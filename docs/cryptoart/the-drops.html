@@ -228,10 +228,18 @@
   <!-- javascript -->
   <!---------------->
 
-  <!-- libararies -->
-  <script data-goatcounter="https://hannemaes.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script> <!-- goat counter analytics-->
-  <script src="../libraries/medium-zoom.min.js"></script>                                      <!-- zoom on click -->
-  <script src="../libraries/aos.js"></script>                                                                   <!-- animate on scroll -->
+  <!-- goat counter analytics-->
+  <script data-goatcounter="https://hannemaes.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script> 
+  
+  <!-- zoom on click -->
+  <script src="../libraries/medium-zoom.min.js"></script>                                                       
+  <script>
+    console.log('zoom test 1')
+    mediumZoom('[data-zoomable]')
+  </script>
+    
+  <!-- animate on scroll -->
+  <script src="../libraries/aos.js"></script>                                                                   
   <script>
     AOS.init({
       // Global settings:
