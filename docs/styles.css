@@ -26,6 +26,8 @@ body {
   background-color: var(--color-background);
   color: var(--color-text);
 
+  overflow-y: hidden; /* no vertical scolling */
+  
   /* for .centerPage */
   display: flex;
   justify-content: center;
