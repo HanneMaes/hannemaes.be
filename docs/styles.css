@@ -168,9 +168,13 @@ video {
 .avaliableOn .ethereum { background-color: rgb(226, 226, 252);      color: black; }
 .avaliableOn .async    { background-color: rgb(98, 90, 255);        color: white; }
 
-/*****************/
-/* IMAGE GALLERY */ 
-/*****************/
+/**************************/
+/* IMAGES & IMAGE GALLERY */ 
+/**************************/
+
+img {
+  max-width: 100%;
+}
 
 .gallery {
   display: flex;
