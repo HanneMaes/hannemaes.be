@@ -22,11 +22,9 @@ body {
   padding: 30px;
   font-family: spaceRegular;
   letter-spacing: 1px;
-
+  
   background-color: var(--color-background);
   color: var(--color-text);
-
-  overflow-x: hidden; /* no vertical scolling */
   
   /* for .centerPage */
   display: flex;
@@ -36,6 +34,7 @@ body {
 .centerPage {
   display: inline-block;
   margin: auto;
+  max-width: 100vw;
 }
 
 h1 {
