@@ -5,16 +5,16 @@
 
 @font-face {
   font-family: spaceRegular;
-  src: url(fonts/SpaceMono/SpaceMono-Regular.ttf);
+  src: url('fonts/SpaceMono/SpaceMono-Regular.ttf');
 }
 @font-face {
   font-family: spaceBoldItalic;
-  src: url(fonts/SpaceMono/SpaceMono-BoldItalic.ttf);
+  src: url('fonts/SpaceMono/SpaceMono-BoldItalic.ttf');
 }
 
 @font-face {
   font-family: brutal;
-  src: url(fonts/leMurmureJuly2019/Le_Murmure-Regular_web.ttf);
+  url('fonts/rawgly-font/RawglyRegular-MVyWP.otf');
 }
 
 body {
