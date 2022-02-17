@@ -41,6 +41,7 @@ h1 {
   font-family: brutal;
   color: var(--color-em);
   font-size: 90px;
+  letter-spacing: 8px;
 }
 
 h2 {
