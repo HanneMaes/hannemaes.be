@@ -39,7 +39,7 @@ a:hover .wip { /* override .wip so that the text stays white */
 /* header */
 /**********/
 
-.top {
+header {
   margin-bottom: 30px;
 }
 
@@ -242,11 +242,4 @@ a img {
 /**********/
 
 /* header */
-@media screen and (max-width: 750px) {
-
-  .top {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-}
+/*@media screen and (max-width: 750px) {}*/
