@@ -9,7 +9,3 @@ a, a:hover {
 h1 {
   color: rgb(45, 151, 155);
 }
-
-.backButton::after {
-  background-color: rgb(45, 151, 155);
-}
