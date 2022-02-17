@@ -143,7 +143,7 @@ video {
   height: 0;
   border-top: 11px solid transparent;
   border-bottom: 10px solid transparent;
-  border-right: 10px solid black;
+  border-right: 8px solid black;
   position: relative;
   top: 5px;
 }
