@@ -241,7 +241,7 @@ a img {
 /* MOBILE */
 /**********/
 
-@media screen and (max-width: 600px) {
+/*@media screen and (max-width: 600px) {
 
   /* header */
   header h1 { font-size: 70px; }
@@ -251,7 +251,7 @@ a img {
     height: 60px;
     margin-right: 25px;
   }
-}
+}*/
 
 /* header extra small */
 @media screen and (max-width: 750px) {
