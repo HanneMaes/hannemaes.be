@@ -136,15 +136,16 @@ video {
   padding-left:  8px;
   padding-right: 8px;
 }
-backButton::before{
-    content:"";
-    position:absolute;
-    height:0;
-    width:0;
-    left:100%;
-    top:0;
-    border:20px solid transparent;
-    border-left: 20px solid black;
+.backButton::before {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-top: 11px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid black;
+  position: relative;
+  top: 5px;
 }
 
 /*************************/
