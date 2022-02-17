@@ -23,6 +23,9 @@ em {
   background-color: rgb(255, 147, 133);
   color: black;
 }
+.backButton::before {
+  border-right-color: rgb(255, 147, 133);
+}
 
 .artwork {
   width: 1920px;
