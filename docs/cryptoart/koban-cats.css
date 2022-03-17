@@ -5,6 +5,9 @@ h1, em {
 a, a:hover { 
   text-decoration-color: #f15050;
 }
+a {
+  background-color: rgba(241, 80, 80, 0.2);
+}
 
 .theDropsCanvas .theDropsGrid {
   width: 687px;
