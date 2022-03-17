@@ -5,6 +5,9 @@ h1, em {
 a, a:hover { 
   text-decoration-color: #32A98D; 
 }
+a {
+  background-color: rgba(50, 169, 141, 0.2);
+}
 
 .artwork {
   width: 1920px;
