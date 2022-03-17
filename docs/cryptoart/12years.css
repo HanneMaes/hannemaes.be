@@ -6,6 +6,9 @@ body {
 a, a:hover { 
   text-decoration-color: #ff938580; 
 }
+a {
+  background-color: rgba(255, 147, 133, 0.2);
+}
 
 h1 {
   color: white;
