@@ -13,11 +13,11 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
   <!-- custom browser head color -->
-  <meta name="theme-color" content="#32A98D">
+  <meta name="theme-color" content="#ff938580">
 
   <!-- my css -->
   <link rel="stylesheet" href="../styles.css">
-  <link rel="stylesheet" href="ai.css">
+  <link rel="stylesheet" href="12years.css">
 
   <!-- css librariesraries -->
   <link rel="stylesheet" href="../libraries/aos.css">
@@ -35,65 +35,61 @@
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
   <link rel="manifest" href="../site.webmanifest">
-  <link rel="mask-icon" href="../safari-pinned-tab.svg" color="#32A98D">
-  <meta name="msapplication-TileColor" content="#32A98D">
-  <meta name="theme-color" content="#32A98D">
+  <link rel="mask-icon" href="../safari-pinned-tab.svg" color="#ff938580">
+  <meta name="msapplication-TileColor" content="#ff938580">
+  <meta name="theme-color" content="#ff938580">
 
   <!-- favicons for github pages -->
   <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
 
 </head>
 <body>
-<div class="centerPage">
+<div class="centerOnBigScreen">
 
   <!-- back button -->
-  <a href="../index.html"><div class="backButton"></div></a>
+  <a class="backButtonA" href="../index.html"><div class="backButton"></div></a>
 
   <!-- content -->
-  <h1 data-aos="fade-left">Finding an A.I.'s artistic vision</h1>
+  <h1 data-aos="fade-left">12 Years</h1>
 
   <section>
-    <em>Finding the perfect intersection between a human and an A.I. artist.</em>
+    <em>A unique artwork, every hour, for 12 years.</em><br>
+    <br>
+    3 structures, each rotating at a different speed.<br>
+    The left one rotates in 7 days, the middle one in 30 days and the right one takes 365 days complete its cycle<br>
+    <em>It takes 12 years for the whole work to complete all the different configurations and arrive back at its origin state.</em><br>
+    <br>
+    When you look at the piece, you know it will take 12 years (leap years included) to rotate to that exact same configuration.<br>
+    It will take 12 years for you to see that same configuration ever again.<br>
+    <br>
+    A unique artwork, every hour, for 12 years.<br>
   </section>
 
+  <h2>Preview</h2>
   <section>
-    Just like the pop art movement in the 50s I try to experiment with new technologies.<br>
-    In my case I use A.I. techniques to create unique imagery.<br>
-  </section>
-
-  <section>
+    This is the first part of the cycle (I don't want to spoil the 12 years).<br>
+    It's sped up so that every second represents 1 hour.
     <video class="artwork" loop controls autoplay>
-      <source src="ai images/Inspiring an AI artist.mp4" type="video/mp4">
-      Your browser doesn't support embedded videos.<br><img src="ai images/Inspiring an AI artist.jpg">
+      <source src="12years images/12years.mp4" type="video/mp4">
+      Your browser doesn't support embedded videos.<br><img src="12years images/12years.jpg">
     </video>
   </section>
 
-  <h2>The Experiment</h2>
+  <h2>Timing</h2>
   <section>
-    In this visual experiment I compared myself to an A.I. that is given various degrees of artistic freedom and abstraction.<br>
-    <br>
-    The work on the bottom left is how I created it.<br>
-    Going along the <em>x-axis</em> I give the A.I. more <em>creative freedom</em>. Along the <em>y-axis</em> I <em>abstract the input</em> the A.I. is given.<br>
-    This culminates in the <em>upper right</em> work where the A.I. is given full creative control over an abstracted source resulting in an <em>artistic vision created by the A.I. artist itself</em>.<br>
-    <br>
-    The abstraction number represents the resolution of the applied abstraction.<br>
-    The keyframes number represents the amount of keyframes I fed the A.I. to base his output on.
-    When the keyframes are negative, I used that amount of "incorrect" keyframe to confuse the A.I. and let it express itself in an unintended way, <em>forcing the A.I. to be "creative"</em>.
-  </section>
-
-  <h2>The Chosen One</h2>
-  <section>
-    The <em>right panel</em> represents the <em>ideal intersection between a human and an A.I. artist.</em><br>
-    This is where Async.art's programmable technology comes into play, upon <em>owning this piece you can decide what panel is displayed and thus express your vision on the matter</em>.
+    - Structure 1 completes its rotation in 7 days with a new state every hour.<br>     <!-- frame every hour: 7 days * 24 hours = 168 frames -->
+    - Structure 2 completes its rotation in 30 days with a new state every 4 hours.<br> <!-- frame every 4 hours: 30 days * 6 = 180 frames  -->
+    - Structure 3 completes its rotation in 365.25 days with a new state 6 hours.<br>   <!-- frame every 6 hours:  25 hours / 4 (because of the .25 in 365.25) = 1461 frames-->
+    <em>This makes it that the full cycle completes in 12 years.</em>
   </section>
 
   <!-- back button -->
   <section>
-    <a href="../index.html"><div class="backButton"></div></a>
+    <a class="backButtonA" href="../index.html"><div class="backButton"></div></a>
   </section>
 
   <!-- handtekening -->
-  <img class="signature" width="160px" height="69px" src="../images/signature black.gif"> <!-- the size is 50% smaller then to source to increase quality -->
+  <img class="signature" width="160px" height="69px" src="../images/signature white.gif"> <!-- the size is 50% smaller then to source to increase quality -->
 
   <!---------------->
   <!-- javascript -->
@@ -118,7 +114,7 @@
       // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
       // offset: 120, // offset (in px) from the original trigger point
       // delay: 0, // values from 0 to 3000, with step 50ms
-      duration: 1000, // values from 0 to 3000, with step 50ms
+      duration: 1200, // values from 0 to 3000, with step 50ms
       // easing: 'ease', // default easing for AOS animations
       // once: false, // whether animation should happen only once - while scrolling down
       // mirror: false, // whether elements should animate out while scrolling past them

@@ -122,6 +122,9 @@ video {
   margin-left: 0px;
   transition: all 0.3s ease-out;
 }
+.backButtonA {
+  background-color: rgba(255, 255, 255, 0); /* bacause links have a colored background, I have to make it transparant */
+}
 .backButton:hover {
   margin-left: -10px;
 }
