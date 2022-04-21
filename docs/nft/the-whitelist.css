@@ -1,0 +1,29 @@
+body {
+  background-color: black;
+  color: rgb(100, 100, 100);
+}
+
+h1, em { 
+  color: white; 
+}
+
+a, a:hover { 
+  text-decoration-color: white;
+}
+a {
+  background-color: rgba(100, 100, 100, 0.4);
+  color: white;
+}
+
+.backButton::after {
+  background-color: rgb(100, 100, 100);
+  color: black;
+}
+.backButton::before {
+  border-right-color: rgb(100, 100, 100);
+}
+
+.artwork {
+  width: 800px;
+  max-width: 100%;
+}
