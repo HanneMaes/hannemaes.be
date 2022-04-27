@@ -1,0 +1,38 @@
+body, h2 {
+  background-color: #0f1b33;
+  color: #94a7cb
+}
+
+h1, h2 {
+  color: #fd6d86;
+}
+
+em { 
+  color: white; 
+}
+
+a, a:hover { 
+  text-decoration-color: #fd6d86;
+}
+a {
+  color: #fd6d86;
+  background-color: rgba(248, 167, 203, 0.3);
+}
+
+.backButton::after {
+  background-color: #5e5c9a;
+  color: black;
+}
+.backButton::before {
+  border-right-color: #5e5c9a;
+}
+
+.goodboi {
+  width: 800px;
+  max-width: 100%;
+}
+
+.galleryImage {
+  width:  400px;
+  max-width: 400px;
+}
