@@ -1,0 +1,33 @@
+body, h2 {
+  background-color: #1c1e3a;
+  color: rgb(255, 255, 255, 0.7);
+}
+
+h1, em {
+  color: #28f9b5;
+}
+
+h2{ 
+  color: white; 
+}
+
+a, a:hover { 
+  text-decoration-color: #28f9b5;
+}
+a {
+  color: white;
+  background-color: #2b4a52;
+}
+
+.backButton::after {
+  background-color: #2b4a52;
+  color: #28f9b5;
+}
+.backButton::before {
+  border-right-color: #2b4a52;
+}
+
+.artwork {
+  width: 320px;
+  max-width: 100%;
+}
