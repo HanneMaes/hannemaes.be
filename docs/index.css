@@ -92,6 +92,19 @@ header h1, header img {
   display: none;
 }
 
+/*************/
+/* signature */
+/*************/
+
+@font-face {
+  font-family: numbers;
+  src: url('fonts/SpaceMono/SpaceMono-BoldItalic.ttf');
+}
+
+.signatureDigital {
+  font-family: spaceRegular;
+}
+
 /*********/
 /* links */
 /*********/
