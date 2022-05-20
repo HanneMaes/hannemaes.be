@@ -105,6 +105,8 @@ header h1, header img {
   font-family: numbers;
   font-size: 10px;
   color: black;
+  line-hieght: 10%;
+  opacity: 0.5;
 }
 
 /*********/
