@@ -109,7 +109,7 @@ header h1, header img {
 }*/
 
 .signature::after {
-  content: '0xF46f4e1205F2<br>5E57fF646a7142<br>07A183E382E0E3<br>';
+  content: "0xF46f4e1205F2<br>5E57fF646a7142<br>07A183E382E0E3<br>";
   font-family: numbers;
   font-size: 10px;
   color: black;
