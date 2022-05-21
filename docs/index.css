@@ -92,30 +92,6 @@ header h1, header img {
   display: none;
 }
 
-/*************/
-/* signature */
-/*************/
-
-@font-face {
-  font-family: numbers;
-  src: url('fonts/SpaceMono/SpaceMono-BoldItalic.ttf');
-}
-
-/*.signatureDigital {
-  font-family: numbers;
-  font-size: 10px;
-  color: black;
-  opacity: 0.3;
-}*/
-
-.signature::after {
-  content: "-0xF46f4e1205F2<br>5E57fF646a7142<br>07A183E382E0E3<br>";
-  /*font-family: numbers;
-  font-size: 10px;
-  color: black;
-  opacity: 0.3;*/
-}
-
 /*********/
 /* links */
 /*********/

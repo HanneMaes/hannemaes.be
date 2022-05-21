@@ -79,8 +79,36 @@ video {
   max-width: 100%;
 }
 
-.signature {
+/*************/
+/* signature */
+/*************/
+
+.signatureLegacy, .signatureDigital {
+  padding-left:  10px;
+  padding-right: 10px;
+}
+
+.signatureContainer { border: 2px dotted       rgba(0, 0, 0, 0.1); }
+.signatureLegacy {    border-right: 2px dotted rgba(0, 0, 0, 0.1); }
+
+.signatureContainer {
   margin-top: 40px;
+
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+@font-face {
+  font-family: numbers;
+  src: url('fonts/SpaceMono/SpaceMono-BoldItalic.ttf');
+}
+
+.signatureDigital {
+  font-family: numbers;
+  font-size: 10px;
+  color: black;
+  opacity: 0.2;
 }
 
 /***********/
