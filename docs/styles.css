@@ -88,9 +88,6 @@ video {
   padding-right: 10px;
 }
 
-.signatureContainer { border: 2px dotted       rgba(0, 0, 0, 0.1); }
-.signatureLegacy {    border-right: 2px dotted rgba(0, 0, 0, 0.1); }
-
 .signatureContainer {
   margin-top: 40px;
 
@@ -107,8 +104,6 @@ video {
 .signatureDigital {
   font-family: numbers;
   font-size: 10px;
-  color: black;
-  opacity: 0.2;
 }
 
 /***********/

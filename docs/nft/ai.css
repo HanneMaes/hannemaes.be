@@ -3,11 +3,16 @@ h1, em {
 }
 
 a, a:hover { 
-  text-decoration-color: #32A98D; 
+  text-decoration-color: rgb(50, 169, 141); 
 }
 a {
   background-color: rgba(50, 169, 141, 0.2);
 }
+
+/* signature */
+.signatureDigital   {  color:                  rgba(50, 169, 141, 0.4); }
+.signatureContainer { border: 2px dotted       rgba(50, 169, 141, 0.2); }
+.signatureLegacy    { border-right: 2px dotted rgba(50, 169, 141, 0.2); }
 
 .artwork {
   width: 1920px;

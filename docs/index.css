@@ -92,6 +92,11 @@ header h1, header img {
   display: none;
 }
 
+/* signature */
+.signatureDigital   {  color:                  rgba(0, 0, 0, 0.2); }
+.signatureContainer { border: 2px dotted       rgba(0, 0, 0, 0.1); }
+.signatureLegacy    { border-right: 2px dotted rgba(0, 0, 0, 0.1); }
+
 /*********/
 /* links */
 /*********/

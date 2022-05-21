@@ -9,3 +9,9 @@ a, a:hover {
 h1 {
   color: rgb(45, 151, 155);
 }
+
+/* signature */
+.signatureDigital   {  color:                  rgba(45, 151, 155, 0.4); }
+.signatureContainer { border: 2px dotted       rgba(45, 151, 155, 0.2); }
+.signatureLegacy    { border-right: 2px dotted rgba(45, 151, 155, 0.2); }
+

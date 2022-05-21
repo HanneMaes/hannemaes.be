@@ -4,7 +4,7 @@ body, h2 {
 }
 
 h1, h2 {
-  color: #fd6d86;
+  color: rgb(253, 109, 134);
 }
 
 em { 
@@ -12,12 +12,18 @@ em {
 }
 
 a, a:hover { 
-  text-decoration-color: #fd6d86;
+  text-decoration-color: rgb(253, 109, 134);
 }
 a {
-  color: #fd6d86;
+  color: rgb(253, 109, 134);
   background-color: rgba(248, 167, 203, 0.3);
 }
+
+/* signature */
+.signatureDigital   {  color:                  rgba(253, 109, 134, 0.4); }
+.signatureContainer { border: 2px dotted       rgba(253, 109, 134, 0.2); }
+.signatureLegacy    { border-right: 2px dotted rgba(253, 109, 134, 0.2); }
+
 
 .backButton::after {
   background-color: #5e5c9a;

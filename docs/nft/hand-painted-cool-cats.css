@@ -1,13 +1,18 @@
 h1, em { 
-  color:#fdaae3; 
+  color:rgb(253, 170, 227);
 }
 
 a, a:hover { 
-  text-decoration-color: #fdaae3;
+  text-decoration-color: rgb(253, 170, 227);
 }
 a {
   background-color: rgba(253, 170, 227, 0.2);
 }
+
+/* signature */
+.signatureDigital   {  color:                  rgba(253, 170, 227, 0.5); }
+.signatureContainer { border: 2px dotted       rgba(253, 170, 227, 0.3); }
+.signatureLegacy    { border-right: 2px dotted rgba(253, 170, 227, 0.3); }
 
 .galleryImage {
   width:  250px;

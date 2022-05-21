@@ -19,6 +19,11 @@ a {
   background-color: rgba(219, 198, 164, 0.3);
 }
 
+/* signature */
+.signatureDigital   {  color:                  rgba(219, 198, 164, 0.4); }
+.signatureContainer { border: 2px dotted       rgba(219, 198, 164, 0.2); }
+.signatureLegacy    { border-right: 2px dotted rgba(219, 198, 164, 0.2); }
+
 .backButton::after {
   background-color: rgba(219, 198, 164, 0.5);
   color: black;

@@ -1,13 +1,19 @@
 h1, em { 
-  color:#f15050; 
+  color:rgb(241, 80, 80); 
 }
 
 a, a:hover { 
-  text-decoration-color: #f15050;
+  text-decoration-color: rgb(241, 80, 80);
 }
 a {
   background-color: rgba(241, 80, 80, 0.2);
 }
+
+/* signature */
+.signatureDigital   {  color:                  rgba(241, 80, 80, 0.4); }
+.signatureContainer { border: 2px dotted       rgba(241, 80, 80, 0.2); }
+.signatureLegacy    { border-right: 2px dotted rgba(241, 80, 80, 0.2); }
+
 
 .theDropsCanvas .theDropsGrid {
   width: 687px;
