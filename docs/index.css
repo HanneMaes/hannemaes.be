@@ -100,6 +100,10 @@ header h1, header img {
   display: none;
 }
 
+.residentArtist .signature {
+  font-size: 12px;
+}
+
 /* signature */
 .signatureDigital   {  color:                  rgba(0, 0, 0, 0.2); }
 .signatureContainer { border: 2px dotted       rgba(0, 0, 0, 0.1); }
