@@ -100,8 +100,8 @@ header h1, header img {
   display: none;
 }
 
-.residentArtist .signature {
-  font-size: 12px;
+.residentArtistSignature {
+  font-size: 12px !important;
 }
 
 /* signature */
