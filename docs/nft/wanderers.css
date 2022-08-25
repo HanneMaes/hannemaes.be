@@ -19,6 +19,12 @@ a {
   background-color: #2b4a52;
 }
 
+.subtleText{
+  opacity: 0.7;
+  font-size: 0.9em;
+  padding-left: 20px;
+}
+
 /* signature */
 .signatureDigital   {  color:                  rgba(40, 249, 181, 0.4); }
 .signatureContainer { border: 2px dotted       rgba(40, 249, 181, 0.2); }
