@@ -142,6 +142,10 @@ video {
 
 .tableOfContentsLink {
   margin-left: 25px;
+  display: inline-block;
+}
+.tableOfContentsLink::before {
+  content: "> ";
 }
 
 .tableOfContentsLink:hover {
