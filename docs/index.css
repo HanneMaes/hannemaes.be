@@ -142,10 +142,13 @@ a img {
   margin-right: 10px;
 }
 
-/* WIP banner */
-.wip {
-  background-color: black;
+/********/
+/* TAGS */
+/********/
+
+.wip, .license, .tagLink {
   color: white;
+  background-color: black;
   font-style: italic;
   font-size: 0.6em;
   font-weight: bold;
@@ -155,6 +158,9 @@ a img {
   padding-left:  8px;
   padding-right: 8px;
 }
+
+.wip {     background-color: black; }
+.license { background-color: #ff7a87; }
 
 /*********************************/
 /* external links at top of page */
