@@ -142,6 +142,7 @@ video {
 
 .tableOfContentsLink {
   margin-left: 25px;
+  display: inline-block;
 }
 
 .tableOfContentsLink:hover {
