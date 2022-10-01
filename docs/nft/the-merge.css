@@ -1,0 +1,38 @@
+h1, em { 
+  color:rgb(254, 161, 196);
+}
+
+a, a:hover { 
+  text-decoration-color: rgb(254, 161, 196);
+}
+a {
+  background-color: rgba(254, 161, 196, 0.2);
+}
+
+/* signature */
+.signatureDigital   {  color:                  rgba(254, 161, 196, 0.5); }
+.signatureContainer { border: 2px dotted       rgba(254, 161, 196, 0.3); }
+.signatureLegacy    { border-right: 2px dotted rgba(254, 161, 196, 0.3); }
+
+.artwork {
+  width: 800px;
+  max-width: 100%;
+}
+
+/**********/
+/* MOBILE */
+/**********/
+
+@media screen and (max-width: 1010px) {
+  .exampleImage {
+    width:  45%;
+    height: 45%;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .galleryImage {
+    width:  50%;
+    height: 50%;
+  }
+}
