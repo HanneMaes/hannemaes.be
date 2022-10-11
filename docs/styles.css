@@ -14,7 +14,8 @@
 
 @font-face {
   font-family: brutal;
-  src: url('fonts/rawgly-font/RawglyRegular-MVyWP.otf');
+  /* src: url('fonts/rawgly-font/RawglyRegular-MVyWP.otf'); */
+  src: url('fonts/Ginger/Ginger.woff');
 }
 
 html {
