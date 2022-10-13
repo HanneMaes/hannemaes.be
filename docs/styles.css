@@ -46,14 +46,17 @@ body {
 
 h1 {
   font-family: brutal;
+  font-style: italic;
   color: var(--color-em);
   font-size: 80px;
 }
 
 h2 {
   margin-top: 50px;
-  font-style: italic;
   color: var(--color-em);
+  font-family: brutal;
+  font-weight: bold;
+  font-size: 40px;;
 }
 
 a {
