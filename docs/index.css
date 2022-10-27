@@ -159,8 +159,14 @@ a img {
   padding-right: 8px;
 }
 
-.wip {     background-color: black; }
-.license { background-color: #ff7a87; }
+.wip {     
+  background-color: black; 
+}
+
+.license { 
+  background-color: #ff7a87;
+  letter-spacing: 2px;
+}
 
 /*********************************/
 /* external links at top of page */
