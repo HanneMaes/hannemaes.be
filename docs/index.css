@@ -22,7 +22,7 @@
 a:hover * { /* override the children so that only the text direclty in the <a> get the color animation */
   -webkit-text-fill-color: black;
 }
-a:hover .wip { /* override .wip so that the text stays white */
+a:hover .wip .license { /* override .wip and .license so the text stays white */
   -webkit-text-fill-color: white;
 }
 
