@@ -103,6 +103,10 @@ video {
   margin-left: 15px;
 }
 
+.emoji {
+  font-style: normal;
+}
+
 /*************/
 /* signature */
 /*************/

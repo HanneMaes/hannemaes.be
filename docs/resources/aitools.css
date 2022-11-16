@@ -1,0 +1,25 @@
+body {
+  color: rgb(198, 40, 40);
+}
+
+a, a:hover { 
+  text-decoration-color: rgb(198, 40, 40);
+}
+
+h1 {
+  color: rgb(198, 40, 40);
+}
+
+/* signature */
+.signatureDigital   { color:                   rgba(198, 40, 40, 0.4); }
+.signatureContainer { border: 2px dotted       rgba(198, 40, 40, 0.2); }
+.signatureLegacy    { border-right: 2px dotted rgba(198, 40, 40, 0.2); }
+
+/* table of contents */
+.tableOfContentsLinks {
+  border-left: solid 5px rgb(198, 40, 40);
+}
+
+.media {
+  max-width: 100%;
+}
