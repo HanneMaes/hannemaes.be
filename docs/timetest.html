@@ -5,7 +5,7 @@
     </style>
 </head>
 <body>
-    ⌚️
+   <h1>⌚️</h1>
 <script>
 
 //***********************************
@@ -22,17 +22,25 @@ function printTime() {
     console.log('');
     console.log('Local:', local.toLocaleString());
     console.log('Epoch:', ep);
-    console.log('Epoch hours', convert(ep));
+    console.log('Epoch hours', epochToHours(ep));
+    console.log('Epoch minutes', epochToMinutes(ep));
 }
 
 //***********************************
 
-function convert(t) {
-  const dt = new Date(t);
-  const hr = dt.getUTCHours();
-  const m = "0" + dt.getUTCMinutes();
+function epochToHours(t) {
+  //const dt = new Date(t);
+  const hr = t.getUTCHours();
+  const m = "0" + t.getUTCMinutes();
   
   return hr + ':' + m.substr(-2)
+}
+    
+function epochToMinutes(t) {
+  //const dt = new Date(t);
+  const m = "0" + t.getUTCMinutes();
+  
+  return m.substr(-2)
 }
 
 //***********************************
