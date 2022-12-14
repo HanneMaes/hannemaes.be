@@ -6,6 +6,7 @@
 </head>
 <body>
    <h1>⌚️</h1>
+    v.03
 <script>
 
 //***********************************
@@ -29,16 +30,16 @@ function printTime() {
 //***********************************
 
 function epochToHours(t) {
-  //const dt = new Date(t);
-  const hr = t.getUTCHours();
-  const m = "0" + t.getUTCMinutes();
+  const dt = new Date(t);
+  const hr = dt.getUTCHours();
+  const m = "0" + dt.getUTCMinutes();
   
   return hr + ':' + m.substr(-2)
 }
     
 function epochToMinutes(t) {
-  //const dt = new Date(t);
-  const m = "0" + t.getUTCMinutes();
+  const dt = new Date(t);
+  const m = "0" + dt.getUTCMinutes();
   
   return m.substr(-2)
 }
