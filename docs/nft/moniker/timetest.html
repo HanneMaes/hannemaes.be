@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+    </style>
+</head>
+<body>
+    ⌚️
+<script>
+
+//***********************************
+
+printTime()
+setInterval(() => { printTime() }, 5 * 1000);
+
+//***********************************
+
+function printTime() {
+    const local = new Date();
+    const ep = Date.now(); 
+
+    console.log('');
+    console.log('Local:', local.toLocaleString());
+    console.log('Epoch:', ep);
+    console.log('Epoch hours', convert(ep));
+}
+
+//***********************************
+
+function convert(t) {
+  const dt = new Date(t);
+  const hr = dt.getUTCHours();
+  const m = "0" + dt.getUTCMinutes();
+  
+  return hr + ':' + m.substr(-2)
+}
+
+//***********************************
+
+</script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+/***********************************************************************************************************************************/
+/* CSS */
+
+        html, body { 
+            background-color: black; 
+            padding: 0;
+            margin: 0;
+        }
+
+    </style>
+</head>
+<body>
+<!-- ****************************************************************************************************************************** -->
+<!-- HTML -->
+    
+<canvas id="canvas">
+    Your browser does not support the HTML5 canvas tag.
+</canvas>
+<script>
+/***********************************************************************************************************************************/
+// CANVAS
+
+    // 2D canvas init & settings
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+
+    // set canvas size
+    var canvasWidth;
+    var canvasHeight;
+    if ( window.innerWidth < window.innerHeight ) {
+        canvasWidth  = window.innerWidth;
+        canvasHeight = window.innerWidth;
+    } else {
+        canvasWidth  = window.innerHeight;
+        canvasHeight = window.innerHeight;
+    }
+    canvas.width  = canvasWidth;
+    canvas.height = canvasHeight; 
+
+    // ANIMATION
+    var speedInSeconds = 3;
+    var linesMax = 3;
+    var linesCounter = 0;
+    var counter = 0;
+
+    setInterval(() => {
+
+        counter++;
+        linesCounter++;
+
+        now = new Date();
+
+        // draw CHAR
+        var imgChar = new Image();
+            imgChar.src = "img/character/" + leadingZeros( now.getHours() ) + ".png";
+
+        imgChar.onload = function() {
+            ctx.drawImage(imgChar, 0, 0, canvas.width, canvas.height);
+
+            // draw LINES
+            if (linesCounter > linesMax) linesCounter = 1;
+
+            var imgLines = new Image();
+            imgLines.src = "img/lines/" + leadingZeros(linesCounter) + ".png";
+
+            imgLines.onload = function() {
+                ctx.drawImage(imgLines, 0, 0, canvas.width, canvas.height);
+            }
+        }
+
+        // log
+        console.log(now.toLocaleString(), "- Character:", leadingZeros(now.getHours()), "- Lines:", leadingZeros(linesCounter));
+
+    }, speedInSeconds * 1000);
+
+//***********************************
+
+function leadingZeros(num) {
+    num = num.toString();
+    while (num.length < 4) num = "0" + num;
+    return num;
+}
+
+/***********************************************************************************************************************************/
+// ASCI-art 50 columns
+
+console.log('.:--::::::.:--:..::::::-:.                        ');
+console.log('          .--::::..:.:..::..:.:.:::::::.          ');
+console.log('         :::-..:::::.:=-....:--::::.:::-          ');
+console.log('        ..:....::. ..***+.:+*++=:::.. :..         ');
+console.log('       .:. ...:. :=-:+@@#==+*+==: .....::.        ');
+console.log('       :: .:.. .==:-:-**+==+++=-=+: .......       ');
+console.log('      ....... :+=-::=.---+-.:-==-=+- .. ..:       ');
+console.log('      : .... .+-:.==+::-=:-::+=--:-+:.......      ');
+console.log('      .  ... +=.: -==-:.=--.+-**+-:-= .:. .       ');
+console.log('      .  .. .+=:: =***+--:---=++++=:: .:.         ');
+console.log('         .. :*+=: -#%%%%*=+-=====++=:===:         ');
+console.log('            .+*+.  :*%@@@%#%%%##**++-.+*=         ');
+console.log('             +**.    -*%@@@@@@@@@%%#*-+-          ');
+console.log('            -+*#. .... :=#%%@%%@@@@%*=+=.         ');
+console.log('           =+*%#. ......-=:-:=***+%%%%##-         ');
+console.log('           :*##*..::::::+*::::::..@@@@%+.         ');
+console.log('...............=-::--:--++=-----:-+-::............');
+console.log('.....:...:::..-++=---------------==+=..+:.........');
+console.log('.....=-.:::::-++++++*====++###%*++**#=............');
+console.log('..:=-....::+==#%%%%%@+---+######*+==:.............');
+console.log('.:**#-:::.:=*++*#%%@%-..:==+++++++-.:*=:::........');
+console.log(':::+****+:-+**%%*==-:...:###*****#*=::::::::::::::');
+console.log(':::-++*++=****=:::::::.::=#%@@@@@%*:::::::::::::::');
+console.log('::-*###+-=++=..:::::.:::::-+*###*=--::::::=:::==::');
+console.log(':::-+**+*#*+..:-:::.....::.:::-::--:...::-+===*++=');
+
+console.log();
+
+/***********************************************************************************************************************************/
+</script>
+</body>
+</html>
