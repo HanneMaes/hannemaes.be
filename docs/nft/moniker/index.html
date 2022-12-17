@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">                                               <!-- defines the encoding of the website, utf-8 is the standard -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- viewport settings related to mobile responsiveness -->
+    <!--
+    The above 2 meta tags *must* come first in the <head>
+    to consistently ensure proper document rendering.
+    Any other head element should come *after* these tags.
+    -->
+    <meta width=device-width> <!-- use the physical width of the device (great for mobile!) -->
+    <meta initial-scale=1>    <!-- the initial zoom, 1 means no zoom -->
+
+    <title>HOUR 248</title>
+    <meta name="application-name" content="HOUR 248"> <!-- Name of web application (only should be used if the website is used as an app) -->
+    <meta name="theme-color" content="#000">
+
+    <style>
+/***********************************************************************************************************************************/
+/* CSS */
+
+        html, body { 
+            background-color: black; 
+            padding: 0;
+            margin: 0;
+        }
+
+    </style>
+</head>
+<body>
+<!-- ****************************************************************************************************************************** -->
+<!-- HTML -->
+    
+<canvas id="canvas">
+    Your browser does not support the HTML5 canvas tag.
+</canvas>
+<script>
+/***********************************************************************************************************************************/
+// CANVAS
+
+    // init 2D canvas
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+
+    // set canvas size
+    var canvasWidth;
+    var canvasHeight;
+    if ( window.innerWidth < window.innerHeight ) {
+        canvasWidth  = window.innerWidth;
+        canvasHeight = window.innerWidth;
+    } else {
+        canvasWidth  = window.innerHeight;
+        canvasHeight = window.innerHeight;
+    }
+    canvas.width  = canvasWidth;
+    canvas.height = canvasHeight; 
+
+    // animation settings
+    var refreshRate = 1; // seconds
+    var linesAmount = 8;
+
+    var imgCharPrevious  = 0;
+    var imgLinesPrevious = 0;
+
+    // animation loop
+    setInterval(() => {
+
+        var timeLocal = new Date();
+        var timeEpoch = Date.now(); 
+
+        // what char image to draw -> 1 per hour, 24 images
+        var imgChar  = timeLocal.getHours();
+            imgChar++ // imgChar++ because the modulo remaps to a base zero and my images start from 0001.png
+
+        // what lines image to draw -> 1 per hour, mapped with modulo
+        var epochMinutes = TimeEpochToMinutes(timeEpoch);
+        var imgLines = epochMinutes % linesAmount;
+            imgLines++ // imgLines++ because the modulo remaps to a base zero and my images start from 0001.png
+
+        // only load images that changed
+        var redraw = false;
+        if (imgChar != imgCharPrevious)   redraw = true;
+        if (imgLines != imgLinesPrevious) redraw = true;
+        imgCharPrevious = imgChar
+        imgLinesPrevious = imgLines
+
+        // DRAW if images changed
+        if (redraw) {
+
+            // clear canvas
+            ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+
+            // DRAW char
+            var imgCharObject = new Image();
+            imgCharObject.src = "img/character/" + leadingZeros(imgChar, 4) + ".png";
+            imgCharObject.onload = function() {
+                ctx.drawImage(imgCharObject, 0, 0, canvas.width, canvas.height);
+
+                // DRAW lines
+                var imgLinesObject = new Image();
+                imgLinesObject.src = "img/lines/" + leadingZeros(imgLines, 4) + ".png";
+                imgLinesObject.onload = function() {
+                    ctx.drawImage(imgLinesObject, 0, 0, canvas.width, canvas.height);
+
+                } // imgLinesObject.onload
+            } // imgCharObject.onload
+        } // if (redraw)
+
+        // log
+        console.log(" ")
+        console.log("Redraw:", redraw);
+        console.log("Local time:", TimeLocalToReadable(timeLocal),                                                                          "= Character:", imgChar);
+        console.log('Epoch time:', TimeEpochToHours(timeEpoch) + ":" + TimeEpochToMinutes(timeEpoch) + ":" + TimeEpochToSeconds(timeEpoch), "= lines:", imgLines);
+
+    }, refreshRate * 1000);
+
+//***********************************
+// HELPER FUNCTION
+
+function TimeLocalToReadable (t) { return t.toLocaleTimeString('en-GB'); }
+function TimeEpochToHours(t)     { return leadingZeros(new Date(t).getUTCHours(),   2); }
+function TimeEpochToMinutes(t)   { return leadingZeros(new Date(t).getUTCMinutes(), 2); }
+function TimeEpochToSeconds(t)   { return leadingZeros(new Date(t).getUTCSeconds(), 2); }
+
+function leadingZeros(num, amountOfZeros) {
+// amountOfZeros: if you want 02, amountOfZeros is 2, if you want 0002, amountOfZeros is 4, ...
+    num = num.toString();
+    while (num.length < amountOfZeros) num = "0" + num;
+    return num;
+}
+
+/***********************************************************************************************************************************/
+</script>
+</body>
+</html>
