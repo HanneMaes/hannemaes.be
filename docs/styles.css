@@ -41,7 +41,8 @@ body {
 .centerPage {
   display: inline-block;
   margin: auto;
-  max-width: 100vw;
+  /* max-width: 100vw; */
+  max-width: 950px;
 }
 
 h1 {
