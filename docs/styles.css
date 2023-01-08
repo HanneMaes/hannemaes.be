@@ -310,6 +310,10 @@ img {
     margin-right: 0px;
   }
 
+  .onlyOnDesktop {
+    display: none;
+  }
+
 }
 
 /*********************/

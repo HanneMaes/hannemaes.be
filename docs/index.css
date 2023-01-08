@@ -209,14 +209,25 @@ a img {
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 }
 .middle {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  width: 100%;
+}
+.middlePointer {
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 1px;
+  height: 5px;
+}
+.solo {
   border-right:  1px solid rgba(0, 0, 0, 0.3);
 }
 
 /* design lines category text padding to manualy center them */
-.centerSocial { padding-right: 20px; }
-.centerDesign { padding-right: 25px; }
-.centerCode   { padding-right: 10px; }
-.centerCrypto { padding-right: 8px; }
+.centerSocial     { padding-right: 20px; }
+.centerDesign     { padding-right: 25px; }
+.centerCode       { padding-right: 10px; }
+.centerCryptoart  { padding-right: 0px; }
+.centerArticles   { padding-right: 8px; }
+.centerContact    { padding-right: 8px; }
 
 /* design lines contiainers & setup */
 .container  { 
