@@ -31,11 +31,3 @@ a {
 .backButton::before {
   border-right-color: rgb(120, 120, 120);
 }
-
-.artwork {
-  max-width: 100%;
-}
-
-.aboutartwork {
-  max-width: 100%;
-}

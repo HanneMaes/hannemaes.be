@@ -15,6 +15,6 @@ a {
 .signatureLegacy    { border-right: 2px dotted rgba(142, 67, 105, 0.2); }
 
 
-.artwork, .textBlock {
+.textBlock {
   max-width: 100%;
 }
