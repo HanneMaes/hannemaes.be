@@ -22,9 +22,6 @@
 a:hover * { /* override the children so that only the text direclty in the <a> get the color animation */
   -webkit-text-fill-color: black;
 }
-a:hover .wip .license { /* override .wip and .license so the text stays white */
-  -webkit-text-fill-color: white;
-}
 
 /**************/
 /* whole page */
@@ -269,6 +266,16 @@ a img {
   color: #ff7a87;
 }
 .externalLinks a::before { content: ''; }
+
+/* ***** */
+/* OTHER */
+/* ***** */
+
+hr {
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 20px;
+}
 
 /**********/
 /* MOBILE */
