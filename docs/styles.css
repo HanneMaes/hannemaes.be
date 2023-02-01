@@ -61,7 +61,11 @@ h2 {
   color: var(--color-em);
   font-family: brutal;
   font-weight: bold;
-  font-size: 40px;;
+  font-size: 40px;
+}
+
+h3 {
+  color: black;
 }
 
 a {
