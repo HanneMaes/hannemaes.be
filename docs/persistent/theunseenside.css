@@ -15,6 +15,10 @@ a {
   margin-bottom: 30px;
 }
 
+.artSection {
+  max-width: 90vw;
+}
+
 /* signature */
 .signatureDigital   {  color:                  rgba(0 ,0 ,0, 0.5); }
 .signatureContainer { border: 2px dotted       rgba(0 ,0 ,0, 0.3); }
