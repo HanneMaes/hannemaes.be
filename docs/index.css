@@ -316,13 +316,37 @@ a img {
 }
 
 .galleryImg {
-  /* position: absolute; */
   width:  240px;
   height: 240px;
 }
+
 /**********/
 /* MOBILE */
 /**********/
 
-/* header */
-/*@media screen and (max-width: 750px) {}*/
+/* gallery */
+@media screen and (max-width: 750px) {
+  .gallery a {
+    width: 250px;
+  }
+  .galleryImg {
+    width:  250px;
+    height: 250px;
+  }
+  .galleryText {
+    width: 230px; /* .gallery a width - 2x padding */
+  }
+}
+@media screen and (max-width: 660px) {
+  .gallery a {
+    width: 210px;
+  }
+  .galleryImg {
+    width:  210px;
+    height: 210px;
+  }
+  .galleryText {
+    width: 190px; /* .gallery a width - 2x padding */
+    height: 110px;
+  }
+} 
