@@ -1,0 +1,36 @@
+body {
+  background-color: rgb(0, 0, 0);
+}
+
+h1, em { 
+  color:rgb(255, 255, 255);
+}
+
+img {
+  transform: scale(0.96);
+  transition: all 0.3s ease-out;
+}
+img:hover { 
+  transform: scale(1);
+}
+
+.backButton::after {
+  background-color: rgb(255, 147, 133);
+  color: black;
+}
+.backButton::before {
+  border-right-color: rgb(255, 147, 133);
+}
+
+/* signature */
+.signatureDigital   { color:                   rgba(255, 255, 255, 0.5); }
+.signatureContainer { border: 2px dotted       rgba(255, 255, 255, 0.3); }
+.signatureLegacy    { border-right: 2px dotted rgba(255, 255, 255, 0.3); }
+
+/*********************/
+/* wallpaper gallery */
+/*********************/
+
+img {
+  max-width: 1200px;
+}
