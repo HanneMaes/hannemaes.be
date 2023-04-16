@@ -2,7 +2,7 @@ body {
   background-color: rgb(0, 0, 0);
 }
 
-h1, em { 
+h1, h2, em { 
   color:rgb(255, 255, 255);
 }
 
@@ -32,5 +32,6 @@ img:hover {
 /*********************/
 
 img {
-  max-width: 1200px;
+  width: 1200px;
+  max-width: 100%;
 }
