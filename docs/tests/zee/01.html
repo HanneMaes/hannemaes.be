@@ -12,7 +12,7 @@
     <meta width=device-width> <!-- use the physical width of the device (great for mobile!) -->
     <meta initial-scale=1>    <!-- the initial zoom, 1 means no zoom -->
 
-    <title>V2.0</title>
+    <title>V2.1 (lines)</title>
     <meta name="application-name" content="HOUR 248"> <!-- Name of web application (only should be used if the website is used as an app) -->
     <meta name="theme-color" content="#000">
 
@@ -37,7 +37,7 @@
     Your browser does not support the HTML5 canvas tag.
 </canvas>
 
-<!—— debug info -->
+<!-- debug info -->
 <div id='debuginfo'>-</div>
 
 <script>
@@ -66,11 +66,19 @@
 
         var numberOfBgs   = 2;
         var numberOfSky   = 11;
-        // var numberOfLines = 3;
+        var numberOfLines = 8;
 
-        var prevBgImg   = 0;
-        var prevSkyImg  = 0;
-        // var prevLineImg = 0;
+        var prevBgImg    = 0;
+        var prevSkyImg   = 0;
+        var prevLinesImg = 0;
+
+        // start with the 1st image, it will immidiatly changed based on the time anyway
+        var imgBg    = 1;
+        var imgSky   = 1;
+
+        // generate a random lines image
+        var imgLines = getRandomNumber(numberOfLines); // except the lines image needs to be a random one because it only changes when the minutes are dividable by the amount of time it takes to change
+        var lastImgLinesChange = Date.now(); // keep track of when the last time was when we generated a new image, so we know when to generate a new one
 
         // animation loop
         setInterval(draw, refreshRateInSeconds * 1000);
@@ -78,8 +86,9 @@
         // setInterval waits before executing its function, so call the function once when the page starts
         draw();
         function draw() {
-                    // get time
-                    var timeLocal = new Date();
+
+            // get time
+            var timeLocal = new Date();
             var timeEpoch = Date.now(); 
 
             /*********/
@@ -87,22 +96,29 @@
             /*********/
 
             var epochMinutes = TimeEpochToMinutes(timeEpoch);
-            var imgBg = Math.floor(epochMinutes / 30) % numberOfBgs; // change modulo to 30 minutes
-                imgBg++ // imgBg++ because the modulo remaps to a base zero and my images start from 0001.png
+            imgBg = Math.floor(epochMinutes / 30) % numberOfBgs; // change modulo to 30 minutes
+            imgBg++ // imgBg++ because the modulo remaps to a base zero and my images start from 0001.png
 
             /*******/
             /* SKY */// -> 1 per hour (local time), 24 images
             /*******/
 
-            var imgSky = timeLocal.getHours(); // timeLocal.getHours();
+            imgSky = timeLocal.getHours(); // timeLocal.getHours();
 
             /*********/
-            /* LINES */// -> 1 per hour, mapped with modulo
+            /* LINES */// -> 1 per 1min, randomly
             /*********/
 
-            // var epochMinutes = TimeEpochToMinutes(timeEpoch);
-            // var imgLines = epochMinutes % numberOfLines;
-            //     imgLines++ // imgLines++ because the modulo remaps to a base zero and my images start from 0001.png
+            var epochSeconds = TimeEpochToSeconds(timeEpoch);
+            var lastImgLinesChangeSeconds = TimeEpochToSeconds(lastImgLinesChange);
+            
+            if( (epochSeconds-lastImgLinesChangeSeconds) >= 10) { // check if 1 min has passed since the last line image was changed
+                imgLines = getRandomNumber(numberOfLines);
+                lastImgLinesChange = timeEpoch;
+                console.log('YES');
+            }
+
+            console.log('epochSeconds-lastImgLinesChangeSeconds:', epochSeconds-lastImgLinesChangeSeconds);
 
             /*********************************/
             /* only load images that changed */
@@ -110,10 +126,12 @@
 
             var redraw = false;
 
-            if (imgBg != prevBgImg)   redraw = true;
-            if (imgSky != prevSkyImg) redraw = true;
-            prevBgImg = imgBg
-            prevSkyImg = imgSky
+            if (imgBg != prevBgImg)       redraw = true;
+            if (imgSky != prevSkyImg)     redraw = true;
+            if (imgLines != prevLinesImg) redraw = true;
+            prevBgImg = imgBg;
+            prevSkyImg = imgSky;
+            prevLinesImg = imgLines;
 
             /**************************/
             /* DRAW if images changed */
@@ -137,8 +155,13 @@
                                 ctx.drawImage(imgSkyObject, 0, 0, canvas.width, canvas.height);
 
                                 // draw LINES
+                                var imgLinesObject = new Image();
+                                    imgLinesObject.src = "img/lines/" + leadingZeros(imgLines, 4) + ".png";
+                                    imgLinesObject.onload = function() {
+                                        ctx.drawImage(imgLinesObject, 0, 0, canvas.width, canvas.height);
 
-                        } // imgSkyObject.onload
+                                    } // imgLinesObject.onload
+                            } // imgSkyObject.onload
                     } // imgBgObject.onload
 
             } // if (redraw)
@@ -149,11 +172,13 @@
                 console.warn("Redraw:", redraw);
                 console.warn("Bg (changes every 30min),", TimeEpochToHours(timeEpoch) + ":" + TimeEpochToMinutes(timeEpoch) + ":" + TimeEpochToSeconds(timeEpoch), "(epoch time): bg/" + imgBg + ".png");
                 console.warn("Sky (changes every hour),", TimeLocalToReadable(timeLocal), "(local time): sky/" + imgSky + ".png");
+                console.warn("Lines (changes every min),", TimeLocalToReadable(timeLocal), "(local time): lines/" + imgLines + ".png");
             } else {
                 console.log(" ")
                 console.log("Redraw:", redraw);
                 console.log("Bg (changes every 30min),", TimeEpochToHours(timeEpoch) + ":" + TimeEpochToMinutes(timeEpoch) + ":" + TimeEpochToSeconds(timeEpoch), "(epoch time): bg/" + imgBg + ".png");
                 console.log("Sky (changes every hour),", TimeLocalToReadable(timeLocal), "(local time): sky/" + imgSky + ".png");
+                console.log("Lines (changes every min),", TimeLocalToReadable(timeLocal), "(local time): lines/" + imgLines + ".png");
             }
             
             document.getElementById('debuginfo').innerHTML = '<ul><li>Local time: ' +
@@ -177,6 +202,11 @@ function leadingZeros(num, amountOfZeros) {
     num = num.toString();
     while (num.length < amountOfZeros) num = "0" + num;
     return num;
+}
+
+function getRandomNumber(max) {
+// generates a random number between 1 and max
+  return Math.floor(Math.random() * max) + 1;
 }
 
 /***********************************************************************************************************************************/
