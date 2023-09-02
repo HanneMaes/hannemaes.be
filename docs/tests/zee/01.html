@@ -12,7 +12,7 @@
     <meta width=device-width> <!-- use the physical width of the device (great for mobile!) -->
     <meta initial-scale=1>    <!-- the initial zoom, 1 means no zoom -->
 
-    <title>V2.1 (lines)</title>
+    <title>V2.2 (better on phone?)</title>
     <meta name="application-name" content="HOUR 248"> <!-- Name of web application (only should be used if the website is used as an app) -->
     <meta name="theme-color" content="#000">
 
@@ -47,18 +47,21 @@
     // init 2D canvas
     var canvas = document.getElementById("canvas");
     var ctx = canvas.getContext("2d");
+    var scaleFactor = window.devicePixelRatio; // to have better qualituy images on mobile phones
 
     // resize the canvas when needed
     resizeCanvas(); // initial resize, setting the first size
     window.addEventListener("resize", resizeCanvas); // Add event listener for window resize
 
     function resizeCanvas() {
+
+        // resize the canvas
         if (window.innerWidth < window.innerHeight) {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerWidth;
+            canvas.width = window.innerWidth * scaleFactor;
+            canvas.height = window.innerWidth * scaleFactor;
         } else {
-            canvas.width = window.innerHeight;
-            canvas.height = window.innerHeight;
+            canvas.width = window.innerHeight * scaleFactor;
+            canvas.height = window.innerHeight * scaleFactor;
         }
 
         // animation settings
@@ -79,6 +82,16 @@
         // generate a random lines image
         var imgLines = getRandomNumber(numberOfLines); // except the lines image needs to be a random one because it only changes when the minutes are dividable by the amount of time it takes to change
         var lastImgLinesChange = Date.now(); // keep track of when the last time was when we generated a new image, so we know when to generate a new one
+
+        // signature layer settings
+        var overlayImage = new Image();
+            overlayImage.src = 'img/white on transparant.png';
+
+            var overlayWidth = canvas.width * 0.12;                                           // width of image in %
+            var overlayHeight = (overlayWidth / overlayImage.width) * overlayImage.height;  // Maintain aspect ratio
+            var overlayX = canvas.width - overlayWidth - (canvas.width * 0.02);             // margin from the right edge in %
+            var overlayY = canvas.height - overlayHeight - (canvas.height * 0.02);          // margin from the bottom edge in %
+
 
         // animation loop
         setInterval(draw, refreshRateInSeconds * 1000);
@@ -165,6 +178,12 @@
                     } // imgBgObject.onload
 
             } // if (redraw)
+
+            /******************/
+            /* DRAW signature */
+            /******************/
+
+            ctx.drawImage(overlayImage, overlayX, overlayY, overlayWidth, overlayHeight);
 
             // log
             if (redraw) {
