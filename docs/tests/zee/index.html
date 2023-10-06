@@ -89,21 +89,6 @@
     console.log('iframe classes: ' + iframeContainer.classList);
     console.log();
 
-    // HTML debug
-    function TimeLocalToReadable (t) { return t.toLocaleTimeString('en-GB'); }
-    function TimeEpochToHours(t)     { return leadingZeros(new Date(t).getUTCHours(),   2); }
-    function TimeEpochToMinutes(t)   { return leadingZeros(new Date(t).getUTCMinutes(), 2); }
-    function TimeEpochToSeconds(t)   { return leadingZeros(new Date(t).getUTCSeconds(), 2); }
-    function leadingZeros(num, amountOfZeros) {
-    // amountOfZeros: if you want 02, amountOfZeros is 2, if you want 0002, amountOfZeros is 4, ...
-        num = num.toString();
-        while (num.length < amountOfZeros) num = "0" + num;
-        return num;
-    }
-    var timeLocal = new Date();
-    var timeEpoch = Date.now(); 
-    document.body.innerHTML += '<ul><li>Local time: ' + timeLocal + '</li><li>Universal  time: ' + TimeEpochToHours(timeEpoch) + ':' + TimeEpochToMinutes(timeEpoch) + ':' + TimeEpochToSeconds(timeEpoch) + '</li></ul>';
-
     // functions ***********************************
 
     function getUrlParameterByName(name, url) {
