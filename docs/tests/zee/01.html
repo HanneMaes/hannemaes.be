@@ -42,7 +42,7 @@
 
 <script>
 /***********************************************************************************************************************************/
-// CANVAS
+// JS
 
     // init 2D canvas
     var canvas = document.getElementById("canvas");
@@ -85,9 +85,9 @@
 
         // signature layer settings
         var overlayImage = new Image();
-            overlayImage.src = 'img/white on transparant.png';
+            overlayImage.src = 'img/signature.png';
 
-            var overlayWidth = canvas.width * 0.12;                                           // width of image in %
+            var overlayWidth = canvas.width * 0.1;                                          // width of image in %
             var overlayHeight = (overlayWidth / overlayImage.width) * overlayImage.height;  // Maintain aspect ratio
             var overlayX = canvas.width - overlayWidth - (canvas.width * 0.02);             // margin from the right edge in %
             var overlayY = canvas.height - overlayHeight - (canvas.height * 0.02);          // margin from the bottom edge in %
@@ -128,7 +128,6 @@
             if( (epochSeconds-lastImgLinesChangeSeconds) >= 10) { // check if 1 min has passed since the last line image was changed
                 imgLines = getRandomNumber(numberOfLines);
                 lastImgLinesChange = timeEpoch;
-                console.log('YES');
             }
 
             console.log('epochSeconds-lastImgLinesChangeSeconds:', epochSeconds-lastImgLinesChangeSeconds);
@@ -185,25 +184,29 @@
 
             ctx.drawImage(overlayImage, overlayX, overlayY, overlayWidth, overlayHeight);
 
-            // log
+            /********/
+            /* LOGS */
+            /********/
+
+            console.log ('Local time: ' + timeLocal);
+            console.log ('Universal  time: ' + TimeEpochToHours(timeEpoch) + ':' + TimeEpochToMinutes(timeEpoch) + ':' + TimeEpochToSeconds(timeEpoch));
+
             if (redraw) {
-                console.warn(" ")
                 console.warn("Redraw:", redraw);
                 console.warn("Bg (changes every 30min),", TimeEpochToHours(timeEpoch) + ":" + TimeEpochToMinutes(timeEpoch) + ":" + TimeEpochToSeconds(timeEpoch), "(epoch time): bg/" + imgBg + ".png");
                 console.warn("Sky (changes every hour),", TimeLocalToReadable(timeLocal), "(local time): sky/" + imgSky + ".png");
                 console.warn("Lines (changes every min),", TimeLocalToReadable(timeLocal), "(local time): lines/" + imgLines + ".png");
+                console.warn(" ")
             } else {
-                console.log(" ")
                 console.log("Redraw:", redraw);
                 console.log("Bg (changes every 30min),", TimeEpochToHours(timeEpoch) + ":" + TimeEpochToMinutes(timeEpoch) + ":" + TimeEpochToSeconds(timeEpoch), "(epoch time): bg/" + imgBg + ".png");
                 console.log("Sky (changes every hour),", TimeLocalToReadable(timeLocal), "(local time): sky/" + imgSky + ".png");
                 console.log("Lines (changes every min),", TimeLocalToReadable(timeLocal), "(local time): lines/" + imgLines + ".png");
+                console.log(" ")
             }
-            
-            document.getElementById('debuginfo').innerHTML = '<ul><li>Local time: ' +
-            timeLocal + '</li><li>Universal  time: ' +
-            TimeEpochToHours(timeEpoch) + ':' + TimeEpochToMinutes(timeEpoch) +
-            ':' + TimeEpochToSeconds(timeEpoch) + '</li></ul>';
+
+            // HTML debug
+            document.getElementById('debuginfo').innerHTML = '<ul><li>Local time: ' + timeLocal + '</li><li>Universal  time: ' + TimeEpochToHours(timeEpoch) + ':' + TimeEpochToMinutes(timeEpoch) + ':' + TimeEpochToSeconds(timeEpoch) + '</li></ul>';
             
         } // function draw()
     } // function resizeCanvas()
@@ -225,7 +228,17 @@ function leadingZeros(num, amountOfZeros) {
 
 function getRandomNumber(max) {
 // generates a random number between 1 and max
-  return Math.floor(Math.random() * max) + 1;
+    return Math.floor(Math.random() * max) + 1;
+}
+
+function getUrlParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
 /***********************************************************************************************************************************/

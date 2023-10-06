@@ -30,15 +30,14 @@
         justify-content: center;
         align-items: center;
         height: 100vh;
-        background-color: #f0f0f0;
     }
     #iframe-container {
+        overflow: hidden; /* remove scrollbars */
         width:  90vmin; /* vmin means it will maintain a square aspect ratio based on the smaller of the viewport's width and height. This ensures that the container remains square */
         height: 90vmin; /* vmin means it will maintain a square aspect ratio based on the smaller of the viewport's width and height. This ensures that the container remains squaree */
         max-width:  2048px;
         max-height: 2048px;
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-        overflow: hidden; /* remove scrollbars */
+        border-radius: 5px;
     }
     iframe {
         width: 100%;
@@ -46,6 +45,13 @@
         border: none;
         overflow: hidden; /* remove scrollbars */
     }
+
+    /* dark and light mode */
+    .body-dark  { background-color: #222222; }
+    .body-light { background-color: #ffffff; }
+
+    .frame-dark  { box-shadow: 0 20px 50px rgba(0, 0, 0, 1); }
+    .frame-light { box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3); }
 
 </style>
 </head>
@@ -57,6 +63,44 @@
     <div id="iframe-container">
         <iframe src="01.html"></iframe>
     </div>
+
+<!-- ****************************************************************************************************************************** -->
+<!-- JS -->
+<script>
+
+    // dark of light mode?
+    var mode = getUrlParameterByName('mode');
+    var body = document.body
+    var iframeContainer = document.getElementById('iframe-container');
+
+    // add classes depending on mode, defaults to dark mode
+    if (mode == 'light') {
+        body.classList.add('body-' + mode);             // Add a CSS class to the element based on the color parameter
+        iframeContainer.classList.add('frame-' + mode); // Add a CSS class to the element based on the color parameter
+    } else {
+        body.classList.add('body-dark');             // Add a CSS class to the element based on the color parameter
+        iframeContainer.classList.add('frame-dark'); // Add a CSS class to the element based on the color parameter
+    }
+
+    // print
+    console.log('Mode:', mode);
+    console.log('body classes: ' + body.classList);
+    console.log('iframe classes: ' + iframeContainer.classList);
+    console.log();
+
+    // functions ***********************************
+
+    function getUrlParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+
+</script>
 
 </body>
 </html>
