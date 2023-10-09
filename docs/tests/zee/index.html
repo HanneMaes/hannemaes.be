@@ -28,7 +28,7 @@
     body {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         height: 100vh;
         font-family: monospace;
@@ -50,6 +50,16 @@
         overflow: hidden; /* remove scrollbars */
     }
 
+    /* UI */
+    #ui {
+        position: fixed;
+        bottom: 30px;
+        left: 20px;
+    }
+    .hidden {
+        display: none;
+    }
+
     /* dark and light mode buttons */
     a {
         text-decoration: none;
@@ -57,11 +67,7 @@
         letter-spacing: 2px;
         border-radius: 100px;
         padding: 12px;
-        margin: 30px;
         transition: all 0.5s ease;
-    }
-    .hidden {
-        display: none;
     }
 
     /* dark and light mode effect */
@@ -71,25 +77,25 @@
     .body-dark  { background-color: #222222; }
     .body-light { background-color: #ffffff; }
 
-    #switch-dark {
+    #switch-dark, #x-dark {
         color: rgba(255, 255, 255, 0.3); 
         border-top: 1px solid rgba(255, 255, 255, 0.1); 
         box-shadow: 0 0px 40px rgba(0, 0, 0, 1);
         background-color: rgba(255, 255, 255, 0);
     }
-    #switch-dark:hover {
+    #switch-dark:hover, #x-dark:hover {
         color: white;
         border-top: 1px solid rgba(255, 255, 255, 0.5); 
         box-shadow: 0 0px 20px rgba(0, 0, 0, 1);
         background-color: rgba(255, 255, 255, 0.1);
     }
-    #switch-light {
+    #switch-light, #x-light {
         color: rgba(0, 0, 0, 0.2); 
         border-bottom: 3px solid rgba(0, 0, 0, 0.15); 
         box-shadow: 0 0px 40px rgba(0, 0, 0, 0.25);
         background-color: rgba(0, 0, 0, 0);
     }
-    #switch-light:hover {
+    #switch-light:hover, #x-light:hover {
         color: black;
         border-bottom: 3px solid rgba(0, 0, 0, 0.4); 
         box-shadow: 0 0px 20px rgba(0, 0, 0, 0.25);
@@ -102,28 +108,34 @@
 <!-- HTML -->
 <body>
 
-    <!-- blank element for flex -->
-    <div></div>
-
     <!-- iframe -->
     <div id="iframe-container">
         <iframe src="01.html"></iframe>
     </div>
 
-    <!-- dark light mode switcher -->
-    <a id="switch-light" href="index.html?mode=dark&ui=true">DARK</a>
-    <a id="switch-dark" href="index.html?mode=light&ui=true">LIGHT</a>
+    <!-- UI -->
+    <div id="ui">
+        <a title="Close this menu" id="x-light" href="index.html?mode=light&ui=false">X</a>
+        <a title="Close this menu" id="x-dark" href="index.html?mode=dark&ui=false">X</a>
+        <a title="Switch to dark mode" id="switch-light" href="index.html?mode=dark&ui=true">DARK</a>
+        <a title="Switch to light mode" id="switch-dark" href="index.html?mode=light&ui=true">LIGHT</a>
+    </div>
 
 <!-- ****************************************************************************************************************************** -->
 <!-- JS -->
 <script>
 
-    // dark of light mode?
+    /***********************/
+    /* dark of light mode? */
+    /***********************/
+
     var mode = getUrlParameterByName('mode');
     var body = document.body
     var iframeContainer = document.getElementById('iframe-container');
     var switchDarkContainer = document.getElementById('switch-dark');
     var switchLightContainer = document.getElementById('switch-light');
+    var xDarkContainer = document.getElementById('x-dark');
+    var xLightContainer = document.getElementById('x-light');
 
     // add classes depending on mode, defaults to dark mode
     if (mode == 'light') {
@@ -132,18 +144,34 @@
 
         switchDarkContainer.classList.add('hidden');     
         switchLightContainer.classList.remove('hidden'); 
+
+        xDarkContainer.classList.add('hidden');     
+        xLightContainer.classList.remove('hidden'); 
     } else {
         body.classList.add('body-dark');               
         iframeContainer.classList.remove('frame-dark'); 
         
         switchLightContainer.classList.add('hidden');     
-        switchDarkContainer.classList.remove('hidden'); 
+        switchDarkContainer.classList.remove('hidden');
+        
+        xLightContainer.classList.add('hidden');     
+        xDarkContainer.classList.remove('hidden');
     }
 
     // print
     console.log('Mode:', mode);
-    console.log('body classes: ' + body.classList);
-    console.log('iframe classes: ' + iframeContainer.classList);
+    
+    /*************/
+    /* UI of not */
+    /*************/
+
+    var ui = getUrlParameterByName('ui');
+
+    var uiContainer = document.getElementById('ui');
+    if (ui == 'false') uiContainer.classList.add('hidden');  
+
+    // print
+    console.log('UI:', ui);
     console.log();
 
     // functions ***********************************
