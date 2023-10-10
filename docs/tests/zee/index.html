@@ -41,7 +41,7 @@
         height: 90vmin; /* vmin means it will maintain a square aspect ratio based on the smaller of the viewport's width and height. This ensures that the container remains squaree */
         max-width:  2048px;
         max-height: 2048px;
-        border-radius: 5px;
+        border-radius: 10px;
     }
     iframe {
         width: 100%;
@@ -71,8 +71,8 @@
     }
 
     /* dark and light mode effect */
-    .frame-dark  { box-shadow: 0 20px 50px rgba(0, 0, 0, 1); }
-    .frame-light { box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3); }
+    .frame-dark  { box-shadow: 0 50px 130px rgba(0, 0, 0, 1); }
+    .frame-light { box-shadow: 0 40px 70px rgba(0, 0, 0, 0.3); }
 
     .body-dark  { background-color: #222222; }
     .body-light { background-color: #ffffff; }
@@ -90,9 +90,9 @@
         background-color: rgba(255, 255, 255, 0.1);
     }
     #switch-light, #x-light {
-        color: rgba(0, 0, 0, 0.2); 
+        color: rgba(0, 0, 0, 0.25); 
         border-bottom: 3px solid rgba(0, 0, 0, 0.15); 
-        box-shadow: 0 0px 40px rgba(0, 0, 0, 0.25);
+        box-shadow: 0 0px 40px rgba(0, 0, 0, 0.2);
         background-color: rgba(0, 0, 0, 0);
     }
     #switch-light:hover, #x-light:hover {
@@ -115,8 +115,8 @@
 
     <!-- UI -->
     <div id="ui">
-        <a title="Close this menu" id="x-light" href="index.html?mode=light&ui=false">X</a>
-        <a title="Close this menu" id="x-dark" href="index.html?mode=dark&ui=false">X</a>
+        <a title="Close this menu" id="x-light" href="index.html?mode=light&ui=false">🗙</a>
+        <a title="Close this menu" id="x-dark" href="index.html?mode=dark&ui=false">🗙</a>
         <a title="Switch to dark mode" id="switch-light" href="index.html?mode=dark&ui=true">DARK</a>
         <a title="Switch to light mode" id="switch-dark" href="index.html?mode=light&ui=true">LIGHT</a>
     </div>
@@ -149,7 +149,7 @@
         xLightContainer.classList.remove('hidden'); 
     } else {
         body.classList.add('body-dark');               
-        iframeContainer.classList.remove('frame-dark'); 
+        iframeContainer.classList.add('frame-dark'); 
         
         switchLightContainer.classList.add('hidden');     
         switchDarkContainer.classList.remove('hidden');

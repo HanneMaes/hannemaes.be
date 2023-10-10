@@ -12,7 +12,7 @@
     <meta width=device-width> <!-- use the physical width of the device (great for mobile!) -->
     <meta initial-scale=1>    <!-- the initial zoom, 1 means no zoom -->
 
-    <title>V2.2 (better on phone?)</title>
+    <title>V3</title>
     <meta name="application-name" content="HOUR 248"> <!-- Name of web application (only should be used if the website is used as an app) -->
     <meta name="theme-color" content="#000">
 
@@ -67,31 +67,33 @@
         // animation settings
         var refreshRateInSeconds = 1;
 
-        var numberOfBgs   = 2;
-        var numberOfSky   = 11;
-        var numberOfLines = 8;
+        var numberOfBgs        = 2;
+        var numberOfSky        = 11;
+        var numberOfLines      = 8;
+        var numberOfLineColors = 3;
 
-        var prevBgImg    = 0;
-        var prevSkyImg   = 0;
-        var prevLinesImg = 0;
+        var prevBgImg        = 0;
+        var prevSkyImg       = 0;
+        var prevLinesImg     = 0;
+        var prevLineColorImg = 0;
 
         // start with the 1st image, it will immidiatly changed based on the time anyway
         var imgBg    = 1;
         var imgSky   = 1;
 
         // generate a random lines image
-        var imgLines = getRandomNumber(numberOfLines); // except the lines image needs to be a random one because it only changes when the minutes are dividable by the amount of time it takes to change
+        var imgLines      = getRandomNumber(numberOfLines); // except the lines image needs to be a random one because it only changes when the minutes are dividable by the amount of time it takes to change
+        var imgLinesColor = getRandomNumber(numberOfLineColors);
         var lastImgLinesChange = Date.now(); // keep track of when the last time was when we generated a new image, so we know when to generate a new one
 
         // signature layer settings
         var overlayImage = new Image();
             overlayImage.src = 'img/signature.png';
 
-            var overlayWidth = canvas.width * 0.1;                                          // width of image in %
-            var overlayHeight = (overlayWidth / overlayImage.width) * overlayImage.height;  // Maintain aspect ratio
-            var overlayX = canvas.width - overlayWidth - (canvas.width * 0.02);             // margin from the right edge in %
-            var overlayY = canvas.height - overlayHeight - (canvas.height * 0.02);          // margin from the bottom edge in %
-
+        var overlayWidth = canvas.width * 0.1;                                          // width of image in %
+        var overlayHeight = (overlayWidth / overlayImage.width) * overlayImage.height;  // Maintain aspect ratio
+        var overlayX = canvas.width - overlayWidth - (canvas.width * 0.02);             // margin from the right edge in %
+        var overlayY = canvas.height - overlayHeight - (canvas.height * 0.02);          // margin from the bottom edge in %
 
         // animation loop
         setInterval(draw, refreshRateInSeconds * 1000);
@@ -127,6 +129,7 @@
             
             if( (epochSeconds-lastImgLinesChangeSeconds) >= 10) { // check if 1 min has passed since the last line image was changed
                 imgLines = getRandomNumber(numberOfLines);
+                imgLinesColor = getRandomNumber(numberOfLineColors)
                 lastImgLinesChange = timeEpoch;
             }
 
@@ -136,12 +139,14 @@
 
             var redraw = false;
 
-            if (imgBg != prevBgImg)       redraw = true;
-            if (imgSky != prevSkyImg)     redraw = true;
-            if (imgLines != prevLinesImg) redraw = true;
+            if (imgBg != prevBgImg)                redraw = true;
+            if (imgSky != prevSkyImg)              redraw = true;
+            if (imgLines != prevLinesImg)          redraw = true;
+            if (imgLinesColor != prevLineColorImg) redraw = true;
             prevBgImg = imgBg;
             prevSkyImg = imgSky;
             prevLinesImg = imgLines;
+            prevLineColorImg = imgLinesColor;
 
             /**************************/
             /* DRAW if images changed */
@@ -166,7 +171,7 @@
 
                                 // draw LINES
                                 var imgLinesObject = new Image();
-                                    imgLinesObject.src = "img/lines/" + leadingZeros(imgLines, 4) + ".png";
+                                    imgLinesObject.src = "img/lines/" + imgLinesColor + "/" + leadingZeros(imgLines, 4) + ".png";
                                     imgLinesObject.onload = function() {
                                         ctx.drawImage(imgLinesObject, 0, 0, canvas.width, canvas.height);
 
@@ -192,14 +197,14 @@
                 console.warn('🕒️ Universal  time: ' + TimeEpochToHours(timeEpoch) + ':' + TimeEpochToMinutes(timeEpoch) + ':' + TimeEpochToSeconds(timeEpoch));
                 console.warn("🖍️ Bg (changes every 30min),", TimeEpochToHours(timeEpoch) + ":" + TimeEpochToMinutes(timeEpoch) + ":" + TimeEpochToSeconds(timeEpoch), "(epoch time): bg/" + imgBg + ".png");
                 console.warn("🖍️ Sky (changes every hour),", TimeLocalToReadable(timeLocal), "(local time): sky/" + imgSky + ".png");
-                console.warn("🖍️ Lines (changes every min),", TimeLocalToReadable(timeLocal), "(local time): lines/" + imgLines + ".png");
+                console.warn("🖍️ Lines (changes every min),", TimeLocalToReadable(timeLocal), "(local time): lines/" + imgLinesColor + "/" + imgLines + ".png");
             } else {
                 console.log("Redraw:", redraw);
                 console.log('🕒️ Local time: ' + timeLocal)
                 console.log('🕒️ Universal  time: ' + TimeEpochToHours(timeEpoch) + ':' + TimeEpochToMinutes(timeEpoch) + ':' + TimeEpochToSeconds(timeEpoch));
                 console.log("🖍️ Bg (changes every 30min),", TimeEpochToHours(timeEpoch) + ":" + TimeEpochToMinutes(timeEpoch) + ":" + TimeEpochToSeconds(timeEpoch), "(epoch time): bg/" + imgBg + ".png");
                 console.log("🖍️ Sky (changes every hour),", TimeLocalToReadable(timeLocal), "(local time): sky/" + imgSky + ".png");
-                console.log("🖍️ Lines (changes every min),", TimeLocalToReadable(timeLocal), "(local time): lines/" + imgLines + ".png");
+                console.log("🖍️ Lines (changes every min),", TimeLocalToReadable(timeLocal), "(local time): lines/" + imgLinesColor + "/" + imgLines + ".png");
             }
             console.log(" ")
 
