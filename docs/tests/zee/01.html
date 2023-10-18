@@ -9,10 +9,10 @@
     to consistently ensure proper document rendering.
     Any other head element should come *after* these tags.
     -->
-    <!-- <meta width=device-width> use the physical width of the device (great for mobile!)
-    <!-- <meta initial-scale=1>    <!-- the initial zoom, 1 means no zoom -->
+    <meta width=device-width> <!-- use the physical width of the device (great for mobile!) -->
+    <meta initial-scale=1>    <!-- the initial zoom, 1 means no zoom -->
 
-    <title>01</title>
+    <title>01 - scalefactor test</title>
 
 <!-- ****************************************************************************************************************************** -->
 <!-- CSS -->
@@ -45,7 +45,7 @@
     // init 2D canvas
     var canvas = document.getElementById("canvas");
     var ctx = canvas.getContext("2d");
-    var scaleFactor = window.devicePixelRatio; // to have better qualituy images on mobile phones
+    // var scaleFactor = window.devicePixelRatio; // to have better qualituy images on mobile phones
 
     // resize the canvas when needed
     resizeCanvas(); // initial resize, setting the first size
@@ -55,11 +55,11 @@
 
         // resize the canvas
         if (window.innerWidth < window.innerHeight) {
-            canvas.width = window.innerWidth * scaleFactor;
-            canvas.height = window.innerWidth * scaleFactor;
+            canvas.width = window.innerWidth /* * scaleFactor*/;
+            canvas.height = window.innerWidth /* * scaleFactor*/;
         } else {
-            canvas.width = window.innerHeight * scaleFactor;
-            canvas.height = window.innerHeight * scaleFactor;
+            canvas.width = window.innerHeight /* * scaleFactor*/;
+            canvas.height = window.innerHeight /* * scaleFactor*/;
         }
 
         // animation settings
