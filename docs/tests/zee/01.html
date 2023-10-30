@@ -1,249 +1,248 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 
-    <meta charset="utf-8">                                               <!-- defines the encoding of the website, utf-8 is the standard -->
-    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- viewport settings related to mobile responsiveness -->
-    <!--
-    The above 2 meta tags *must* come first in the <head>
-    to consistently ensure proper document rendering.
-    Any other head element should come *after* these tags.
-    -->
-    <meta width=device-width> <!-- use the physical width of the device (great for mobile!) -->
-    <meta initial-scale=1>    <!-- the initial zoom, 1 means no zoom -->
-
+    <meta charset="utf-8" />
+    <title>Quartz: Genesis</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:image" content="thumbnail.gif" />
     <link rel="icon" href="img/favicon.ico" />
-    <title>Quatrz</title>
 
-<!-- ****************************************************************************************************************************** -->
-<!-- CSS -->
+    <!-- ****************************************************************************************************************************** -->
+    <!-- CSS -->
     <style>
-
-        html, body { 
-            padding: 0;
-            margin: 0;
-            overflow: hidden; /* remove scrollbars, this is needed to display this page in an iframe without scrollbars */
+        html,
+        body {
+        margin: 0;
+        padding: 0;
+        /* overflow: hidden; */
         }
 
+        body {
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        background: radial-gradient(#efefef, #cccccc);
+        }
+
+        * {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        }
     </style>
+
 </head>
-
-<!-- ****************************************************************************************************************************** -->
-<!-- HTML -->
 <body>
-<canvas id="canvas">
-    <!-- error message -->
-    Your browser does not support the HTML5 canvas tag.
-</canvas>
 
-<!-- debug info -->
-<div id='debuginfo'>-</div>
+    <!-- ****************************************************************************************************************************** -->
+    <!-- CANVAS -->
+    <canvas id="canvas">
+        <!-- error message -->
+        Your browser does not support the HTML5 canvas tag.
+    </canvas>
 
-<script>
-/***********************************************************************************************************************************/
-// JS
+    <!-- ****************************************************************************************************************************** -->
+    <!-- JS -->
+    <script>
+        // init 2D canvas
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+            ctx.imageSmoothingEnabled = true; // enable anti aliasing
 
-    // init 2D canvas
-    var canvas = document.getElementById("canvas");
-    var ctx = canvas.getContext("2d");
-        ctx.imageSmoothingEnabled = true; // enable anti aliasing
+        // DRAW ARTWORK 
+        const resize = () => {
+            // resize the canvas
+            if (window.innerWidth < window.innerHeight) {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerWidth;
+            } else {
+                canvas.width = window.innerHeight;
+                canvas.height = window.innerHeight;
+            }
 
-    // resize the canvas when needed
-    resizeCanvas(); // initial resize, setting the first size
-    window.addEventListener("resize", resizeCanvas); // Add event listener for window resize
+            // animation settings
+            var refreshRateInSeconds = 1;
 
-    function resizeCanvas() {
+            var numberOfBgs        = 14;
+            var numberOfSky        = 24;
+            var numberOfLines      = 8;
+            var numberOfLineColors = 3;
 
-        // resize the canvas
-        if (window.innerWidth < window.innerHeight) {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerWidth;
-        } else {
-            canvas.width = window.innerHeight;
-            canvas.height = window.innerHeight;
+            var prevBgImg        = 0;
+            var prevSkyImg       = 0;
+            var prevLinesImg     = 0;
+            var prevLineColorImg = 0;
+
+            // start with the 1st image, it will immidiatly changed based on the time anyway
+            var imgBg    = 1;
+            var imgSky   = 1;
+
+            // generate a random lines image
+            var imgLines      = getRandomNumber(numberOfLines); // except the lines image needs to be a random one because it only changes when the minutes are dividable by the amount of time it takes to change
+            var imgLinesColor = getRandomNumber(numberOfLineColors);
+            var lastImgLinesChange = Date.now(); // keep track of when the last time was when we generated a new image, so we know when to generate a new one
+
+            // signature layer settings
+            var overlayImage = new Image();
+                overlayImage.src = 'img/signature.png';
+
+            var overlayWidth = canvas.width * 0.1;                                          // width of image in %
+            var overlayHeight = (overlayWidth / overlayImage.width) * overlayImage.height;  // Maintain aspect ratio
+            var overlayX = canvas.width - overlayWidth - (canvas.width * 0.02);             // margin from the right edge in %
+            var overlayY = canvas.height - overlayHeight - (canvas.height * 0.02);          // margin from the bottom edge in %
+
+            // animation loop
+            setInterval(draw, refreshRateInSeconds * 1000);
+
+            // setInterval waits before executing its function, so call the function once when the page starts
+            draw();
+            function draw() {
+
+                // get time
+                var timeLocal = new Date();
+                var timeEpoch = Date.now(); 
+
+                /*********/
+                /* BGS */// -> 1 per 30min (epoch time), mapped with modulo
+                /*********/
+
+                var epochMinutes = TimeEpochToMinutes(timeEpoch);
+                imgBg = Math.floor(epochMinutes / 30) % numberOfBgs; // change modulo to 30 minutes
+                imgBg++ // imgBg++ because the modulo remaps to a base zero and my images start from 0001.png
+
+                /*******/
+                /* SKY */// -> 1 per hour (local time), 24 images
+                /*******/
+
+                imgSky = timeLocal.getHours(); // timeLocal.getHours();
+
+                /*********/
+                /* LINES */// -> 1 per 1min, randomly
+                /*********/
+
+                var epochSeconds = TimeEpochToSeconds(timeEpoch);
+                var lastImgLinesChangeSeconds = TimeEpochToSeconds(lastImgLinesChange);
+                
+                if( (epochSeconds-lastImgLinesChangeSeconds) >= 10) { // check if 1 min has passed since the last line image was changed
+                    imgLines = getRandomNumber(numberOfLines);
+                    imgLinesColor = getRandomNumber(numberOfLineColors)
+                    lastImgLinesChange = timeEpoch;
+                }
+
+                /*********************************/
+                /* only load images that changed */
+                /*********************************/
+
+                var redraw = false;
+
+                if (imgBg != prevBgImg)                redraw = true;
+                if (imgSky != prevSkyImg)              redraw = true;
+                if (imgLines != prevLinesImg)          redraw = true;
+                if (imgLinesColor != prevLineColorImg) redraw = true;
+                prevBgImg = imgBg;
+                prevSkyImg = imgSky;
+                prevLinesImg = imgLines;
+                prevLineColorImg = imgLinesColor;
+
+                /**************************/
+                /* DRAW if images changed */
+                /**************************/
+
+                if (redraw) {
+
+                    // clear canvas
+                    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+
+                    // draw BG
+                    var imgBgObject = new Image();
+                        imgBgObject.src = "img/bg/" + leadingZeros(imgBg, 4) + ".png";
+                        imgBgObject.onload = function() {
+                            ctx.drawImage(imgBgObject, 0, 0, canvas.width, canvas.height);
+
+                            // draw SKY
+                            var imgSkyObject = new Image();
+                                imgSkyObject.src = "img/sky/" + leadingZeros(imgSky, 4) + ".png";
+                                imgSkyObject.onload = function() {
+                                    ctx.drawImage(imgSkyObject, 0, 0, canvas.width, canvas.height);
+
+                                    // draw LINES
+                                    var imgLinesObject = new Image();
+                                        imgLinesObject.src = "img/lines/" + imgLinesColor + "/" + leadingZeros(imgLines, 4) + ".png";
+                                        imgLinesObject.onload = function() {
+                                            ctx.drawImage(imgLinesObject, 0, 0, canvas.width, canvas.height);
+
+                                        } // imgLinesObject.onload
+                                } // imgSkyObject.onload
+                        } // imgBgObject.onload
+
+                } // if (redraw)
+
+                /******************/
+                /* DRAW signature */
+                /******************/
+
+                ctx.drawImage(overlayImage, overlayX, overlayY, overlayWidth, overlayHeight);
+
+                /********/
+                /* LOGS */
+                /********/
+
+                if (redraw) {
+                    console.warn("Redraw:", redraw);
+                    console.warn('🕒️ Local time: ' + timeLocal)
+                    console.warn('🕒️ Universal  time: ' + TimeEpochToHours(timeEpoch) + ':' + TimeEpochToMinutes(timeEpoch) + ':' + TimeEpochToSeconds(timeEpoch));
+                    console.warn("🖍️ Bg (changes every 30min),", TimeEpochToHours(timeEpoch) + ":" + TimeEpochToMinutes(timeEpoch) + ":" + TimeEpochToSeconds(timeEpoch), "(epoch time): bg/" + imgBg + ".png");
+                    console.warn("🖍️ Sky (changes every hour),", TimeLocalToReadable(timeLocal), "(local time): sky/" + imgSky + ".png");
+                    console.warn("🖍️ Lines (changes every min),", TimeLocalToReadable(timeLocal), "(local time): lines/" + imgLinesColor + "/" + imgLines + ".png");
+                } else {
+                    console.log("Redraw:", redraw);
+                    console.log('🕒️ Local time: ' + timeLocal)
+                    console.log('🕒️ Universal  time: ' + TimeEpochToHours(timeEpoch) + ':' + TimeEpochToMinutes(timeEpoch) + ':' + TimeEpochToSeconds(timeEpoch));
+                    console.log("🖍️ Bg (changes every 30min),", TimeEpochToHours(timeEpoch) + ":" + TimeEpochToMinutes(timeEpoch) + ":" + TimeEpochToSeconds(timeEpoch), "(epoch time): bg/" + imgBg + ".png");
+                    console.log("🖍️ Sky (changes every hour),", TimeLocalToReadable(timeLocal), "(local time): sky/" + imgSky + ".png");
+                    console.log("🖍️ Lines (changes every min),", TimeLocalToReadable(timeLocal), "(local time): lines/" + imgLinesColor + "/" + imgLines + ".png");
+                }
+                console.log(" ")
+
+            } // function draw()
+        } // const resize
+        window.addEventListener('resize', resize); // Add event listener for window resize
+        resize(); // draw the artwork a first time
+
+        //***********************************
+        // HELPER FUNCTION
+
+        function TimeLocalToReadable (t) { return t.toLocaleTimeString('en-GB'); }
+        function TimeEpochToHours(t)     { return leadingZeros(new Date(t).getUTCHours(),   2); }
+        function TimeEpochToMinutes(t)   { return leadingZeros(new Date(t).getUTCMinutes(), 2); }
+        function TimeEpochToSeconds(t)   { return leadingZeros(new Date(t).getUTCSeconds(), 2); }
+
+        // amountOfZeros: if you want 02, amountOfZeros is 2, if you want 0002, amountOfZeros is 4, ...
+        function leadingZeros(num, amountOfZeros) {
+            num = num.toString();
+            while (num.length < amountOfZeros) num = "0" + num;
+            return num;
         }
 
-        // animation settings
-        var refreshRateInSeconds = 1;
+        // generates a random number between 1 and max
+        function getRandomNumber(max) {
+            return Math.floor(Math.random() * max) + 1;
+        }
 
-        var numberOfBgs        = 14;
-        var numberOfSky        = 24;
-        var numberOfLines      = 8;
-        var numberOfLineColors = 3;
+        function getUrlParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+    </script>
 
-        var prevBgImg        = 0;
-        var prevSkyImg       = 0;
-        var prevLinesImg     = 0;
-        var prevLineColorImg = 0;
-
-        // start with the 1st image, it will immidiatly changed based on the time anyway
-        var imgBg    = 1;
-        var imgSky   = 1;
-
-        // generate a random lines image
-        var imgLines      = getRandomNumber(numberOfLines); // except the lines image needs to be a random one because it only changes when the minutes are dividable by the amount of time it takes to change
-        var imgLinesColor = getRandomNumber(numberOfLineColors);
-        var lastImgLinesChange = Date.now(); // keep track of when the last time was when we generated a new image, so we know when to generate a new one
-
-        // signature layer settings
-        var overlayImage = new Image();
-            overlayImage.src = 'img/signature.png';
-
-        var overlayWidth = canvas.width * 0.1;                                          // width of image in %
-        var overlayHeight = (overlayWidth / overlayImage.width) * overlayImage.height;  // Maintain aspect ratio
-        var overlayX = canvas.width - overlayWidth - (canvas.width * 0.02);             // margin from the right edge in %
-        var overlayY = canvas.height - overlayHeight - (canvas.height * 0.02);          // margin from the bottom edge in %
-
-        // animation loop
-        setInterval(draw, refreshRateInSeconds * 1000);
-
-        // setInterval waits before executing its function, so call the function once when the page starts
-        draw();
-        function draw() {
-
-            // get time
-            var timeLocal = new Date();
-            var timeEpoch = Date.now(); 
-
-            /*********/
-            /* BGS */// -> 1 per 30min (epoch time), mapped with modulo
-            /*********/
-
-            var epochMinutes = TimeEpochToMinutes(timeEpoch);
-            imgBg = Math.floor(epochMinutes / 30) % numberOfBgs; // change modulo to 30 minutes
-            imgBg++ // imgBg++ because the modulo remaps to a base zero and my images start from 0001.png
-
-            /*******/
-            /* SKY */// -> 1 per hour (local time), 24 images
-            /*******/
-
-            imgSky = timeLocal.getHours(); // timeLocal.getHours();
-
-            /*********/
-            /* LINES */// -> 1 per 1min, randomly
-            /*********/
-
-            var epochSeconds = TimeEpochToSeconds(timeEpoch);
-            var lastImgLinesChangeSeconds = TimeEpochToSeconds(lastImgLinesChange);
-            
-            if( (epochSeconds-lastImgLinesChangeSeconds) >= 10) { // check if 1 min has passed since the last line image was changed
-                imgLines = getRandomNumber(numberOfLines);
-                imgLinesColor = getRandomNumber(numberOfLineColors)
-                lastImgLinesChange = timeEpoch;
-            }
-
-            /*********************************/
-            /* only load images that changed */
-            /*********************************/
-
-            var redraw = false;
-
-            if (imgBg != prevBgImg)                redraw = true;
-            if (imgSky != prevSkyImg)              redraw = true;
-            if (imgLines != prevLinesImg)          redraw = true;
-            if (imgLinesColor != prevLineColorImg) redraw = true;
-            prevBgImg = imgBg;
-            prevSkyImg = imgSky;
-            prevLinesImg = imgLines;
-            prevLineColorImg = imgLinesColor;
-
-            /**************************/
-            /* DRAW if images changed */
-            /**************************/
-
-            if (redraw) {
-
-                // clear canvas
-                ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-
-                // draw BG
-                var imgBgObject = new Image();
-                    imgBgObject.src = "img/bg/" + leadingZeros(imgBg, 4) + ".png";
-                    imgBgObject.onload = function() {
-                        ctx.drawImage(imgBgObject, 0, 0, canvas.width, canvas.height);
-
-                        // draw SKY
-                        var imgSkyObject = new Image();
-                            imgSkyObject.src = "img/sky/" + leadingZeros(imgSky, 4) + ".png";
-                            imgSkyObject.onload = function() {
-                                ctx.drawImage(imgSkyObject, 0, 0, canvas.width, canvas.height);
-
-                                // draw LINES
-                                var imgLinesObject = new Image();
-                                    imgLinesObject.src = "img/lines/" + imgLinesColor + "/" + leadingZeros(imgLines, 4) + ".png";
-                                    imgLinesObject.onload = function() {
-                                        ctx.drawImage(imgLinesObject, 0, 0, canvas.width, canvas.height);
-
-                                    } // imgLinesObject.onload
-                            } // imgSkyObject.onload
-                    } // imgBgObject.onload
-
-            } // if (redraw)
-
-            /******************/
-            /* DRAW signature */
-            /******************/
-
-            ctx.drawImage(overlayImage, overlayX, overlayY, overlayWidth, overlayHeight);
-
-            /********/
-            /* LOGS */
-            /********/
-
-            if (redraw) {
-                console.warn("Redraw:", redraw);
-                console.warn('🕒️ Local time: ' + timeLocal)
-                console.warn('🕒️ Universal  time: ' + TimeEpochToHours(timeEpoch) + ':' + TimeEpochToMinutes(timeEpoch) + ':' + TimeEpochToSeconds(timeEpoch));
-                console.warn("🖍️ Bg (changes every 30min),", TimeEpochToHours(timeEpoch) + ":" + TimeEpochToMinutes(timeEpoch) + ":" + TimeEpochToSeconds(timeEpoch), "(epoch time): bg/" + imgBg + ".png");
-                console.warn("🖍️ Sky (changes every hour),", TimeLocalToReadable(timeLocal), "(local time): sky/" + imgSky + ".png");
-                console.warn("🖍️ Lines (changes every min),", TimeLocalToReadable(timeLocal), "(local time): lines/" + imgLinesColor + "/" + imgLines + ".png");
-            } else {
-                console.log("Redraw:", redraw);
-                console.log('🕒️ Local time: ' + timeLocal)
-                console.log('🕒️ Universal  time: ' + TimeEpochToHours(timeEpoch) + ':' + TimeEpochToMinutes(timeEpoch) + ':' + TimeEpochToSeconds(timeEpoch));
-                console.log("🖍️ Bg (changes every 30min),", TimeEpochToHours(timeEpoch) + ":" + TimeEpochToMinutes(timeEpoch) + ":" + TimeEpochToSeconds(timeEpoch), "(epoch time): bg/" + imgBg + ".png");
-                console.log("🖍️ Sky (changes every hour),", TimeLocalToReadable(timeLocal), "(local time): sky/" + imgSky + ".png");
-                console.log("🖍️ Lines (changes every min),", TimeLocalToReadable(timeLocal), "(local time): lines/" + imgLinesColor + "/" + imgLines + ".png");
-            }
-            console.log(" ")
-
-            // HTML debug
-            // document.getElementById('debuginfo').innerHTML = '<ul><li>Local time: ' + timeLocal + '</li><li>Universal  time: ' + TimeEpochToHours(timeEpoch) + ':' + TimeEpochToMinutes(timeEpoch) + ':' + TimeEpochToSeconds(timeEpoch) + '</li></ul>';
-            
-        } // function draw()
-    } // function resizeCanvas()
-
-//***********************************
-// HELPER FUNCTION
-
-function TimeLocalToReadable (t) { return t.toLocaleTimeString('en-GB'); }
-function TimeEpochToHours(t)     { return leadingZeros(new Date(t).getUTCHours(),   2); }
-function TimeEpochToMinutes(t)   { return leadingZeros(new Date(t).getUTCMinutes(), 2); }
-function TimeEpochToSeconds(t)   { return leadingZeros(new Date(t).getUTCSeconds(), 2); }
-
-// amountOfZeros: if you want 02, amountOfZeros is 2, if you want 0002, amountOfZeros is 4, ...
-function leadingZeros(num, amountOfZeros) {
-    num = num.toString();
-    while (num.length < amountOfZeros) num = "0" + num;
-    return num;
-}
-
-// generates a random number between 1 and max
-function getRandomNumber(max) {
-    return Math.floor(Math.random() * max) + 1;
-}
-
-function getUrlParameterByName(name, url) {
-    if (!url) url = window.location.href;
-    name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
-}
-
-/***********************************************************************************************************************************/
-</script>
 </body>
 </html>
