@@ -135,11 +135,12 @@
                 /*********************************/
 
                 var redraw = false;
+                var redrawWhy = ''; // what layers are causing the redraw?
 
-                if (imgBg != prevBgImg)                redraw = true;
-                if (imgSky != prevSkyImg)              redraw = true;
-                if (imgLines != prevLinesImg)          redraw = true;
-                if (imgLinesColor != prevLineColorImg) redraw = true;
+                if (imgBg != prevBgImg) {                redraw = true; redrawWhy += 'bg '; }
+                if (imgSky != prevSkyImg) {              redraw = true; redrawWhy += 'sky '; }
+                if (imgLines != prevLinesImg) {          redraw = true; redrawWhy += 'linesImage '; }
+                if (imgLinesColor != prevLineColorImg) { redraw = true; redrawWhy += 'linesColor '; }
                 prevBgImg = imgBg;
                 prevSkyImg = imgSky;
                 prevLinesImg = imgLines;
@@ -188,21 +189,22 @@
                 /********/
 
                 if (redraw) {
-                    console.warn("Redraw:", redraw);
-                    console.warn('🕒️ Local time: ' + timeLocal)
-                    console.warn('🕒️ Universal  time: ' + TimeEpochToHours(timeEpoch) + ':' + TimeEpochToMinutes(timeEpoch) + ':' + TimeEpochToSeconds(timeEpoch));
-                    console.warn("🖍️ Bg (changes every 90min),", TimeEpochToHours(timeEpoch) + ":" + TimeEpochToMinutes(timeEpoch) + ":" + TimeEpochToSeconds(timeEpoch), "(epoch time): bg/" + imgBg + ".png");
-                    console.warn("🖍️ Sky (changes every hour),", TimeLocalToReadable(timeLocal), "(local time): sky/" + imgSky + ".png");
-                    console.warn("🖍️ Lines (changes every 15min, with color change every 15min),", TimeLocalToReadable(timeLocal), "(local time): lines/" + imgLinesColor + "/" + imgLines + ".png");
-                } else {
+                    console.log("Redraw: " + redrawWhy);
+                    console.log('🕒️ Local time: ' + timeLocal)
+                    console.log('🕒️ Universal  time: ' + TimeEpochToHours(timeEpoch) + ':' + TimeEpochToMinutes(timeEpoch) + ':' + TimeEpochToSeconds(timeEpoch));
+                    console.log("🖍️ Bg (changes every 90 min),", TimeEpochToHours(timeEpoch) + ":" + TimeEpochToMinutes(timeEpoch) + ":" + TimeEpochToSeconds(timeEpoch), "(epoch time): bg/" + imgBg + ".png");
+                    console.log("🖍️ Sky (changes every 60 min),", TimeLocalToReadable(timeLocal), "(local time): sky/" + imgSky + ".png");
+                    console.log("🖍️ Lines (changes every 45 min, with color change every 15 min),", TimeLocalToReadable(timeLocal), "(local time): lines/" + imgLinesColor + "/" + imgLines + ".png");
+                    console.log(" ");
+                } /*else {
                     console.log("Redraw:", redraw);
                     console.log('🕒️ Local time: ' + timeLocal)
                     console.log('🕒️ Universal  time: ' + TimeEpochToHours(timeEpoch) + ':' + TimeEpochToMinutes(timeEpoch) + ':' + TimeEpochToSeconds(timeEpoch));
                     console.log("🖍️ Bg (changes every 30min),", TimeEpochToHours(timeEpoch) + ":" + TimeEpochToMinutes(timeEpoch) + ":" + TimeEpochToSeconds(timeEpoch), "(epoch time): bg/" + imgBg + ".png");
                     console.log("🖍️ Sky (changes every hour),", TimeLocalToReadable(timeLocal), "(local time): sky/" + imgSky + ".png");
                     console.log("🖍️ Lines (changes every min),", TimeLocalToReadable(timeLocal), "(local time): lines/" + imgLinesColor + "/" + imgLines + ".png");
-                }
-                console.log(" ")
+                    console.log(" ");
+                }*/
 
             } // function draw()
         } // const resize
