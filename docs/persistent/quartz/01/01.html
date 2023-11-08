@@ -15,14 +15,12 @@
         body {
         margin: 0;
         padding: 0;
-        /* overflow: hidden; */
         }
 
         body {
         width: 100vw;
         height: 100vh;
         overflow: hidden;
-        background: radial-gradient(#efefef, #cccccc);
         }
 
         * {
@@ -87,11 +85,6 @@
             var overlayImage = new Image();
                 overlayImage.src = 'img/signature.png';
 
-            var overlayWidth = canvas.width * 0.1;                                          // width of image in %
-            var overlayHeight = (overlayWidth / overlayImage.width) * overlayImage.height;  // Maintain aspect ratio
-            var overlayX = canvas.width - overlayWidth - (canvas.width * 0.02);             // margin from the right edge in %
-            var overlayY = canvas.height - overlayHeight - (canvas.height * 0.02);          // margin from the bottom edge in %
-
             // animation loop
             setInterval(draw, refreshRateInSeconds * 1000);
 
@@ -103,14 +96,16 @@
                 var timeLocal = new Date();
                 var timeEpoch = Date.now(); 
                 var epochMinutes = TimeEpochToMinutes(timeEpoch);
+                var epochHours = TimeEpochToHours(timeEpoch);
 
                 /*******/
                 /* BGS */
                 /*******/
                 // -> 1 per 1:30 hours (90min) (epoch time), mapped with modulo
 
-                imgBg = Math.floor(epochMinutes / 90) % numberOfBgs; // change modulo to 90 minutes
-                imgBg++ // imgBg++ because the modulo remaps to a base zero and my images start from 0001.png
+                var epochMinutesPlusHours = epochHours + epochMinutes; // because 90 is more then there are minutes in an hour we have to add mintues and hours
+                imgBg = Math.floor(epochMinutesPlusHours / 90) % numberOfBgs;
+                imgBg++; // imgBg++ because the modulo remaps to a base zero and my images start from 0001.png
 
                 /*******/
                 /* SKY */
@@ -182,30 +177,21 @@
                 /* DRAW signature */
                 /******************/
 
-                ctx.drawImage(overlayImage, overlayX, overlayY, overlayWidth, overlayHeight);
+                ctx.drawImage(overlayImage, 0, 0, canvas.width, canvas.height);
 
                 /********/
                 /* LOGS */
                 /********/
 
                 if (redraw) {
+                    console.log(" ");
                     console.log("Redraw: " + redrawWhy);
                     console.log('🕒️ Local time: ' + timeLocal)
                     console.log('🕒️ Universal  time: ' + TimeEpochToHours(timeEpoch) + ':' + TimeEpochToMinutes(timeEpoch) + ':' + TimeEpochToSeconds(timeEpoch));
                     console.log("🖍️ Bg (changes every 90 min),", TimeEpochToHours(timeEpoch) + ":" + TimeEpochToMinutes(timeEpoch) + ":" + TimeEpochToSeconds(timeEpoch), "(epoch time): bg/" + imgBg + ".png");
                     console.log("🖍️ Sky (changes every 60 min),", TimeLocalToReadable(timeLocal), "(local time): sky/" + imgSky + ".png");
                     console.log("🖍️ Lines (changes every 45 min, with color change every 15 min),", TimeLocalToReadable(timeLocal), "(local time): lines/" + imgLinesColor + "/" + imgLines + ".png");
-                    console.log(" ");
-                } /*else {
-                    console.log("Redraw:", redraw);
-                    console.log('🕒️ Local time: ' + timeLocal)
-                    console.log('🕒️ Universal  time: ' + TimeEpochToHours(timeEpoch) + ':' + TimeEpochToMinutes(timeEpoch) + ':' + TimeEpochToSeconds(timeEpoch));
-                    console.log("🖍️ Bg (changes every 30min),", TimeEpochToHours(timeEpoch) + ":" + TimeEpochToMinutes(timeEpoch) + ":" + TimeEpochToSeconds(timeEpoch), "(epoch time): bg/" + imgBg + ".png");
-                    console.log("🖍️ Sky (changes every hour),", TimeLocalToReadable(timeLocal), "(local time): sky/" + imgSky + ".png");
-                    console.log("🖍️ Lines (changes every min),", TimeLocalToReadable(timeLocal), "(local time): lines/" + imgLinesColor + "/" + imgLines + ".png");
-                    console.log(" ");
-                }*/
-
+                }
             } // function draw()
         } // const resize
         window.addEventListener('resize', resize); // Add event listener for window resize
