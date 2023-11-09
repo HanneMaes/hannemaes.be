@@ -95,16 +95,14 @@
                 // get time
                 var timeLocal = new Date();
                 var timeEpoch = Date.now(); 
-                var epochMinutes = TimeEpochToMinutes(timeEpoch);
-                var epochHours = TimeEpochToHours(timeEpoch);
+                var minutesSinceEpoch = Math.floor(timeEpoch / 60000);
 
                 /*******/
                 /* BGS */
                 /*******/
                 // -> 1 per 1:30 hours (90min) (epoch time), mapped with modulo
 
-                var epochMinutesPlusHours = epochHours + epochMinutes; // because 90 is more then there are minutes in an hour we have to add mintues and hours
-                imgBg = Math.floor(epochMinutesPlusHours / 90) % numberOfBgs;
+                imgBg = Math.floor(minutesSinceEpoch / 90) % numberOfBgs;
                 imgBg++; // imgBg++ because the modulo remaps to a base zero and my images start from 0001.png
 
                 /*******/
@@ -112,17 +110,17 @@
                 /*******/
                 // -> 1 per hour (local time), 24 images
 
-                imgSky = timeLocal.getHours(); // timeLocal.getHours();
+                imgSky = timeLocal.getHours();
 
                 /*********/
                 /* LINES */
                 /*********/
                 // -> 1 per 45 min (epoch time), color change every 15 min
 
-                imgLines = Math.floor(epochMinutes / 45) % numberOfLines; // change modulo to 45 minutes
+                imgLines = Math.floor(minutesSinceEpoch / 45) % numberOfLines; // change modulo to 45 minutes
                 imgLines++ // imgLines++ because the modulo remaps to a base zero and my images start from 0001.png
 
-                imgLinesColor = Math.floor(epochMinutes / 15) % numberOfLineColors; // change modulo to 15 minutes
+                imgLinesColor = Math.floor(minutesSinceEpoch / 15) % numberOfLineColors; // change modulo to 15 minutes
                 imgLinesColor++ // imgLinesColor++ because the modulo remaps to a base zero and my images start from 0001.png
 
                 /*********************************/
@@ -186,12 +184,10 @@
                 if (redraw) {
                     console.log(" ");
                     console.log("Redraw: " + redrawWhy);
-                    console.log('🕒️ Local time: ' + timeLocal)
-                    console.log('🕒️ Universal  time: ' + TimeEpochToHours(timeEpoch) + ':' + TimeEpochToMinutes(timeEpoch) + ':' + TimeEpochToSeconds(timeEpoch));
-                    console.log("🖍️ Bg (changes every 90 min),", TimeEpochToHours(timeEpoch) + ":" + TimeEpochToMinutes(timeEpoch) + ":" + TimeEpochToSeconds(timeEpoch), "(epoch time): bg/" + imgBg + ".png");
-                    console.log("🖍️ Sky (changes every 60 min),", TimeLocalToReadable(timeLocal), "(local time): sky/" + imgSky + ".png");
-                    console.log("🖍️ Lines (changes every 45 min, with color change every 15 min),", TimeLocalToReadable(timeLocal), "(local time): lines/" + imgLinesColor + "/" + imgLines + ".png");
-                }
+                    console.log("- Bg (changes every 90 min),", TimeEpochToHours(timeEpoch) + ":" + TimeEpochToMinutes(timeEpoch) + ":" + TimeEpochToSeconds(timeEpoch), "(epoch time): bg/" + imgBg + ".png");
+                    console.log("- Sky (changes every 60 min),", TimeLocalToReadable(timeLocal), "(local time): sky/" + imgSky + ".png");
+                    console.log("- Lines (changes every 45 min, with color change every 15 min),", TimeLocalToReadable(timeLocal), "(local time): lines/" + imgLinesColor + "/" + imgLines + ".png");
+                } // if (redraw)
             } // function draw()
         } // const resize
         window.addEventListener('resize', resize); // Add event listener for window resize
