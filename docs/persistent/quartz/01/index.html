@@ -47,6 +47,11 @@
         bottom: 30px;
         left: 20px;
     }
+    #ui img {
+        width: 20px;
+        height: 20px;
+        opacity: 0.3;
+    }
     .hidden {
         display: none;
     }
@@ -54,11 +59,6 @@
     /* dark and light mode buttons */
     a {
         text-decoration: none;
-        font-weight: bold;
-        letter-spacing: 2px;
-        border-radius: 100px;
-        padding: 12px;
-        transition: all 0.5s ease;
     }
 
     /* dark and light mode effect */
@@ -67,30 +67,6 @@
 
     .body-dark  { background-color: #222222; }
     .body-light { background-color: #ffffff; }
-
-    #switch-dark, #x-dark, #info-dark {
-        color: rgba(255, 255, 255, 0.3); 
-        border-top: 1px solid rgba(255, 255, 255, 0.1); 
-        box-shadow: 0 0px 40px rgba(0, 0, 0, 1);
-        background-color: rgba(255, 255, 255, 0);
-    }
-    #switch-dark:hover, #x-dark:hover, #info-dark:hover {
-        color: white;
-        border-top: 1px solid rgba(255, 255, 255, 0.5); 
-        box-shadow: 0 0px 20px rgba(0, 0, 0, 1);
-        background-color: rgba(255, 255, 255, 0.1);
-    }
-    #switch-light, #x-light, #info-light {
-        color: rgba(0, 0, 0, 0.25); 
-        border-bottom: 3px solid rgba(0, 0, 0, 0.15); 
-        box-shadow: 0 0px 40px rgba(0, 0, 0, 0.2);
-        background-color: rgba(0, 0, 0, 0);
-    }
-    #switch-light:hover, #x-light:hover, #info-light:hover {
-        color: black;
-        border-bottom: 3px solid rgba(0, 0, 0, 0.4); 
-        box-shadow: 0 0px 20px rgba(0, 0, 0, 0.25);
-    }
 
 </style>
 </head>
@@ -111,12 +87,12 @@
 
     <!-- UI -->
     <div id="ui">
-        <a title="Close this menu" id="x-light" href="index.html?mode=light&ui=false">X</a>
-        <a title="Close this menu" id="x-dark" href="index.html?mode=dark&ui=false">X</a>
-        <a title="Switch to dark mode" id="switch-light" href="index.html?mode=dark&ui=true">DARK</a>
-        <a title="Switch to light mode" id="switch-dark" href="index.html?mode=light&ui=true">LIGHT</a>
-        <a title="Show info" id="info-light" href="">?</a>
-        <a title="Show info" id="info-dark" href="">?</a>
+        <a title="Close this menu" id="x-light" href="index.html?mode=light&ui=false"><img src="img/icons/close-dark.svg" alt="Close menu"/></a>
+        <a title="Close this menu" id="x-dark" href="index.html?mode=dark&ui=false"><img src="img/icons/close-light.svg" alt="Close menu"/></a>
+        <a title="Show info" id="info-light" href=""><img src="img/icons/information-dark.svg" alt="Info"/></a>
+        <a title="Show info" id="info-dark" href=""><img src="img/icons/information-light.svg" alt="Info"/></a>
+        <a title="Switch to dark mode" id="switch-light" href="index.html?mode=dark&ui=true"><img src="img/icons/moon-dark.svg" alt="Dark mode"/></a>
+        <a title="Switch to light mode" id="switch-dark" href="index.html?mode=light&ui=true"><img src="img/icons/sunny-light.svg" alt="Light mode"/></a>
     </div>
 
 <!-- ****************************************************************************************************************************** -->
