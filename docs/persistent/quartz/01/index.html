@@ -110,23 +110,11 @@
     var switchLightContainer = document.getElementById('switch-light');
     var xDarkContainer = document.getElementById('x-dark');
     var xLightContainer = document.getElementById('x-light');
-    var infoDarkContainer = document.getElementById('info-dark');
-    var infoLightContainer = document.getElementById('info-light');
+    // var infoDarkContainer = document.getElementById('info-dark');
+    // var infoLightContainer = document.getElementById('info-light');
 
     // add classes depending on mode, defaults to dark mode
-    if (mode == 'light') {
-        body.classList.add('body-' + mode);                     
-        iframeContainer.classList.add('frame-' + mode);
-
-        switchDarkContainer.classList.add('hidden');     
-        switchLightContainer.classList.remove('hidden'); 
-
-        xDarkContainer.classList.add('hidden');     
-        xLightContainer.classList.remove('hidden'); 
-
-        infoDarkContainer.classList.add('hidden');     
-        infoLightContainer.classList.remove('hidden'); 
-    } else {
+    if (mode == 'dark') {
         body.classList.add('body-dark');               
         iframeContainer.classList.add('frame-dark'); 
         
@@ -136,8 +124,20 @@
         xLightContainer.classList.add('hidden');     
         xDarkContainer.classList.remove('hidden');
 
-        infoLightContainer.classList.add('hidden');     
-        infoDarkContainer.classList.remove('hidden');
+        // infoLightContainer.classList.add('hidden');     
+        // infoDarkContainer.classList.remove('hidden');
+    } else {
+        body.classList.add('body-light');                     
+        iframeContainer.classList.add('frame-light');
+
+        switchDarkContainer.classList.add('hidden');     
+        switchLightContainer.classList.remove('hidden'); 
+
+        xDarkContainer.classList.add('hidden');     
+        xLightContainer.classList.remove('hidden'); 
+
+        // infoDarkContainer.classList.add('hidden');     
+        // infoLightContainer.classList.remove('hidden'); 
     }
 
     // print
