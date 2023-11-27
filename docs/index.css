@@ -223,10 +223,10 @@ a:hover .wip {
 }
 
 /* design lines category text padding to manualy center them */
-.centerSocial     { padding-right: 20px; }
+.centerSocial     { padding-right: 70px; }
 .centerDesign     { padding-right: 25px; }
 .centerCode       { padding-right: 10px; }
-.centerCryptoart  { padding-right: 0px; }
+.centerCryptoart  { padding-right: 20px; }
 .centerArticles   { padding-right: 8px; }
 .centerContact    { padding-right: 8px; }
 
