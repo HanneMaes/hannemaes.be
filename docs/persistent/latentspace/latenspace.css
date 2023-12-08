@@ -1,0 +1,43 @@
+h1, em { 
+  color:rgb(0 ,0 ,0);
+}
+
+a, a:hover { 
+  text-decoration-color: rgb(0 ,0 ,0);
+}
+a {
+  background-color: rgba(0 ,0 ,0, 0.2);
+}
+
+/* art */
+.artwork {
+  box-shadow: 0px 0px 200px rgba(0 ,0 ,0, 0.1);
+  margin-bottom: 30px;
+}
+
+.artSection {
+  max-width: 90vw;
+}
+
+/* signature */
+.signatureDigital   {  color:                  rgba(0 ,0 ,0, 0.5); }
+.signatureContainer { border: 2px dotted       rgba(0 ,0 ,0, 0.3); }
+.signatureLegacy    { border-right: 2px dotted rgba(0 ,0 ,0, 0.3); }
+
+/**********/
+/* MOBILE */
+/**********/
+
+@media screen and (max-width: 1010px) {
+  .exampleImage {
+    width:  45%;
+    height: 45%;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .galleryImage {
+    width:  50%;
+    height: 50%;
+  }
+}
