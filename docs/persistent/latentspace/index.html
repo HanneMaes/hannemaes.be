@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="latenspace.css">
 
   <!-- css librariesraries -->
-  <link rel="stylesheet" href="../../libraries/aos.css">
+  <link rel="stylesheet" href="../../../libraries/aos.css">
 
   <meta name="author" content="Hanne Maes">
   <meta name="description" content="Hanne Maes Portfolio">
@@ -50,13 +50,13 @@
   <a class="backButtonA" href="../../index.html"><div class="backButton"></div></a>
 
   <!-- Logo -->
-  <h1 data-aos="fade-left">Journey Trough Latent Space</h1>
+  <h1 data-aos="fade-left"><small>Journey Through</small><br>Latent Space</h1>
 
-  <!-- Manifest -->
-  <section>
-  </section>
-
-  <hr>
+  <!-- avaliable on -->
+  <!-- <section class="avaliableOn">
+    <a target="_blank" href="https://teia.art/Hanne%20Maez" class="link async">View on <img width="79px" height="30px" src="../images/async.svg"></a>
+    <a target="_blank" href="https://etherscan.io/address/0xa4cbac73fa850e431303245ac23a688eef1b0056" class="link ethereum">Smart contract <img width="20px" height="30px" src="../images/ethereum.svg"></a>
+  </section> -->
 
   <!-- -------- -->
   <!-- Artworks -->
@@ -65,20 +65,19 @@
   <h2>The 1st Portal</h2>
 
   <!-- <section class="avaliableOn">
-    <a target="_blank" href="https://foundation.app/@HanneMaes/theunseenside/3" class="link foundation">View on <img height="30px" src="../images/foundation.svg"> Foundation</a>
-    <a target="_blank" href="https://opensea.io/assets/ethereum/0x40d95c9f4c7963c0a6bb04e097a90da04287b2f9/3" class="link opensea">View on <img width="131px" height="30px" src="../images/OpenSea-Full-Logo (light).svg"></a>
+    <a target="_blank" href="https://foundation.app/@HanneMaes/theunseenside/3" class="link foundation">View on <img height="30px" src="../../images/foundation.svg"> Foundation</a>
+    <a target="_blank" href="https://opensea.io/assets/ethereum/0x40d95c9f4c7963c0a6bb04e097a90da04287b2f9/3" class="link opensea">View on <img width="131px" height="30px" src="../../images/OpenSea-Full-Logo (light).svg"></a>
   </section> -->
 
-  <section>
-    <img class="artwork" src="theunseenside-images/anon.jpg">
-    <!-- <br>
-    This artwork is a gift to <em>KingCoco</em> as a gesture of gratitude.<br>
-    I am thankful for your support as a collector, it plays a crucial role in allowing me to continue making my work.
+  <section class="artSection">
+    <i>Travel journal entry 1:</i>
     <br><br>
-    Constructed from: 0x0cbc472197a73555d79ae1535fa0c17389379511/1
+    I reached the gateway, a hidden door into the unexplored territories of Latent Space.  It's a portal to a place existing at the crossroads of human creativity and machine intelligence. What lies beyond? Only the algorithm knows. Today marks the start of my expedition through this new digital frontier.
     <br><br>
-    Created using open-source software.<br>
-    Stored on Arweave. -->
+    Stepping into the portal, ones and zeros surrounded me. I found myself falling through a digital kaleidoscope. Pixels, like paint strokes guided by invisible hands, slowly crafting a landscape.
+    <br><br>
+    And then, a flash, a otherworldly landscape materialized …
+    <img data-zoomable width="950px" class="artwork" src="images/The 1st Door.png">
   </section>
 
   <!-- ------ -->
@@ -87,12 +86,12 @@
 
   <!-- back button -->
   <section>
-    <a class="backButtonA" href="../index.html"><div class="backButton"></div></a>
+    <a class="backButtonA" href="../../index.html"><div class="backButton"></div></a>
   </section>
 
   <!-- signature -->
   <div class="signatureContainer">
-    <img class="signatureLegacy" width="107px" height="60px" src="../images/signature black on white - 214x120.gif"> <!-- the size is 50% smaller then to source to increase quality -->
+    <img class="signatureLegacy" width="107px" height="60px" src="../../images/signature the white list - 214x120.gif"> <!-- the size is 50% smaller then to source to increase quality -->
     <div class="signatureDigital">
       0xF46f4e1205F2<br>
       5E57fF646a7142<br>
@@ -104,9 +103,19 @@
   <!-- javascript -->
   <!---------------->
 
-  <!-- libararies -->
-  <script data-goatcounter="https://hannemaes.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script> <!-- goat counter analytics-->
-  <script src="../libraries/aos.js"></script>
+  <!-- goat counter analytics-->
+  <script data-goatcounter="https://hannemaes.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script> 
+  
+  <!-- zoom on click -->
+  <script src="../../libraries/medium-zoom.min.js"></script>                                                       
+  <script>
+    mediumZoom('[data-zoomable]', {
+      background: '#0e0e0e',
+    })
+  </script>
+    
+  <!-- animate on scroll -->
+  <script src="../../libraries/aos.js"></script>
   <script>
     AOS.init({
       // Global settings:
