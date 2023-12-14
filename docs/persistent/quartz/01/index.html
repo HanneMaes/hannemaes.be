@@ -15,14 +15,35 @@
         background-color: black; 
         padding: 0;
         margin: 0;
+        font-family: monospace;
+        scroll-behavior: smooth;
     }
+
     body {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+
+    a {
+        text-decoration: none;
+        text-decoration: none;
+        opacity: 0.3;
+        transition: 0.5s;
+        color: black;
+    }
+    a:hover {
+        opacity: 1;
+    }
+
+    .artContainer {
         height: 100vh;
-        font-family: monospace;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     /* iframe */
@@ -43,22 +64,17 @@
 
     /* UI */
     #ui {
-        position: fixed;
+        position: absolute;
         bottom: 30px;
-        left: 20px;
+        right: 20px;
     }
     #ui img {
         width: 20px;
         height: 20px;
-        opacity: 0.3;
-    }
-    .hidden {
-        display: none;
     }
 
-    /* dark and light mode buttons */
-    a {
-        text-decoration: none;
+    .hidden {
+        display: none;
     }
 
     /* dark and light mode effect */
@@ -68,32 +84,77 @@
     .body-dark  { background-color: #222222; }
     .body-light { background-color: #ffffff; }
 
+    /* info */
+    .info {
+        width: 80vw;
+        max-width: 1500px;
+    }
+
+    .infoText {
+        color: rgba(0, 0, 0, 0.5);
+        margin-bottom: 200px;
+        line-height: 20px;
+    }
+
+    ul {
+        list-style-type: "- ";
+    }
+
+    em {
+        color: black;
+        font-style: normal;
+    }
+
 </style>
 </head>
 
 <!-- ****************************************************************************************************************************** -->
 <!-- HTML -->
 <body>
-
-    <!-- iframe -->
-    <div id="iframe-container">
-        <iframe src="raw.html"></iframe>
-    </div>
-
-    <!-- info -->
-    <div>
+    
+    <!-- ART -->
+    <section class="artContainer">
         
-    </div>
+        <!-- iframe -->
+        <div id="iframe-container">
+            <iframe src="raw.html"></iframe>
+        </div>
+        
+        <!-- UI -->
+        <div id="ui">
+            <a title="Show info" id="info-light" href="#infoId"><img src="img/icons/information-dark.svg" alt="Info"/></a>
+            <a title="Show info" id="info-dark" href="#infoId"><img src="img/icons/information-light.svg" alt="Info"/></a>
+            <a title="Switch to dark mode" id="switch-light" href="index.html?mode=dark&ui=true"><img src="img/icons/moon-dark.svg" alt="Dark mode"/></a>
+            <a title="Switch to light mode" id="switch-dark" href="index.html?mode=light&ui=true"><img src="img/icons/sunny-light.svg" alt="Light mode"/></a>
+            <a title="Close this menu" id="x-light" href="index.html?mode=light&ui=false"><img src="img/icons/close-dark.svg" alt="Close menu"/></a>
+            <a title="Close this menu" id="x-dark" href="index.html?mode=dark&ui=false"><img src="img/icons/close-light.svg" alt="Close menu"/></a>
+        </div>
+    
+    </section><!-- artContainer -->
+    
+    <!-- INFO -->
+    <section id="infoId" class="info">
 
-    <!-- UI -->
-    <div id="ui">
-        <a title="Close this menu" id="x-light" href="index.html?mode=light&ui=false"><img src="img/icons/close-dark.svg" alt="Close menu"/></a>
-        <a title="Close this menu" id="x-dark" href="index.html?mode=dark&ui=false"><img src="img/icons/close-light.svg" alt="Close menu"/></a>
-        <!-- <a title="Show info" id="info-light" href=""><img src="img/icons/information-dark.svg" alt="Info"/></a>
-        <a title="Show info" id="info-dark" href=""><img src="img/icons/information-light.svg" alt="Info"/></a> -->
-        <a title="Switch to dark mode" id="switch-light" href="index.html?mode=dark&ui=true"><img src="img/icons/moon-dark.svg" alt="Dark mode"/></a>
-        <a title="Switch to light mode" id="switch-dark" href="index.html?mode=light&ui=true"><img src="img/icons/sunny-light.svg" alt="Light mode"/></a>
-    </div>
+        <h1>Quartz Genesis</h1>
+        <div class="infoText">
+            Over the past 4 years, I've worked on and off on this project, learning and experimenting in between other projects. I'm excited that it's finally finished and is now ready for its next phase.
+            <br><br>
+            Quartz Genesis is a <em>time-based</em> artwork, consisting of 3 layers:
+            <ul>
+                <li>The background changes every 1:30 hours and has 14 variants.</li>
+                <li>The character changes every hour with 24 variations.</li>
+                <li>The lines have 8 variants, changing every 45 minutes, and shifts colors every 15 minutes among 3 different colors.</li>
+            </ul>
+            The <em>background and lines are consistent for viewers all around the world</em>, creating a shared experience. However, the <em>character layer is personalized based on your timezone</em>, connecting the artwork to your surroundings.<br>
+            With a narrow 15-minute time window before changes occur, the likelihood of seeing the exact same composition again is rare. This ensures that each composition is fleeting and makes <em>encountering the same configuration a rare event</em>.<br>
+            <br><br>
+            Created using Blender and Midjourney.
+            <br>
+            Raw version: <a href="https://www.hannemaes.com/persistent/quartz/01/raw.html" target="_blank">https://www.hannemaes.com/persistent/quartz/01/raw.html</a><br>
+            Arweave: <a href="https://lpcq3tjpad4qxjc2c2w4sejl5dohtnrqjwf4b5n5ajh2meqi4laq.arweave.net/W8UNzS8A-QukWhatyREr6Nx5tjBNi8D1vQJPphII4sE/" target="_blank">https://lpcq3tjpad4qxjc2c2w4sejl5dohtnrqjwf4b5n5ajh2meqi4laq.arweave.net/W8UNzS8A-QukWhatyREr6Nx5tjBNi8D1vQJPphII4sE/</a>
+        </div>
+
+    </section><!-- infp -->
 
 <!-- ****************************************************************************************************************************** -->
 <!-- JS -->
@@ -110,8 +171,8 @@
     var switchLightContainer = document.getElementById('switch-light');
     var xDarkContainer = document.getElementById('x-dark');
     var xLightContainer = document.getElementById('x-light');
-    // var infoDarkContainer = document.getElementById('info-dark');
-    // var infoLightContainer = document.getElementById('info-light');
+    var infoDarkContainer = document.getElementById('info-dark');
+    var infoLightContainer = document.getElementById('info-light');
 
     // add classes depending on mode, defaults to dark mode
     if (mode == 'dark') {
@@ -124,8 +185,8 @@
         xLightContainer.classList.add('hidden');     
         xDarkContainer.classList.remove('hidden');
 
-        // infoLightContainer.classList.add('hidden');     
-        // infoDarkContainer.classList.remove('hidden');
+        infoLightContainer.classList.add('hidden');     
+        infoDarkContainer.classList.remove('hidden');
     } else {
         body.classList.add('body-light');                     
         iframeContainer.classList.add('frame-light');
@@ -136,8 +197,8 @@
         xDarkContainer.classList.add('hidden');     
         xLightContainer.classList.remove('hidden'); 
 
-        // infoDarkContainer.classList.add('hidden');     
-        // infoLightContainer.classList.remove('hidden'); 
+        infoDarkContainer.classList.add('hidden');     
+        infoLightContainer.classList.remove('hidden'); 
     }
 
     // print
