@@ -8,11 +8,12 @@ h1 {
 }
 
 h2, em { 
-  color: rgb(200, 200, 200); 
+  color: white 
 }
 
 .manifesto {
-  font-size: 30px;
+  font-size: 25px;
+  color: rgb(200, 200, 200);
 }
 
 /* art */
