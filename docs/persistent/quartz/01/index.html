@@ -28,7 +28,6 @@
 
     a {
         text-decoration: none;
-        text-decoration: none;
         opacity: 0.3;
         transition: 0.5s;
         color: black;
@@ -84,6 +83,13 @@
     .body-dark  { background-color: #222222; }
     .body-light { background-color: #ffffff; }
 
+    .infoText-dark { color: rgba(255, 255, 255, 0.5); }
+    .infoText-dark em { color: white; }
+    .infoText-dark a { color: white; }
+    .infoText-light { color: rgba(0, 0, 0, 0.5); }
+    .infoText-light em { color: black; }
+    .infoText-light a { color: black; }
+
     /* info */
     .info {
         width: 80vw;
@@ -91,7 +97,6 @@
     }
 
     .infoText {
-        color: rgba(0, 0, 0, 0.5);
         margin-bottom: 200px;
         line-height: 20px;
     }
@@ -101,7 +106,6 @@
     }
 
     em {
-        color: black;
         font-style: normal;
     }
 
@@ -173,12 +177,14 @@
     var xLightContainer = document.getElementById('x-light');
     var infoDarkContainer = document.getElementById('info-dark');
     var infoLightContainer = document.getElementById('info-light');
+    var infoText = document.getElementById('infoId');
 
     // add classes depending on mode, defaults to dark mode
     if (mode == 'dark') {
         body.classList.add('body-dark');               
         iframeContainer.classList.add('frame-dark'); 
-        
+        infoText.classList.add('infoText-dark')
+
         switchLightContainer.classList.add('hidden');     
         switchDarkContainer.classList.remove('hidden');
         
@@ -190,6 +196,7 @@
     } else {
         body.classList.add('body-light');                     
         iframeContainer.classList.add('frame-light');
+        infoText.classList.add('infoText-light')
 
         switchDarkContainer.classList.add('hidden');     
         switchLightContainer.classList.remove('hidden'); 
