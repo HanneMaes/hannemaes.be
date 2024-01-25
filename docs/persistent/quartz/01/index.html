@@ -12,18 +12,25 @@
 <style>
 
     html, body { 
-        background-color: black; 
         padding: 0;
         margin: 0;
         font-family: monospace;
         scroll-behavior: smooth;
     }
-
+    
     body {
+        min-height: 100vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+
+
+    .logo {
+        height: 70px;
+        padding-top:    30px;
+        padding-bottom: 30px;
     }
 
     a {
@@ -37,7 +44,7 @@
     }
 
     .artContainer {
-        height: 100vh;
+        /* height: 100vh; */
 
         display: flex;
         flex-direction: column;
@@ -46,28 +53,19 @@
     }
 
     /* iframe */
-    #iframe-container {
+    iframe {
         overflow: hidden; /* remove scrollbars */
-        width:  90vmin; /* vmin means it will maintain a square aspect ratio based on the smaller of the viewport's width and height. This ensures that the container remains square */
-        height: 90vmin; /* vmin means it will maintain a square aspect ratio based on the smaller of the viewport's width and height. This ensures that the container remains squaree */
+        width:  85vmin; /* vmin means it will maintain a square aspect ratio based on the smaller of the viewport's width and height. This ensures that the container remains square */
+        height: 85vmin; /* vmin means it will maintain a square aspect ratio based on the smaller of the viewport's width and height. This ensures that the container remains squaree */
         max-width:  2048px;
         max-height: 2048px;
         border-radius: 10px;
-    }
-    iframe {
-        width: 100%;
-        height: 100%;
         border: none;
         overflow: hidden; /* remove scrollbars */
     }
 
     /* UI */
-    #ui {
-        position: absolute;
-        bottom: 30px;
-        right: 20px;
-    }
-    #ui img {
+    .ui img {
         width: 20px;
         height: 20px;
     }
@@ -92,12 +90,11 @@
 
     /* info */
     .info {
-        width: 80vw;
-        max-width: 1500px;
+        width: 70vw;
+        max-width: 1000px;
     }
 
     .infoText {
-        margin-bottom: 200px;
         line-height: 20px;
     }
 
@@ -109,58 +106,71 @@
         font-style: normal;
     }
 
+    .spacing {
+        margin-bottom: 100px;
+    }
+
 </style>
 </head>
 
 <!-- ****************************************************************************************************************************** -->
 <!-- HTML -->
 <body>
-    
-    <!-- ART -->
-    <section class="artContainer">
+
+    <div class="spacing"></div> <!-- spacing: created a div to let it not be visible in the screenshot -->
+
+    <!-- artwork -->
+    <iframe id="iframe" src="raw.html"></iframe>
+
+    <!-- info & ui -->
+    <section id="infoId" class="info">
         
-        <!-- iframe -->
-        <div id="iframe-container">
-            <iframe src="raw.html"></iframe>
-        </div>
-        
+        <div class="spacing"></div> <!-- spacing: created a div to let it not be visible in the screenshot -->
+
         <!-- UI -->
-        <div id="ui">
-            <a title="Show info" id="info-light" href="#infoId"><img src="img/icons/information-dark.svg" alt="Info"/></a>
-            <a title="Show info" id="info-dark" href="#infoId"><img src="img/icons/information-light.svg" alt="Info"/></a>
+        <div class="ui">
+            <!-- icons from https://remixicon.com/ -->
             <a title="Switch to dark mode" id="switch-light" href="index.html?mode=dark&ui=true"><img src="img/icons/moon-dark.svg" alt="Dark mode"/></a>
             <a title="Switch to light mode" id="switch-dark" href="index.html?mode=light&ui=true"><img src="img/icons/sunny-light.svg" alt="Light mode"/></a>
-            <a title="Close this menu" id="x-light" href="index.html?mode=light&ui=false"><img src="img/icons/close-dark.svg" alt="Close menu"/></a>
-            <a title="Close this menu" id="x-dark" href="index.html?mode=dark&ui=false"><img src="img/icons/close-light.svg" alt="Close menu"/></a>
+            <a title="Take a screenshot od the work at this point in time" id="screenshotButtonLight" class="camera-light" href="#"><img src="img/icons/camera-dark.svg" alt="Take screenshot"/></a>
+            <a title="Take a screenshot od the work at this point in time" id="screenshotButtonDark" class="camera-dark" href="#"><img src="img/icons/camera-light.svg" alt="Take screenshot"/></a>
+            <a title="Show only the artwork" id="x-light" href="index.html?mode=light&ui=false"><img src="img/icons/close-dark.svg" alt="Show only the artwork"/></a>
+            <a title="Show only the artwork" id="x-dark" href="index.html?mode=dark&ui=false"><img src="img/icons/close-light.svg" alt="Show only the artwork"/></a>
         </div>
-    
-    </section><!-- artContainer -->
-    
-    <!-- INFO -->
-    <section id="infoId" class="info">
-
-        <h1>Quartz Genesis</h1>
-        <div class="infoText">
-            Over the past 4 years, I've worked on and off on this project, learning and experimenting in between other projects. I'm excited that it's finally finished and is now ready for its next phase.
-            <br><br>
-            Quartz Genesis is a <em>time-based</em> artwork, consisting of 3 layers:
-            <ul>
-                <li>The background changes every 1:30 hours and has 14 variants.</li>
-                <li>The character changes every hour with 24 variations.</li>
-                <li>The lines have 8 variants, changing every 45 minutes, and shifts colors every 15 minutes among 3 different colors.</li>
-            </ul>
-            The <em>background and lines are consistent for viewers all around the world</em>, creating a shared experience. However, the <em>character layer is personalized based on your timezone</em>, connecting the artwork to your surroundings.<br>
-            With a narrow 15-minute time window before changes occur, the likelihood of seeing the exact same composition again is rare. This ensures that each composition is fleeting and makes <em>encountering the same configuration a rare event</em>.<br>
-            <br><br>
-            Created using Blender and Midjourney.
-            <br>
-            Raw version: <a href="https://www.hannemaes.com/persistent/quartz/01/raw.html" target="_blank">https://www.hannemaes.com/persistent/quartz/01/raw.html</a><br>
-            Arweave: <a href="https://lpcq3tjpad4qxjc2c2w4sejl5dohtnrqjwf4b5n5ajh2meqi4laq.arweave.net/W8UNzS8A-QukWhatyREr6Nx5tjBNi8D1vQJPphII4sE/" target="_blank">https://lpcq3tjpad4qxjc2c2w4sejl5dohtnrqjwf4b5n5ajh2meqi4laq.arweave.net/W8UNzS8A-QukWhatyREr6Nx5tjBNi8D1vQJPphII4sE/</a>
+            
+        <!-- INFO -->
+        <div id="screenshotInfo">
+            <img class="logo" id="logo-light" src="img/Quartz genesis - dark.svg">
+            <img class="logo" id="logo-dark" src="img/Quartz genesis - light.svg">
+            <div class="infoText">
+                Over the past 4 years, I've worked on and off on this project, learning and experimenting in between other projects. I'm excited that it's finally finished and is now ready for its next phase.<br>
+                <br>
+                Quartz Genesis is a <em>time-based</em> artwork, consisting of 3 layers:
+                <ul>
+                    <li>The background changes every 1:30 hours and has 14 variants.</li>
+                    <li>The character changes every hour with 24 variations.</li>
+                    <li>The lines have 8 variants, changing every 45 minutes, and shifts colors every 15 minutes among 3 different colors.</li>
+                </ul>
+                The <em>background and lines are consistent for viewers all around the world</em>, creating a shared experience. However, the <em>character layer is personalized based on your timezone</em>, connecting the artwork to your surroundings.<br>
+                With a narrow 15-minute time window before changes occur, the likelihood of seeing the exact same composition again is rare. This ensures that each composition is fleeting and makes <em>encountering the same configuration a rare event</em>.<br>
+                Beauty is not only in visuals but also in its connection to the present moment.<br>
+                <br>
+                Created using Blender and Midjourney.
+                <br>
+                Raw version: <a href="https://www.hannemaes.com/persistent/quartz/01/raw.html" target="_blank">https://www.hannemaes.com/persistent/quartz/01/raw.html</a><br>
+                Arweave: <a href="https://lpcq3tjpad4qxjc2c2w4sejl5dohtnrqjwf4b5n5ajh2meqi4laq.arweave.net/W8UNzS8A-QukWhatyREr6Nx5tjBNi8D1vQJPphII4sE/" target="_blank">https://lpcq3tjpad4qxjc2c2w4sejl5dohtnrqjwf4b5n5ajh2meqi4laq.arweave.net/W8UNzS8A-QukWhatyREr6Nx5tjBNi8D1vQJPphII4sE/</a>
+            </div>
         </div>
+    </section>
 
-    </section><!-- infp -->
+    <div class="spacing"></div> <!-- spacing: created a div to let it not be visible in the screenshot -->
 
 <!-- ****************************************************************************************************************************** -->
+
+<!-- LIB -->
+<script src="lib/html2canvas.min.js"></script>
+
+
 <!-- JS -->
 <script>
 
@@ -170,16 +180,18 @@
 
     var mode = getUrlParameterByName('mode');
     var body = document.body
-    var iframeContainer = document.getElementById('iframe-container');
+    var iframeContainer = document.getElementById('iframe');
     var switchDarkContainer = document.getElementById('switch-dark');
-    var switchLightContainer = document.getElementById('switch-light');
+    var switchLightContainer = document.getElementById('switch-light'); 
+    var cameraDarkContainer = document.querySelector('.camera-dark');   /* I use querySelector to find the class, because the id is used for the screenshot and an element can only have 1 id */
+    var cameraLightContainer = document.querySelector('.camera-light'); /* I use querySelector to find the class, because the id is used for the screenshot and an element can only have 1 id */
     var xDarkContainer = document.getElementById('x-dark');
     var xLightContainer = document.getElementById('x-light');
-    var infoDarkContainer = document.getElementById('info-dark');
-    var infoLightContainer = document.getElementById('info-light');
+    var logoDark = document.getElementById('logo-dark');
+    var logoLight = document.getElementById('logo-light');
     var infoText = document.getElementById('infoId');
 
-    // add classes depending on mode, defaults to dark mode
+    // add/remove classes depending on mode, defaults to dark mode
     if (mode == 'dark') {
         body.classList.add('body-dark');               
         iframeContainer.classList.add('frame-dark'); 
@@ -187,12 +199,15 @@
 
         switchLightContainer.classList.add('hidden');     
         switchDarkContainer.classList.remove('hidden');
+
+        cameraLightContainer.classList.add('hidden');     
+        cameraDarkContainer.classList.remove('hidden');
         
         xLightContainer.classList.add('hidden');     
         xDarkContainer.classList.remove('hidden');
 
-        infoLightContainer.classList.add('hidden');     
-        infoDarkContainer.classList.remove('hidden');
+        logoLight.classList.add('hidden');     
+        logoDark.classList.remove('hidden');
     } else {
         body.classList.add('body-light');                     
         iframeContainer.classList.add('frame-light');
@@ -201,25 +216,30 @@
         switchDarkContainer.classList.add('hidden');     
         switchLightContainer.classList.remove('hidden'); 
 
+        cameraDarkContainer.classList.add('hidden');     
+        cameraLightContainer.classList.remove('hidden');
+
         xDarkContainer.classList.add('hidden');     
         xLightContainer.classList.remove('hidden'); 
 
-        infoDarkContainer.classList.add('hidden');     
-        infoLightContainer.classList.remove('hidden'); 
+        logoDark.classList.add('hidden');     
+        logoLight.classList.remove('hidden');
     }
 
     // print
     console.log('Mode:', mode);
     
-    /*************/
-    /* UI of not */
-    /*************/
+    /*************************/
+    /* Show only the artwork */
+    /*************************/
 
     var ui = getUrlParameterByName('ui');
 
-    var uiContainer = document.getElementById('ui');
-    if (ui == 'false') uiContainer.classList.add('hidden');  
-
+    if (ui == 'false') {
+        var uiContainer = document.getElementById('infoId');
+        uiContainer.classList.add('hidden');  
+    }
+    
     // print
     console.log('UI:', ui);
     console.log();
@@ -235,6 +255,120 @@
         if (!results[2]) return '';
         return decodeURIComponent(results[2].replace(/\+/g, " "));
     }
+
+    /*********************/
+    /* Screenshot button */
+    /*********************/
+    
+    document.getElementById('screenshotButtonLight').addEventListener('click', handleScreenshotButtonClick);
+    document.getElementById('screenshotButtonDark').addEventListener('click', handleScreenshotButtonClick);
+
+    function handleScreenshotButtonClick() {
+        
+        // Settings
+        var spacing = 40; // spacing between images     
+        var bottomSpacing = 100; // spacing at the bottom of the image   
+
+        // Image name
+        var currentDate = new Date();
+        var formattedDate = currentDate.toLocaleDateString();
+        var formattedTime = currentDate.toLocaleTimeString();
+        var imageName = 'Quartz at ' + formattedTime + ' ' + formattedDate + '.png';
+
+        // Capture screenshot of the iframe
+        var iframe = document.querySelector('iframe');
+        var iframeCanvas = document.createElement('canvas');
+        var iframeContext = iframeCanvas.getContext('2d');
+
+        html2canvas(iframe.contentDocument.body).then(function(canvas) {
+            iframeCanvas.width = canvas.width;
+            iframeCanvas.height = canvas.height;
+            iframeContext.drawImage(canvas, 0, 0);
+
+            // Also capture screenshot of this element
+            var infoElement = document.getElementById('screenshotInfo');
+            var infoCanvas = document.createElement('canvas');
+            var infoContext = infoCanvas.getContext('2d');
+
+            html2canvas(infoElement).then(function(infoCanvas) {
+                
+                // // Create a new canvas with the maximum width and combined height
+                // var maxWidth = Math.max(iframeCanvas.width, infoCanvas.width); // Determine the maximum width between the two elements
+                // var combinedCanvas = document.createElement('canvas');
+                // combinedCanvas.width = maxWidth;
+                // combinedCanvas.height = iframeCanvas.height + infoCanvas.height + spacing + spacing; // Add spacing between the images
+                // var combinedContext = combinedCanvas.getContext('2d');
+
+                // // Set the background color
+                // var bodyBackgroundColor = getComputedStyle(document.body).backgroundColor;
+                // combinedContext.fillStyle = bodyBackgroundColor;
+                // combinedContext.fillRect(0, 0, combinedCanvas.width, combinedCanvas.height);
+
+                // // Create the final image
+                // var iframeVerticalCenter = (combinedCanvas.height - iframeCanvas.height - infoCanvas.height - spacing) / 2; // Calculate vertical center position for the iframe screenshot
+                // combinedContext.drawImage(iframeCanvas, (maxWidth - iframeCanvas.width) / 2, iframeVerticalCenter); // Draw the iframe screenshot on the combined canvas, vertically centered
+                // combinedContext.drawImage(infoCanvas, (maxWidth - infoCanvas.width) / 2, iframeVerticalCenter + iframeCanvas.height + spacing); // Draw the element with id "infoId" screenshot below the iframe screenshot with spacing
+                // var combinedDataURL = combinedCanvas.toDataURL(); // Convert the combined canvas to a data URL
+
+                // Create a new canvas with the maximum width and combined height
+                var maxWidth = Math.max(iframeCanvas.width, infoCanvas.width); // Determine the maximum width between the two elements
+                var combinedCanvas = document.createElement('canvas');
+                combinedCanvas.width = maxWidth;
+                combinedCanvas.height = iframeCanvas.height + infoCanvas.height + spacing + bottomSpacing; // Add spacing between the images and at the bottom
+                var combinedContext = combinedCanvas.getContext('2d');
+
+                // Set the background color
+                var bodyBackgroundColor = getComputedStyle(document.body).backgroundColor;
+                combinedContext.fillStyle = bodyBackgroundColor;
+                combinedContext.fillRect(0, 0, combinedCanvas.width, combinedCanvas.height);
+
+                // Draw the iframe screenshot on the combined canvas at the top
+                combinedContext.drawImage(iframeCanvas, (maxWidth - iframeCanvas.width) / 2, 0);
+
+                // Draw the element with id "screenshotInfo" screenshot below the iframe screenshot with spacing
+                combinedContext.drawImage(infoCanvas, (maxWidth - infoCanvas.width) / 2, iframeCanvas.height + spacing);
+
+                // Convert the combined canvas to a data URL
+                var combinedDataURL = combinedCanvas.toDataURL();
+
+                // Create a link element to download the combined image
+                var link = document.createElement('a');
+                link.href = combinedDataURL;
+                link.download = imageName;
+                link.click();
+            });
+        });
+    }
+
+    /*************************/
+    /* Screenshot button RAW */
+    /*************************/
+
+    // document.getElementById('screenshotButton').addEventListener('click', function() {
+        
+    //     var iframe = document.querySelector('iframe'); // Find the only iframe on the page
+    //     if (iframe) { // Check if an iframe is found
+
+    //         // Image name
+    //         var currentDate = new Date();
+    //         var formattedDate = currentDate.toLocaleDateString();
+    //         var formattedTime = currentDate.toLocaleTimeString();
+    //         var imageName = 'A snapshot of Quartz at ' + formattedTime + ' ' + formattedDate;
+
+    //         html2canvas(iframe.contentDocument.body).then(function(canvas) {
+                
+    //             var imageDataURL = canvas.toDataURL(); // Convert the canvas to a data URL
+
+    //             // Create a link element to download the image
+    //             var link = document.createElement('a');
+    //             link.href = imageDataURL;
+    //             link.download = imageName + '.png'; // You can specify the image format if needed
+    //             link.click();
+    //         });
+    //     } else {
+    //         console.error('No iframe found on the page.');
+    //     }
+    // });
 
 </script>
 
