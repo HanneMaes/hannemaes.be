@@ -29,6 +29,7 @@
 
     .logo {
         height: 70px;
+        max-width: 100%;
         padding-top:    30px;
         padding-bottom: 30px;
     }
@@ -41,6 +42,17 @@
     }
     a:hover {
         opacity: 1;
+    }
+
+    /* popup styling */
+    a {
+        padding-top: 10px; /* distance of the popup */
+    }
+
+    .tippy-content {
+        text-align: center;
+        padding: 15px;
+        padding-bottom: 10px;
     }
 
     .artContainer {
@@ -110,7 +122,41 @@
         margin-bottom: 100px;
     }
 
-</style>
+    /* tooltip */ /* https://blog.logrocket.com/creating-beautiful-tooltips-with-only-css/ */
+    .tooltip {
+        position: relative; /* making the .tooltip span a container for the tooltip text */
+    }
+    
+    .tooltip:before {
+        content: attr(tooltip); /* here's the magic */
+        position: absolute;
+
+        background-color: black;
+        color: white;
+        
+        /* positioning */
+        bottom: 30px;
+        left:100%;
+        margin-left:10px; /* Adjusted left margin */ 
+        width:120px;
+        padding:10px; /* Increased padding for better readability */ 
+        border-radius:3px; /* Slightly rounded corners */ 
+        text-align:center;
+
+        /* hide by default */
+        /*display:none; /* hide by default */
+    }
+
+    .tooltip:hover:before { /* show on hover */
+        display: inline-block;
+    }
+
+    </style>
+
+    <!-- tooltip library -->
+    <link rel="stylesheet" href="path/to/tippy.css">
+    <script src="path/to/tippy-bundle.umd.js"></script>
+
 </head>
 
 <!-- ****************************************************************************************************************************** -->
@@ -128,14 +174,20 @@
         <div class="spacing"></div> <!-- spacing: created a div to let it not be visible in the screenshot -->
 
         <!-- UI -->
-        <div class="ui">
-            <!-- icons from https://remixicon.com/ -->
-            <a title="Switch to dark mode" id="switch-light" href="index.html?mode=dark&ui=true"><img src="img/icons/moon-dark.svg" alt="Dark mode"/></a>
-            <a title="Switch to light mode" id="switch-dark" href="index.html?mode=light&ui=true"><img src="img/icons/sunny-light.svg" alt="Light mode"/></a>
-            <a title="Take a screenshot od the work at this point in time" id="screenshotButtonLight" class="camera-light" href="#"><img src="img/icons/camera-dark.svg" alt="Take screenshot"/></a>
-            <a title="Take a screenshot od the work at this point in time" id="screenshotButtonDark" class="camera-dark" href="#"><img src="img/icons/camera-light.svg" alt="Take screenshot"/></a>
-            <a title="Show only the artwork" id="x-light" href="index.html?mode=light&ui=false"><img src="img/icons/close-dark.svg" alt="Show only the artwork"/></a>
-            <a title="Show only the artwork" id="x-dark" href="index.html?mode=dark&ui=false"><img src="img/icons/close-light.svg" alt="Show only the artwork"/></a>
+        <div class="ui"><!-- icons from https://remixicon.com/ -->
+
+            <!-- dark / light mode -->
+            <a id="switch-light" href="index.html?mode=dark&ui=true"><img src="img/icons/moon-dark.svg" alt="Dark mode"/></a>
+            <a id="switch-dark" href="index.html?mode=light&ui=true"><img src="img/icons/sunny-light.svg" alt="Light mode"/></a>
+
+            <!-- screenshot -->
+            <a id="screenshotButtonLight" class="camera-light" href="#"><img src="img/icons/camera-dark.svg" alt="Take screenshot"/></a>
+            <a id="screenshotButtonDark" class="camera-dark" href="index.html?mode=light&ui=true&screenshot=true"><img src="img/icons/camera-light.svg" alt="Take screenshot"/></a><!-- the dark mode screenshot isnt working, so I switchto light mode and immediately take a screenshot-->
+
+            <!-- hide UI -->
+            <a id="x-light" href="index.html?mode=light&ui=false"><img src="img/icons/close-dark.svg" alt="Show only the artwork"/></a>
+            <a id="x-dark" href="index.html?mode=dark&ui=false"><img src="img/icons/close-light.svg" alt="Show only the artwork"/></a>
+
         </div>
             
         <!-- INFO -->
@@ -167,8 +219,25 @@
 
 <!-- ****************************************************************************************************************************** -->
 
-<!-- LIB -->
-<script src="lib/html2canvas.min.js"></script>
+<!-- tooltips: https://atomiks.github.io/ -->
+<script src="../lib/tippy-js/popper.min.js"></script>
+<script src="../lib/tippy-js/tippy-bundle.umd.min.js"></script>
+<script>
+    // With the above scripts loaded, you can call `tippy()` with a CSS
+    // selector and a `content` prop:
+
+    tippy('#switch-light', { content: 'Switch to dark mode',  arrow: false });
+    tippy('#switch-dark', {  content: 'Switch to light mode', arrow: false, theme: 'light' });
+
+    tippy('.camera-light', { content: 'Take a screenshot of the work at this point in time', arrow: false });
+    tippy('.camera-dark', {  content: 'Take a screenshot of the work at this point in time', arrow: false, theme: 'light' });
+
+    tippy('#x-light', { content: 'Show only the artwork', arrow: false });
+    tippy('#x-dark', {  content: 'Show only the artwork', arrow: false, theme: 'light' });
+</script>
+
+<!-- Screenshot lib -->
+<script src="../lib/html2canvas.min.js"></script>
 
 
 <!-- JS -->
@@ -242,7 +311,6 @@
     
     // print
     console.log('UI:', ui);
-    console.log();
 
     // functions ***********************************
 
@@ -261,9 +329,31 @@
     /*********************/
     
     document.getElementById('screenshotButtonLight').addEventListener('click', handleScreenshotButtonClick);
-    document.getElementById('screenshotButtonDark').addEventListener('click', handleScreenshotButtonClick);
+    // document.getElementById('screenshotButtonDark').addEventListener('click', handleScreenshotButtonClick);
+    
+    // for some reason the dark mode screenshot isn't working, so when clicking the button I switch to light mode and immeditaely take a screenshot
+    var takeScreenshot = getUrlParameterByName('screenshot');
+    console.log('takeScreenshot:', takeScreenshot);
+    console.log();
+    if (takeScreenshot) {  // if ndex.html?screenshot=true take screenshot
 
+        // wait to make sure page is loaded and make a screenshot
+        setTimeout(function() { 
+            handleScreenshotButtonClick();
+        }, 500);
+
+        // remove 'screenshot=true' from the URL so we dont make anaother screenshot on reload
+        let currentUrl = window.location.href; // Get the current URL
+        let urlParams = new URLSearchParams(window.location.search); // Create a URLSearchParams object
+        urlParams.delete('screenshot'); // Remove the 'screenshot' parameter
+        let newUrl = `${window.location.origin}${window.location.pathname}?${urlParams.toString()}${window.location.hash}`; // Update the URL without the 'screenshot' parameter
+        window.history.replaceState({}, document.title, newUrl); // Change the URL without reloading the page
+    }
+    
+
+    // screenshot function
     function handleScreenshotButtonClick() {
+        console.log('Take screenshot');
         
         // Settings
         var spacing = 40; // spacing between images     
@@ -291,24 +381,6 @@
             var infoContext = infoCanvas.getContext('2d');
 
             html2canvas(infoElement).then(function(infoCanvas) {
-                
-                // // Create a new canvas with the maximum width and combined height
-                // var maxWidth = Math.max(iframeCanvas.width, infoCanvas.width); // Determine the maximum width between the two elements
-                // var combinedCanvas = document.createElement('canvas');
-                // combinedCanvas.width = maxWidth;
-                // combinedCanvas.height = iframeCanvas.height + infoCanvas.height + spacing + spacing; // Add spacing between the images
-                // var combinedContext = combinedCanvas.getContext('2d');
-
-                // // Set the background color
-                // var bodyBackgroundColor = getComputedStyle(document.body).backgroundColor;
-                // combinedContext.fillStyle = bodyBackgroundColor;
-                // combinedContext.fillRect(0, 0, combinedCanvas.width, combinedCanvas.height);
-
-                // // Create the final image
-                // var iframeVerticalCenter = (combinedCanvas.height - iframeCanvas.height - infoCanvas.height - spacing) / 2; // Calculate vertical center position for the iframe screenshot
-                // combinedContext.drawImage(iframeCanvas, (maxWidth - iframeCanvas.width) / 2, iframeVerticalCenter); // Draw the iframe screenshot on the combined canvas, vertically centered
-                // combinedContext.drawImage(infoCanvas, (maxWidth - infoCanvas.width) / 2, iframeVerticalCenter + iframeCanvas.height + spacing); // Draw the element with id "infoId" screenshot below the iframe screenshot with spacing
-                // var combinedDataURL = combinedCanvas.toDataURL(); // Convert the combined canvas to a data URL
 
                 // Create a new canvas with the maximum width and combined height
                 var maxWidth = Math.max(iframeCanvas.width, infoCanvas.width); // Determine the maximum width between the two elements
@@ -338,7 +410,7 @@
                 link.click();
             });
         });
-    }
+    } // handleScreenshotButtonClick
 
     /*************************/
     /* Screenshot button RAW */
