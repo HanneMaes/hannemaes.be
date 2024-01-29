@@ -1,3 +1,13 @@
+/* fancy font */
+@font-face {
+  font-family: yipes;
+  src: url('../fonts/Yipes/yipes.ttf');
+}
+
+h1, h2 {
+  font-family: yipes;
+}
+
 h1, em { 
   color:rgb(0 ,0 ,0);
 }
@@ -13,7 +23,7 @@ a {
 .signatureDigital   {  color:                  rgba(0 ,0 ,0, 0.5); }
 .signatureContainer { border: 2px dotted       rgba(0 ,0 ,0, 0.3); }
 .signatureLegacy    { border-right: 2px dotted rgba(0 ,0 ,0, 0.3); }
-
+ 
 /**********/
 /* MOBILE */
 /**********/
