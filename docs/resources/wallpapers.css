@@ -7,24 +7,26 @@ h1, h2, em {
 }
 
 .wallpapers img {
+  display: block;
   transform: scale(0.96);
   transition: all 0.3s ease-out;
   border-radius: 10px;
   border: 5px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0px 0px 200px rgba(255, 255, 255, 0.3);
+  box-shadow: 0px 0px 100px rgba(255, 255, 255, 0);
+  margin-bottom: 100px;
 }
 .wallpapers img:hover { 
   transform: scale(1);
   border: 5px solid rgba(255, 255, 255, 1);
-  box-shadow: 0px 0px 200px rgba(255, 255, 255, 0.7);
+  box-shadow: 0px 0px 150px rgba(255, 255, 255, 0.3);
 }
 
 .backButton::after {
-  background-color: rgb(255, 147, 133);
+  background-color: rgb(255, 255, 255);
   color: black;
 }
 .backButton::before {
-  border-right-color: rgb(255, 147, 133);
+  border-right-color: rgb(255, 255, 255);
 }
 
 /* signature */
