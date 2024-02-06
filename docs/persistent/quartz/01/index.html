@@ -52,7 +52,6 @@
     .tippy-content {
         text-align: center;
         padding: 15px;
-        padding-bottom: 10px;
     }
 
     .artContainer {
@@ -122,41 +121,7 @@
         margin-bottom: 100px;
     }
 
-    /* tooltip */ /* https://blog.logrocket.com/creating-beautiful-tooltips-with-only-css/ */
-    .tooltip {
-        position: relative; /* making the .tooltip span a container for the tooltip text */
-    }
-    
-    .tooltip:before {
-        content: attr(tooltip); /* here's the magic */
-        position: absolute;
-
-        background-color: black;
-        color: white;
-        
-        /* positioning */
-        bottom: 30px;
-        left:100%;
-        margin-left:10px; /* Adjusted left margin */ 
-        width:120px;
-        padding:10px; /* Increased padding for better readability */ 
-        border-radius:3px; /* Slightly rounded corners */ 
-        text-align:center;
-
-        /* hide by default */
-        /*display:none; /* hide by default */
-    }
-
-    .tooltip:hover:before { /* show on hover */
-        display: inline-block;
-    }
-
     </style>
-
-    <!-- tooltip library -->
-    <link rel="stylesheet" href="path/to/tippy.css">
-    <script src="path/to/tippy-bundle.umd.js"></script>
-
 </head>
 
 <!-- ****************************************************************************************************************************** -->
@@ -238,7 +203,6 @@
 
 <!-- Screenshot lib -->
 <script src="../lib/html2canvas.min.js"></script>
-
 
 <!-- JS -->
 <script>
@@ -411,36 +375,6 @@
             });
         });
     } // handleScreenshotButtonClick
-
-    /*************************/
-    /* Screenshot button RAW */
-    /*************************/
-
-    // document.getElementById('screenshotButton').addEventListener('click', function() {
-        
-    //     var iframe = document.querySelector('iframe'); // Find the only iframe on the page
-    //     if (iframe) { // Check if an iframe is found
-
-    //         // Image name
-    //         var currentDate = new Date();
-    //         var formattedDate = currentDate.toLocaleDateString();
-    //         var formattedTime = currentDate.toLocaleTimeString();
-    //         var imageName = 'A snapshot of Quartz at ' + formattedTime + ' ' + formattedDate;
-
-    //         html2canvas(iframe.contentDocument.body).then(function(canvas) {
-                
-    //             var imageDataURL = canvas.toDataURL(); // Convert the canvas to a data URL
-
-    //             // Create a link element to download the image
-    //             var link = document.createElement('a');
-    //             link.href = imageDataURL;
-    //             link.download = imageName + '.png'; // You can specify the image format if needed
-    //             link.click();
-    //         });
-    //     } else {
-    //         console.error('No iframe found on the page.');
-    //     }
-    // });
 
 </script>
 
