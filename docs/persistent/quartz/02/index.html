@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <title>Blocks responsive 900x1600</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <link rel="icon" href="img/favicon.ico" />
 
     <!-- Open Graph metadata for link preview: https://opengraph.dev/ -->
@@ -134,71 +135,64 @@
             margin-bottom: 100px;
         }
 
-        /* ASPECT RATIO TEST */
-        /*.responsive-container {
-        max-width: 85vw; /* 85% of the viewport width */
-        /*max-height: 85vh; /* 85% of the viewport height */
-        /*margin: auto;
-        position: relative;
+        /*****************/
+        /* media queries */
+        /*****************/
+
+        /* Show warning op small screens */
+        .warning {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+
+            color: rgb(255, 255, 255);
+            background-color: black;
+            text-align: center;
+            font-weight: bold;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+
+            display: none;
         }
 
-        iframe /*.responsive-div*/ /*{
-        /*width: 100%;
-        height: 0;
-        padding-bottom: calc(900 / 1600 * 85vw); /* Calculate height based on aspect ratio and 85% of the viewport width */
-        /*position: relative;
-        }*/
+        @media only screen and (max-height: 1820px) {
+            .spacing { /* make the icons and title more visible */
+                margin-bottom: 30px;
+            }
+        }
 
+        @media only screen and (max-width: 900px), (max-height: 1750px) {
+            .warning {
+                display: inline-block;
+            }
+
+            .spacinTop { /* when the screen gets smaller then the work remove the top spacing */
+                margin-bottom: 0px;
+            }
+
+            iframe { /* make sure it keeps scrollable */
+                max-height: 90vh;
+            }
+        }
     </style>
 </head>
 
 <!-- ****************************************************************************************************************************** -->
 <!-- HTML -->
 <body>                 
-    <div class="spacing"></div> <!-- spacing: created a div to let it not be visible in the screenshot -->
+    <div class="spacing spacinTop"></div> <!-- spacing: created a div to let it not be visible in the screenshot -->
 
     <!-- artwork -->
-    <!-- <div class="responsive-container"> ASPECT RATIO TEST -->
-        <!-- <div class="responsive-div"> ASPECT RATIO TEST -->
-          <iframe id="iframe" src="raw.html"></iframe>
-        <!-- </div> ASPECT RATIO TEST -->
-      <!-- </div> ASPECT RATIO TEST  -->
+    <iframe id="iframe" src="raw.html"></iframe>
 
-      <!-- ASPECT RATIO TEST - START -->
-      <!--script>
-        window.addEventListener('resize', function() {
-        adjustDimensions();
-        });
-
-        function adjustDimensions() {
-        var container = document.querySelector('.responsive-container');
-        var div = document.querySelector('iframe'/*'.responsive-div'*/);
-        console.log('---', div);
-
-        var maxWidth = 0.85 * window.innerWidth; // 85% of the viewport width
-        var maxHeight = 0.85 * window.innerHeight; // 85% of the viewport height
-
-        var height = Math.min(maxHeight, maxWidth * (1600 / 900));
-        var width = height * (900 / 1600);
-
-        if (width > maxWidth) {
-            width = maxWidth;
-            height = width * (1600 / 900);
-        }
-
-        container.style.maxWidth = maxWidth + 'px';
-        div.style.width = width + 'px';
-        div.style.paddingBottom = height + 'px';
-        }
-
-        // Initial adjustment
-        adjustDimensions();
-      </!--script-->
-      <!-- ASPECT RATIO TEST - END-->
+    <!-- small screen warning -->
+    <div class="warning">For the best experience, move to a bigger screen.</div>
 
     <!-- info & ui -->
     <section id="infoId" class="info">
-        
+
         <div class="spacing"></div> <!-- spacing: created a div to let it not be visible in the screenshot -->
 
         <!-- UI -->
