@@ -1,0 +1,15 @@
+h1, em { 
+  color:rgb(0 ,0 ,0);
+}
+
+a, a:hover { 
+  text-decoration-color: rgb(0 ,0 ,0);
+}
+a {
+  background-color: rgba(0 ,0 ,0, 0.2);
+}
+
+/* signature */
+.signatureDigital   {  color:                  rgba(0 ,0 ,0, 0.5); }
+.signatureContainer { border: 2px dotted       rgba(0 ,0 ,0, 0.3); }
+.signatureLegacy    { border-right: 2px dotted rgba(0 ,0 ,0, 0.3); }

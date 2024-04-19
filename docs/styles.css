@@ -278,7 +278,7 @@ hr {
 .avaliableOn .foundation  { background-color: rgba(255, 255, 255, 1);  color: black; border: 1px solid black; }
 .avaliableOn .ethereum    { background-color: rgb(226, 226, 252);      color: black; }
 .avaliableOn .async       { background-color: rgb(98, 90, 255);        color: white; }
-.avaliableOn .teia        { background-color: black;                   color: white; }
+.avaliableOn .teia        { background-color: black;                   color: white; border: 1px solid rgba(255, 255, 255, 0.7); }
 
 /*****************************/
 /* IMAGES VIDEOS & GALLERIES */ 
