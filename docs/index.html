@@ -1,7 +1,7 @@
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
-  
+
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Let browser know website is optimized for mobile -->
@@ -38,9 +38,12 @@
   <!-- favicon for firefox -->
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  
+
   <!-- favicons for github pages -->
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- verify fediverse identity -->
+  <meta name="fediverse:creator" content="@hannemaes@mastodon.teia.art " /> <!-- Only added this to index.html because I only need to verify this page -->
 
 </head>
 <body>
@@ -56,16 +59,16 @@
   <!-- -------------- -->
   <!-- intro & avatar -->
   <!-- -------------- -->
-  
+
   <section class="intro row">
     <div class="avatar">
-      
+
       <!-- spline avatar with loading screen -->
       <iframe frameBorder="0" class="splineAvatar" src="spline-avatar/index.html"></iframe>
 
     </div>
     <div class="introText">
-      
+
       <!-- tagline + resident artist -->
       <div class="subHeader">
         <!-- <div data-aos="fade-left" data-aos-delay="300">
@@ -81,7 +84,7 @@
           Ethereum Signature:<br><a class="residentArtistSignature" href="https://etherscan.io/address/0xF46f4e1205F25E57fF646a714207A183E382E0E3" target="_blank">0xF46f4e1205F25E57fF646a714207A183E382E0E3</a>
         </div>
       </div>
-      
+
     </div>
   </section>
 
@@ -90,7 +93,7 @@
   <!-- -------------- -->
 
   <div class="externalLinks">
-    
+
     <!-- crypto art -->
     <div class="container">
       <div class="category">
@@ -203,7 +206,7 @@
         <small>Exploring online identity and authenticity.</small>
       </div>
     </a>
-    
+
     <!-- quartz -->
     <a href="persistent/quartz/01/index.html" data-aos="fade-up" data-aos-delay="400">
       <img class="galleryImg" src="gallery/quartz-300.gif"></img>
@@ -212,7 +215,7 @@
         <small>A timebased work that changes every 15 min.</small>
       </div>
     </a>
-    
+
     <!-- the unseen side -->
     <a href="persistent/theunseenside.html" data-aos="fade-up" data-aos-delay="200">
       <img class="galleryImg" src="gallery/theunseenside-300.jpg"></img>
@@ -221,7 +224,7 @@
         <small>Gifts made from work in an unfinished state.</small>
       </div>
     </a>
-    
+
     <!-- journey trough latent space -->
     <a href="persistent/latentspace/index.html" data-aos="fade-up" data-aos-delay="600">
       <img class="galleryImg" src="gallery/latentspace-300.jpg"></img>
@@ -239,7 +242,7 @@
         <small>AI Mosaic.</small>
       </div>
     </a>
-    
+
   </section>
 
   <h2>Artist Collabs</h2>
@@ -252,7 +255,7 @@
         <small>My works with The Drops collective.</small>
       </div>
     </a>
-    
+
     <a href="nft/koban-cats.html" data-aos="fade-up" data-aos-delay="200">
       <img class="galleryImg" src="gallery/kobancats-300.jpg"></img>
       <div class="galleryText">
@@ -260,7 +263,7 @@
         <small>My collaboration with The Koban Cats collective.</small>
       </div>
     </a>
-    
+
     <a href="nft/layerbreaker.html" data-aos="fade-up" data-aos-delay="400">
       <img class="galleryImg" src="gallery/layerbreaker-300.jpg"></img>
       <div class="galleryText">
@@ -405,7 +408,7 @@
       MeneerMaes.be<br>
       <small>Dutch courses.</small>
     </a><br>
-    
+
     <!-- ethermasks.com -->
     <a target="_blank" href="https://hannemaes.github.io/ethermasks.com/">
       EtherMasks.com
@@ -433,11 +436,11 @@
   <!-- <section style="opacity:0.2; font-size: 12px; text-align: right;">v5.8</section> -->
 
 </div><!-- centerPage -->
-  
+
 <!-- ---------- -->
 <!-- javascript -->
 <!-- ---------- -->
-  
+
 <!-- animate on scroll -->
 <script src="libraries/aos.js"></script>
 <script>
@@ -451,7 +454,7 @@
     // disableMutationObserver: false, // disables automatic mutations' detections (advanced)
     // debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
     // throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
-    
+
     // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
     // offset: 120, // offset (in px) from the original trigger point
     // delay: 0, // values from 0 to 3000, with step 50ms
@@ -462,10 +465,10 @@
     // anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
   });
   </script>
-  
+
   <!-- goat counter analytics-->
-  <script data-goatcounter="https://hannemaes.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script> 
-  
+  <script data-goatcounter="https://hannemaes.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
   <!-- hide spline loading screen when the iframe is loaded -->
   <script>
     document.getElementById('splineFrame').onload = function() {
