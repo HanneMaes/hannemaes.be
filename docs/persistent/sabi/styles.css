@@ -1,13 +1,3 @@
-/* fancy font */
-@font-face {
-  font-family: yipes;
-  src: url('../fonts/Yipes/yipes.ttf');
-}
-
-h1, h2 {
-  font-family: yipes;
-}
-
 h1, em {
   color:rgb(0 ,0 ,0);
 }
