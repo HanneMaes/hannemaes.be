@@ -13,3 +13,12 @@ a {
 .signatureDigital   {  color:                  rgba(0 ,0 ,0, 0.5); }
 .signatureContainer { border: 2px dotted       rgba(0 ,0 ,0, 0.3); }
 .signatureLegacy    { border-right: 2px dotted rgba(0 ,0 ,0, 0.3); }
+
+h1 {
+   margin-bottom: 0px;
+}
+
+.info {
+   margin-top: 5px;
+   margin-bottom: 25px;
+}
