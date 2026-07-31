@@ -46,7 +46,7 @@ header h1, header img {
 
 .intro {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .introText {
